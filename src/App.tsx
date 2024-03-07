@@ -4,6 +4,7 @@ function App() {
    return (
       <>
          <div>New div</div>
+         <div>Second div</div>
       </>
    );
 }
