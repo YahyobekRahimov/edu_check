@@ -1,12 +1,13 @@
 import "./App.css";
 
 function App() {
-   return (
-      <>
-         <div>New div</div>
-         <div>Second div</div>
-      </>
-   );
+  return (
+    <>
+      <div>New div</div>
+
+      <div className="">mine</div>
+    </>
+  );
 }
 
 export default App;
