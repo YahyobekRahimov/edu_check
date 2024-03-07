@@ -1,7 +1,7 @@
 import "./App.css";
 
 function App() {
-   return <>Hello</>;
+   return <>Removed Everything</>;
 }
 
 export default App;
