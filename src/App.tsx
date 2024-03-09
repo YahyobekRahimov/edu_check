@@ -15,7 +15,7 @@ function App() {
       path: "/",
       element: (
         <LayoutComponent>
-          <Groups />,
+          <Groups />
         </LayoutComponent>
       ),
     },
@@ -23,7 +23,7 @@ function App() {
       path: "/students",
       element: (
         <LayoutComponent>
-          <Students />,
+          <Students />
         </LayoutComponent>
       ),
     },
@@ -31,7 +31,7 @@ function App() {
       path: "/payments",
       element: (
         <LayoutComponent>
-          <Payments />,
+          <Payments />
         </LayoutComponent>
       ),
     },
@@ -39,7 +39,7 @@ function App() {
       path: "/settings",
       element: (
         <LayoutComponent>
-          <Settings />,
+          <Settings />
         </LayoutComponent>
       ),
     },
