@@ -25,12 +25,10 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
   return (
     <Layout
       style={{
-        background: "white",
         padding: "1.25rem",
-        borderRadius: "1rem",
         height: "100vh",
       }}
-      className="dark:bg-slate-900"
+      className="dark:bg-[var(--dark-background-900)]"
     >
       <Sider
         theme={isDark ? "dark" : "light"}
@@ -38,10 +36,10 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         collapsible
         collapsed={collapsed}
         style={{ borderRadius: borderRadiusLG }}
-        className="dark:bg-slate-700"
+        className="dark:bg-[var(--dark-background-800)]"
       >
         <div
-          className={`demo-logo-vertical flex justify-center items-center py-[2rem] dark:bg-slate-700 rounded-[1rem]`}
+          className={`demo-logo-vertical flex justify-center items-center py-[2rem] dark:bg-[var(--dark-background-800)] rounded-[1rem] dark:rounded-tr-none`}
           style={
             collapsed
               ? { paddingLeft: "0.5rem", paddingRight: "0.5rem" }
@@ -58,7 +56,9 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
           theme={isDark ? "dark" : "light"}
           mode="inline"
           defaultSelectedKeys={["1"]}
-          className="bg-sidebar-menu-gradient text-white font-semibold dark:bg-slate-700"
+          className={` ${
+            isDark ? "" : "bg-sidebar-menu-gradient"
+          } text-white font-semibold dark:bg-[var(--dark-background-800)]`}
           items={[
             {
               key: "1",
@@ -132,18 +132,16 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         <Header
           style={{
             padding: 0,
-            display: "flex",
-            borderRadius: borderRadiusLG,
           }}
-          className="bg-white dark:bg-slate-700"
+          className="bg-white mx-[1rem] dark:mx-0 dark:bg-[var(--dark-background-800)] flex items-center justify-between rounded-lg dark:rounded-none"
         >
           <Button
             type="text"
             icon={
               collapsed ? (
-                <MenuUnfoldOutlined className="dark:text-white" />
+                <MenuUnfoldOutlined className="dark:text-[#4D79FF]" />
               ) : (
-                <MenuFoldOutlined className="dark:text-white" />
+                <MenuFoldOutlined className="dark:text-[#4D79FF]" />
               )
             }
             onClick={() => setCollapsed(!collapsed)}
@@ -156,17 +154,23 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
           <HeaderComponent />
         </Header>
         <Content
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-            maxHeight: "100vh",
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-            overflow: "auto",
-          }}
+          style={
+            isDark
+              ? {
+                  background: "var(--dark-background-900)",
+                }
+              : {
+                  background: colorBgContainer,
+                }
+          }
+          className="p-6"
         >
-          {children}
+          <div
+            style={{ borderRadius: borderRadiusLG }}
+            className="my-6 mx-4 h-full overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen"
+          >
+            {children}
+          </div>
         </Content>
       </Layout>
     </Layout>

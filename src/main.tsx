@@ -20,8 +20,15 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             "linear-gradient(0deg, #925FE2 80.26%, rgba(146, 95, 226, 0.00) 143.39%, #E2D4F7 143.39%)",
         },
         Menu: {
-          darkItemBg: "#925FE2",
+          darkItemBg: "rgb(51, 65, 85)",
+          itemHoverBg: "#a771ff",
+          darkItemHoverBg: "rgb(73, 89, 111)",
+          darkItemSelectedBg: "#2b30ea",
           colorText: "white",
+        },
+        Select: {
+          selectorBg: "white",
+          colorText: "black",
         },
       },
     }}
