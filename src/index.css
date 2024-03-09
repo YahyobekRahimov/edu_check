@@ -26,3 +26,20 @@
   src: url("/public/fonts/poppins-v20-latin-700.woff2")
     format("woff2");
 }
+
+.dark .ant-select-selector {
+  background: transparent !important;
+}
+
+.dark .ant-select-item-option-active {
+  background: rgb(73, 89, 111) !important;
+}
+
+.dark .ant-select-item-option-selected {
+  background: #2b30ea !important;
+}
+
+:root {
+  --dark-background-800: #121212;
+  --dark-background-900: #0d0d0d;
+}
