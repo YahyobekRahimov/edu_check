@@ -48,6 +48,6 @@ function App() {
     // @ts-ignore
     <RouterProvider router={router}></RouterProvider>
   );
-}
+} 
 
 export default App;
