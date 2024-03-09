@@ -9,6 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       cssVar: true,
       token: {
         colorPrimary: "#925FE2",
+        fontFamily: "Poppins",
       },
       components: {
         Layout: {
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         },
         Menu: {
           darkItemBg: "#925FE2",
+          colorText: "white",
         },
       },
     }}

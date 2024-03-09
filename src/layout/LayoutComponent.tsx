@@ -23,8 +23,8 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
     <Layout
       style={{
         minHeight: "100vh",
-        padding: "1.25rem",
         background: "white",
+        padding: "1.25rem",
       }}
     >
       <Sider
@@ -33,17 +33,25 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         collapsed={collapsed}
         style={{ borderRadius: "1rem" }}
       >
-        <div className="demo-logo-vertical  flex justify-center items-center p-[2rem]">
+        <div
+          className={`demo-logo-vertical flex justify-center items-center py-[2rem]`}
+          style={
+            collapsed
+              ? { paddingLeft: "0.5rem", paddingRight: "0.5rem" }
+              : { paddingLeft: "2rem", paddingRight: "2rem" }
+          }
+        >
           <img
             src={Logo}
             alt="Logo"
-            className="w-[5rem] rounded-full"
+            className="w-[70%] rounded-full"
           />
         </div>
         <Menu
           theme="light"
           mode="inline"
           defaultSelectedKeys={["1"]}
+          className="bg-sidebar-menu-gradient text-white font-semibold"
           items={[
             {
               key: "1",
