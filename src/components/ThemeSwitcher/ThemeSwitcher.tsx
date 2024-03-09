@@ -1,9 +1,16 @@
 import { Select } from "antd";
 import { useEffect, useState } from "react";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../hooks/redux-hooks";
+import { setIsDark } from "../../redux/isDarkSlice";
 
 export default function ThemeSwitcher() {
   const [theme, setTheme] = useState("");
-  const [isDark, setDark] = useState(false);
+
+  const isDark = useAppSelector((state) => state.isDark);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (localStorage.getItem("theme")) {
@@ -27,14 +34,14 @@ export default function ThemeSwitcher() {
         if (
           window.matchMedia("(prefers-color-scheme: dark)").matches
         ) {
-          setDark(true);
+          dispatch(setIsDark(true));
         } else {
-          setDark(false);
+          dispatch(setIsDark(false));
         }
       } else if (theme === "dark") {
-        setDark(true);
+        dispatch(setIsDark(true));
       } else if (theme === "light") {
-        setDark(false);
+        dispatch(setIsDark(false));
       }
     }
   }, [theme]);
@@ -47,35 +54,13 @@ export default function ThemeSwitcher() {
     }
   }, [isDark]);
   return (
-    // <Select
-    //   onValueChange={(value) => {
-    //     setTheme(value);
-    //     localStorage.theme = value;
-    //   }}
-    //   value={theme}
-    // >
-    //   <SelectTrigger className="w-[6rem]">
-    //     <SelectValue placeholder="Theme" />
-    //   </SelectTrigger>
-    //   <SelectContent>
-    //     <SelectItem className="cursor-pointer" value="light">
-    //       Light
-    //     </SelectItem>
-    //     <SelectItem className="cursor-pointer" value="dark">
-    //       Dark
-    //     </SelectItem>
-    //     <SelectItem className="cursor-pointer" value="system">
-    //       System
-    //     </SelectItem>
-    //   </SelectContent>
-    // </Select>
     <Select
       value={theme}
       onChange={(value) => {
-        console.log(value);
         setTheme(value);
         localStorage.theme = value;
       }}
+      className="w-[6rem]"
       options={[
         { value: "light", label: <span>Light</span> },
         {

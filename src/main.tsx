@@ -2,6 +2,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { ConfigProvider } from "antd";
+import { Provider } from "react-redux";
+import store from "./redux/store.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ConfigProvider
@@ -13,7 +15,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       },
       components: {
         Layout: {
-          siderBg: `linear-gradient(0deg, #925FE2 80.26%, rgba(146, 95, 226, 0.00) 143.39%, #E2D4F7 143.39%)`,
+          siderBg: `rgb(51, 65, 85)`,
+          lightSiderBg:
+            "linear-gradient(0deg, #925FE2 80.26%, rgba(146, 95, 226, 0.00) 143.39%, #E2D4F7 143.39%)",
         },
         Menu: {
           darkItemBg: "#925FE2",
@@ -22,6 +26,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       },
     }}
   >
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </ConfigProvider>
 );

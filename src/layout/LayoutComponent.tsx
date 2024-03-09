@@ -7,6 +7,7 @@ import { Layout, Menu, Button, theme } from "antd";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.jpg";
 import HeaderComponent from "../components/Header/Header";
+import { useAppSelector } from "../hooks/redux-hooks";
 
 const { Header, Sider, Content } = Layout;
 
@@ -19,22 +20,28 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  const isDark = useAppSelector((state) => state.isDark);
+
   return (
     <Layout
       style={{
-        minHeight: "100vh",
         background: "white",
         padding: "1.25rem",
+        borderRadius: "1rem",
+        height: "100vh",
       }}
+      className="dark:bg-slate-900"
     >
       <Sider
+        theme={isDark ? "dark" : "light"}
         trigger={null}
         collapsible
         collapsed={collapsed}
-        style={{ borderRadius: "1rem" }}
+        style={{ borderRadius: borderRadiusLG }}
+        className="dark:bg-slate-700"
       >
         <div
-          className={`demo-logo-vertical flex justify-center items-center py-[2rem]`}
+          className={`demo-logo-vertical flex justify-center items-center py-[2rem] dark:bg-slate-700 rounded-[1rem]`}
           style={
             collapsed
               ? { paddingLeft: "0.5rem", paddingRight: "0.5rem" }
@@ -48,10 +55,10 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
           />
         </div>
         <Menu
-          theme="light"
+          theme={isDark ? "dark" : "light"}
           mode="inline"
           defaultSelectedKeys={["1"]}
-          className="bg-sidebar-menu-gradient text-white font-semibold"
+          className="bg-sidebar-menu-gradient text-white font-semibold dark:bg-slate-700"
           items={[
             {
               key: "1",
@@ -115,7 +122,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                 </svg>
               ),
 
-              label: "Profil sozlamalari",
+              label: "Sozlamalar",
               onClick: () => navigate("/settings"),
             },
           ]}
@@ -125,17 +132,18 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         <Header
           style={{
             padding: 0,
-            background: colorBgContainer,
             display: "flex",
+            borderRadius: borderRadiusLG,
           }}
+          className="bg-white dark:bg-slate-700"
         >
           <Button
             type="text"
             icon={
               collapsed ? (
-                <MenuUnfoldOutlined />
+                <MenuUnfoldOutlined className="dark:text-white" />
               ) : (
-                <MenuFoldOutlined />
+                <MenuFoldOutlined className="dark:text-white" />
               )
             }
             onClick={() => setCollapsed(!collapsed)}
@@ -152,8 +160,10 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
             margin: "24px 16px",
             padding: 24,
             minHeight: 280,
+            maxHeight: "100vh",
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
+            overflow: "auto",
           }}
         >
           {children}
