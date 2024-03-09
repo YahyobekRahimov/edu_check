@@ -1,9 +1,9 @@
-import Container from "../Container";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 export default function Header() {
   return (
     <header>
-      <Container>Header</Container>;
+      <ThemeSwitcher />
     </header>
   );
 }
