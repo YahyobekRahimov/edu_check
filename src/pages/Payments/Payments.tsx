@@ -18,7 +18,7 @@ export default function Payments() {
 
   const columns = [
     {
-      title: "Name",
+      title: "#",
       dataIndex: "name",
       key: "name",
     },

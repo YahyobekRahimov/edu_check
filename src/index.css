@@ -69,3 +69,7 @@
   --ant-pagination-item-active-bg: transparent;
   --ant-color-text: var(--white-text);
 }
+
+.ant-btn {
+  background-color: #925fe2 !important;
+}

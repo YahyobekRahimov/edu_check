@@ -55,7 +55,7 @@ export default function Login() {
           <Form.Item className="dark:text-white">
             <Button
               type="primary"
-              className="bg-[var(--ant-color-primary)]"
+              // className="bg-[var(--ant-color-primary)]"
               htmlType="submit"
               block
             >
