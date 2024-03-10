@@ -52,3 +52,17 @@
   --ant-color-icon: rgba(255, 255, 255, 0.5);
   --ant-color-icon-hover: white;
 }
+
+.dark .ant-table {
+  --ant-color-bg-container: var(--dark-background-800);
+  --ant-color-text: white;
+  --ant-table-row-hover-bg: var(--dark-background-900);
+  --ant-table-header-bg: var(--dark-background-800);
+  --ant-table-header-color: white;
+}
+
+.dark .ant-pagination {
+  --ant-color-text-disabled: white;
+  --ant-pagination-item-active-bg: transparent;
+  --ant-color-text: white;
+}
