@@ -1,3 +1,10 @@
+
+
 export default function Groups() {
-  return <div className="">Groups</div>;
+ 
+  return (
+    <div className="bg-[var(--dark-backround)]">
+     
+    </div>
+  );
 }
