@@ -60,7 +60,7 @@ export default function ThemeSwitcher() {
         setTheme(value);
         localStorage.theme = value;
       }}
-      className="w-[6rem] bg-white dark:bg-[var(--dark-background-900)]"
+      className="w-[6rem] bg-white dark:bg-[var(--dark-background-900)] mr-6"
       dropdownStyle={
         isDark
           ? {
