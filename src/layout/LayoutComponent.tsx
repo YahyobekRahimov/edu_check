@@ -4,7 +4,7 @@ import {
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.jpg";
 import HeaderComponent from "../components/Header/Header";
 import { useAppSelector } from "../hooks/redux-hooks";
@@ -16,11 +16,26 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
 }) => {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   const isDark = useAppSelector((state) => state.isDark);
+
+  function getSelectedPageKey() {
+    let arr = [];
+    if (location.pathname === "/groups") {
+      arr.push("1");
+    } else if (location.pathname === "/students") {
+      arr.push("2");
+    } else if (location.pathname === "/payments") {
+      arr.push("3");
+    } else if (location.pathname === "/settings") {
+      arr.push("4");
+    }
+    return arr;
+  }
 
   return (
     <Layout
@@ -55,7 +70,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         <Menu
           theme={isDark ? "dark" : "light"}
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={getSelectedPageKey()}
           className={` ${
             isDark ? "" : "bg-sidebar-menu-gradient"
           } text-white font-semibold dark:bg-[var(--dark-background-800)]`}
@@ -74,7 +89,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                 </svg>
               ),
               label: "Guruhlar",
-              onClick: () => navigate("/"),
+              onClick: () => navigate("/groups"),
             },
             {
               key: "2",
