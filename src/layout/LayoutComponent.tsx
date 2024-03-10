@@ -178,7 +178,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                   background: "#f5f5f5",
                 }
           }
-          className="p-6"
+          className="px-6 pt-6"
         >
           <div
             style={{ borderRadius: borderRadiusLG }}
