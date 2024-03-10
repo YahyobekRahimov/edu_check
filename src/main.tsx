@@ -30,6 +30,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           selectorBg: "white",
           colorText: "black",
         },
+        Form: {
+          labelColor: "inherit",
+        },
+        Input: {},
       },
     }}
   >

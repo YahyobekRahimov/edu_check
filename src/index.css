@@ -43,3 +43,12 @@
   --dark-background-800: #121212;
   --dark-background-900: #0d0d0d;
 }
+
+.dark .ant-input-outlined {
+  --ant-color-bg-container: var(--dark-background-800);
+  --ant-input-hover-bg: var(--dark-background-800);
+  --ant-input-active-bg: var(--dark-background-800);
+  --ant-color-text: white;
+  --ant-color-icon: rgba(255, 255, 255, 0.5);
+  --ant-color-icon-hover: white;
+}
