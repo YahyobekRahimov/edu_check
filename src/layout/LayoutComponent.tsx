@@ -184,7 +184,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
             style={{
               borderRadius: borderRadiusLG,
             }}
-            className="h-full p-1 bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen"
+            className="h-full    bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen"
           >
             {children}
           </div>
