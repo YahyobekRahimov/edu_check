@@ -133,7 +133,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
           style={{
             padding: 0,
           }}
-          className="bg-white mx-[1rem] dark:mx-0 dark:bg-[var(--dark-background-800)] flex items-center justify-between rounded-lg dark:rounded-none"
+          className="bg-white mx-[1.5rem] dark:mx-0 dark:bg-[var(--dark-background-800)] flex items-center justify-between rounded-lg dark:rounded-none"
         >
           <Button
             type="text"
@@ -160,14 +160,14 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                   background: "var(--dark-background-900)",
                 }
               : {
-                  background: colorBgContainer,
+                  background: "#f5f5f5",
                 }
           }
           className="p-6"
         >
           <div
             style={{ borderRadius: borderRadiusLG }}
-            className="my-6 mx-4 h-full overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen"
+            className="h-full bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen"
           >
             {children}
           </div>
