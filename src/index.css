@@ -51,9 +51,9 @@
   --ant-color-bg-container: var(--dark-background-800);
   --ant-input-hover-bg: var(--dark-background-800);
   --ant-input-active-bg: var(--dark-background-800);
-  --ant-color-text: white;
+  --ant-color-text: var(--white-text);
   --ant-color-icon: rgba(255, 255, 255, 0.5);
-  --ant-color-icon-hover: white;
+  --ant-color-icon-hover: var(--white-text);
 }
 
 .dark .ant-table {
@@ -68,4 +68,20 @@
   --ant-color-text-disabled: white;
   --ant-pagination-item-active-bg: transparent;
   --ant-color-text: var(--white-text);
+}
+
+.ant-btn-primary {
+  background-color: #925fe2;
+}
+
+.ant-btn-primary:hover {
+  background-color: rgba(146, 95, 226, 0.85) !important;
+}
+
+.dark .ant-btn-primary {
+  background-color: #2b30ea !important;
+}
+
+.dark .ant-btn-primary:hover {
+  background-color: #4146e5 !important;
 }
