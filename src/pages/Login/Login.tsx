@@ -13,7 +13,7 @@ export default function Login() {
       <div className="hidden">
         <ThemeSwitcher />
       </div>
-      <main className="text-black dark:text-white flex justify-center items-center h-full">
+      <main className="text-black dark:text-[var(--white-text)] flex justify-center items-center h-full">
         <Form
           name="login-form"
           initialValues={{
@@ -21,11 +21,13 @@ export default function Login() {
           }}
           onFinish={onFinish}
           layout="vertical"
-          className="w-[85%] md:max-w-md p-8 bg-white dark:text-white dark:bg-[var(--dark-background-900)] rounded-lg shadow-md flex flex-col gap-4"
+          className="w-[85%] md:max-w-md p-8 bg-white dark:bg-[var(--dark-background-900)] rounded-lg shadow-md flex flex-col gap-4"
         >
-          <h2 className="text-2xl font-semibold mb-4">Login</h2>
+          <h2 className="text-2xl font-semibold mb-4 dark:text-[var(--white-text)]">
+            Login
+          </h2>
           <Form.Item
-            className="dark:text-white"
+            className="dark:text-[var(--white-text)]"
             label="Username"
             name="username"
             rules={[
@@ -39,7 +41,7 @@ export default function Login() {
           </Form.Item>
 
           <Form.Item
-            className="dark:text-white"
+            className="dark:text-[var(--white-text)]"
             label="Password"
             name="password"
             rules={[
@@ -52,13 +54,8 @@ export default function Login() {
             <Input.Password />
           </Form.Item>
 
-          <Form.Item className="dark:text-white">
-            <Button
-              type="primary"
-              // className="bg-[var(--ant-color-primary)]"
-              htmlType="submit"
-              block
-            >
+          <Form.Item className="dark:text-[var(--white-text)]">
+            <Button type="primary" htmlType="submit" block>
               Log in
             </Button>
           </Form.Item>
