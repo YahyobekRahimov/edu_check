@@ -60,7 +60,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 16,
@@ -70,7 +70,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 145697,
@@ -80,7 +80,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 15674567,
@@ -90,7 +90,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 15467456,
@@ -100,7 +100,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 14567,
@@ -110,7 +110,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 14567456745,
@@ -120,11 +120,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: (
-        <Button  type="primary">
-          ...
-        </Button>
-      ),
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 16754,
@@ -134,7 +130,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 174567,
@@ -144,7 +140,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
     {
       key: 75544,
@@ -154,7 +150,7 @@ export default function Groups() {
       pastDate: "09-09-2023",
       rooms: "4/203",
       amoundStudent: 18,
-      actions: <Button  type="primary">...</Button>,
+      actions: <Button type="primary">...</Button>,
     },
   ];
   return (
