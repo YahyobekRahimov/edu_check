@@ -145,18 +145,22 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
       </Sider>
       <Layout>
         <Header
-          style={{
-            padding: 0,
-          }}
-          className="bg-white mx-[1.5rem] dark:mx-0 dark:bg-[var(--dark-background-800)] flex items-center justify-between rounded-lg dark:rounded-none"
+          style={
+            isDark
+              ? { background: "var(--dark-background-800)" }
+              : {
+                  padding: 0,
+                }
+          }
+          className="bg-header-gradient mx-[1.5rem] dark:mx-0 flex items-center justify-between rounded-lg dark:rounded-none"
         >
           <Button
             type="text"
             icon={
               collapsed ? (
-                <MenuUnfoldOutlined className="dark:text-[#4D79FF]" />
+                <MenuUnfoldOutlined className="text-white dark:text-[#4D79FF]" />
               ) : (
-                <MenuFoldOutlined className="dark:text-[#4D79FF]" />
+                <MenuFoldOutlined className="text-white dark:text-[#4D79FF]" />
               )
             }
             onClick={() => setCollapsed(!collapsed)}
