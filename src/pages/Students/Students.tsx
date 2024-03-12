@@ -1,23 +1,70 @@
-import { Table } from "antd";
-import { ColumnType } from "antd/es/table";
+import {
+  Button,
+  Dropdown,
+  Space,
+  Table,
+  TableProps,
+  Tag,
+} from "antd";
 
+import { ColumnType } from "antd/es/table";
+import { MenuProps } from "antd/lib";
+
+type RowType = {
+  key: string;
+  ism: string;
+  phoneNumber: string;
+  group: string;
+  sana: Number;
+  tolov: string;
+  actions: any;
+};
 export default function Students() {
   const dataSource = [
     {
       key: "1",
       name: "Mike",
-      age: 32,
-      address: "10 Downing Street",
+      sana: 32,
+      group: 5,
+      phoneNumber: 45454854454,
+      tolov: "qilindi",
+      Oqituvchi:"alijonov",
     },
     {
       key: "2",
-      name: "John",
-      age: 42,
-      address: "10 Downing Street",
+      name: "Mike",
+      sana: 32,
+      group: 5,
+      phoneNumber: 45454854454,
+      tolov: "qilindi",
+      Oqituvchi:"alijonov",
+    },
+    {
+      key: "3",
+      name: "Mike",
+      sana: 32,
+      group: 5,
+      phoneNumber: 45454854454,
+      tolov: "qilindi",
+      Oqituvchi:"alijonov",
+    },
+    {
+      key: "4",
+      name: "Mike",
+      sana: 32,
+      group: 5,
+      phoneNumber: 45454854454,
+      tolov: "qilindi",
+      Oqituvchi:"alijonov",
     },
   ];
 
   const columns: ColumnType<RowType> = [
+    {
+      title: "#",
+      dataIndex: "key",
+      key: "key",
+    },
     {
       title: "Ism",
       dataIndex: "name",
@@ -34,29 +81,50 @@ export default function Students() {
       key: "group",
     },
     {
-      title: "Guruh",
-      dataIndex: "group",
-      key: "group",
+      title:"Oqituvchi",
+      dataIndex:"Oqituvchi",
+      key:"Oqituvchi",
     },
     {
-      title: "Guruh",
-      dataIndex: "group",
-      key: "group",
+      title: "Mashgulot sana",
+      dataIndex: "sana",
+      key: "sana",
     },
     {
-      title: "Guruh",
-      dataIndex: "group",
-      key: "group",
+      title: "tolov",
+      dataIndex: "tolov",
+      key: "tolov",
+    },
+
+    {
+      title: "Amallar",
+      dataIndex: "actions",
+      key: "actions",
+      render: () => {
+        return (
+          <Dropdown trigger={["click"]} menu={{ items }}>
+            <Button type="primary">...</Button>
+          </Dropdown>
+        );
+      },
+    },
+  ];
+
+  const items: MenuProps["items"] = [
+    {
+      label: <button>Tahrirlash</button>,
+      key: "0",
     },
     {
-      title: "Guruh",
-      dataIndex: "group",
-      key: "group",
+      label: <button>SMS</button>,
+      key: "1",
     },
     {
-      title: "Guruh",
-      dataIndex: "group",
-      key: "group",
+      type: "divider",
+    },
+    {
+      label: <button  >O'chirish</button>,
+      key: "3",
     },
   ];
 
@@ -66,3 +134,9 @@ export default function Students() {
     </main>
   );
 }
+
+// git pull origin main => yangiliklarni main branchdan tortib olish.
+
+// git push origin Rahmatillo => yangiliklarni o'zingizni branchingizga yuborish.
+
+// git add . => 
