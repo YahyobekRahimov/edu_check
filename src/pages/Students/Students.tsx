@@ -139,4 +139,6 @@ export default function Students() {
 
 // git push origin Rahmatillo => yangiliklarni o'zingizni branchingizga yuborish.
 
-// git add . => 
+// git add . => qo'shish
+
+// git commit -m 'commit message' => commit qilish
