@@ -26,3 +26,68 @@
   src: url("/public/fonts/poppins-v20-latin-700.woff2")
     format("woff2");
 }
+
+.dark .ant-select-selector {
+  background: transparent !important;
+}
+
+.dark .ant-select-item-option-active {
+  background: rgb(73, 89, 111) !important;
+}
+
+.dark .ant-select-item-option-selected {
+  background: #2b30ea !important;
+}
+
+:root {
+  --dark-background-900: #0d0d0d;
+  --dark-background-800: #121212;
+  --dark-background-700: #272727;
+
+  --white-text: rgba(255, 255, 255, 0.85);
+}
+
+.dark .ant-input-outlined {
+  --ant-color-bg-container: var(--dark-background-800);
+  --ant-input-hover-bg: var(--dark-background-800);
+  --ant-input-active-bg: var(--dark-background-800);
+  --ant-color-text: var(--white-text);
+  --ant-color-icon: rgba(255, 255, 255, 0.5);
+  --ant-color-icon-hover: var(--white-text);
+}
+
+.dark .ant-table {
+  --ant-color-bg-container: var(--dark-background-800);
+  --ant-color-text: var(--white-text);
+  --ant-table-row-hover-bg: var(--dark-background-700);
+  --ant-table-header-bg: var(--dark-background-800);
+  --ant-table-header-color: rgba(255, 255, 255, 0.9);
+  --ant-table-header-sort-active-bg: var(--dark-background-700);
+  --ant-table-header-sort-hover-bg: var(--dark-background-700);
+  --ant-table-body-sort-bg: var(--dark-background-700);
+}
+.dark .ant-table-column-sorter-up {
+  color: white;
+}
+
+.dark .ant-pagination {
+  --ant-color-text-disabled: white;
+  --ant-pagination-item-active-bg: transparent;
+  --ant-color-text: var(--white-text);
+}
+
+.ant-btn-primary {
+  background-color: #925fe2;
+}
+
+.ant-btn-primary:hover {
+  background-color: rgba(146, 95, 226, 0.85) !important;
+}
+
+.dark .ant-btn-primary {
+  background-color: #2b30ea !important;
+}
+
+.dark .ant-btn-primary:hover {
+  background-color: #4146e5 !important;
+}

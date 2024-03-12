@@ -4,7 +4,7 @@ import {
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.jpg";
 import HeaderComponent from "../components/Header/Header";
 import { useAppSelector } from "../hooks/redux-hooks";
@@ -16,21 +16,34 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
 }) => {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   const isDark = useAppSelector((state) => state.isDark);
 
+  function getSelectedPageKey() {
+    let arr = [];
+    if (location.pathname === "/groups") {
+      arr.push("1");
+    } else if (location.pathname === "/students") {
+      arr.push("2");
+    } else if (location.pathname === "/payments") {
+      arr.push("3");
+    } else if (location.pathname === "/settings") {
+      arr.push("4");
+    }
+    return arr;
+  }
+
   return (
     <Layout
       style={{
-        background: "white",
         padding: "1.25rem",
-        borderRadius: "1rem",
         height: "100vh",
       }}
-      className="dark:bg-slate-900"
+      className="dark:bg-[var(--dark-background-900)]"
     >
       <Sider
         theme={isDark ? "dark" : "light"}
@@ -38,10 +51,10 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         collapsible
         collapsed={collapsed}
         style={{ borderRadius: borderRadiusLG }}
-        className="dark:bg-slate-700"
+        className="dark:bg-[var(--dark-background-800)]"
       >
         <div
-          className={`demo-logo-vertical flex justify-center items-center py-[2rem] dark:bg-slate-700 rounded-[1rem]`}
+          className={`demo-logo-vertical flex justify-center items-center py-[2rem] dark:bg-[var(--dark-background-800)] rounded-[1rem] dark:rounded-tr-none`}
           style={
             collapsed
               ? { paddingLeft: "0.5rem", paddingRight: "0.5rem" }
@@ -57,8 +70,10 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         <Menu
           theme={isDark ? "dark" : "light"}
           mode="inline"
-          defaultSelectedKeys={["1"]}
-          className="bg-sidebar-menu-gradient text-white font-semibold dark:bg-slate-700"
+          defaultSelectedKeys={getSelectedPageKey()}
+          className={` ${
+            isDark ? "" : "bg-sidebar-menu-gradient"
+          } text-white font-semibold dark:bg-[var(--dark-background-800)]`}
           items={[
             {
               key: "1",
@@ -74,7 +89,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                 </svg>
               ),
               label: "Guruhlar",
-              onClick: () => navigate("/"),
+              onClick: () => navigate("/groups"),
             },
             {
               key: "2",
@@ -130,20 +145,22 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
       </Sider>
       <Layout>
         <Header
-          style={{
-            padding: 0,
-            display: "flex",
-            borderRadius: borderRadiusLG,
-          }}
-          className="bg-white dark:bg-slate-700"
+          style={
+            isDark
+              ? { background: "var(--dark-background-800)" }
+              : {
+                  padding: 0,
+                }
+          }
+          className="bg-header-gradient mx-[1.5rem] dark:mx-0 flex items-center justify-between rounded-lg dark:rounded-none"
         >
           <Button
             type="text"
             icon={
               collapsed ? (
-                <MenuUnfoldOutlined className="dark:text-white" />
+                <MenuUnfoldOutlined className="text-white dark:text-[#4D79FF]" />
               ) : (
-                <MenuFoldOutlined className="dark:text-white" />
+                <MenuFoldOutlined className="text-white dark:text-[#4D79FF]" />
               )
             }
             onClick={() => setCollapsed(!collapsed)}
@@ -156,17 +173,25 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
           <HeaderComponent />
         </Header>
         <Content
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-            maxHeight: "100vh",
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-            overflow: "auto",
-          }}
+          style={
+            isDark
+              ? {
+                  background: "var(--dark-background-900)",
+                }
+              : {
+                  background: "#f5f5f5",
+                }
+          }
+          className="px-6 pt-6"
         >
-          {children}
+          <div
+            style={{
+              borderRadius: borderRadiusLG,
+            }}
+            className="h-full    bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen"
+          >
+            {children}
+          </div>
         </Content>
       </Layout>
     </Layout>

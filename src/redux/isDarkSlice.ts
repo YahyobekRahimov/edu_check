@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: boolean = false;
 
+
 const isDarkSlice = createSlice({
   name: "IsDarkSlice",
   initialState,
