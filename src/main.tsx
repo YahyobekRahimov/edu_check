@@ -4,9 +4,12 @@ import "./index.css";
 import { ConfigProvider } from "antd";
 import { Provider } from "react-redux";
 import store from "./redux/store.ts";
+import en_US from "antd/locale/en_US";
+import useLocale from "antd/es/locale/useLocale";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ConfigProvider
+    locale={en_US}
     theme={{
       cssVar: true,
       token: {
@@ -32,6 +35,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         },
         Form: {
           labelColor: "inherit",
+        },
+        Table: {
+          rowHoverBg: "rgba(195, 157, 255, 0.274)",
+          headerColor: "#925FE2",
         },
       },
     }}
