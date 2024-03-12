@@ -1,4 +1,12 @@
-import { Button, Dropdown, MenuProps, Table, TableProps } from "antd";
+import {
+  Button,
+  Dropdown,
+  MenuProps,
+  Table,
+  TableProps,
+  Tooltip,
+} from "antd";
+import GroupsHeader from "./components/GroupsHeader";
 
 export default function Groups() {
   interface DataGroups {
@@ -85,6 +93,7 @@ export default function Groups() {
   ];
   return (
     <div className="bg-[var(--dark-backround)] w-full">
+      <GroupsHeader />
       <Table
         onRow={(record, rowIndex) => ({
           onClick: () => console.log(rowIndex),
