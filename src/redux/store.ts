@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import isDarkSlice from "./isDarkSlice";
+import isModalOpen from "./isModalOpen";
 
 const store = configureStore({
   reducer: {
     isDark: isDarkSlice,
+    isModalOpen:isModalOpen
   },
 });
 

@@ -91,3 +91,12 @@
 .dark .ant-btn-primary:hover {
   background-color: #4146e5 !important;
 }
+
+.dark .ant-modal-content {
+  --ant-modal-content-bg: var(--dark-background-800);
+  --ant-modal-header-bg: var(--dark-background-800);
+  --ant-modal-title-color: var(--white-text);
+}
+.dark .ant-modal-close-icon {
+  color: white;
+}

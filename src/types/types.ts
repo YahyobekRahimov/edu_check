@@ -33,3 +33,13 @@ export interface IDate {
   month: number;
   day: number;
 }
+export interface DataGroups {
+  key: number;
+  Guruh: string;
+  kursName: string;
+  teacher: string;
+  pastDate: string;
+  rooms: string;
+  amoundStudent: number;
+  actions: any;
+}
