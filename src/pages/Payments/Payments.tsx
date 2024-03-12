@@ -146,6 +146,7 @@ export default function Payments() {
       render(value: any, _: any, index: number) {
         return index + 1;
       },
+      width: 50,
     },
     {
       title: "F.I.Sh",
@@ -155,7 +156,7 @@ export default function Payments() {
         record.name.charAt(0).toUpperCase() === value.toUpperCase(),
       sorter: (a: RowType, b: RowType) =>
         a.name.localeCompare(b.name),
-      sortDirections: ["ascend"],
+      sortDirections: ["ascend", "descend"],
       defaultSortOrder: "ascend",
     },
 
@@ -168,11 +169,16 @@ export default function Payments() {
       title: "Guruh",
       dataIndex: "group",
       key: "group",
+      sorter: (a: RowType, b: RowType) =>
+        a.group.charAt(0).localeCompare(b.group.charAt(0)),
     },
     {
       title: "O'qituvchi",
       dataIndex: "teacher",
       key: "teacher",
+      sorter: (a: RowType, b: RowType) => {
+        return a.teacher.localeCompare(b.teacher);
+      },
     },
     {
       title: "Holat",
@@ -181,12 +187,14 @@ export default function Payments() {
       render(value: string) {
         return value == "paid" ? "To'langan✅" : "Qarzi bor❌";
       },
+      sorter: (a: RowType, b: RowType) =>
+        a.status.length - b.status.length,
     },
     {
       title: "Balans",
       dataIndex: "balance",
       key: "balance",
-      // @ts-ignore
+
       render(value, record: RowType) {
         if (record?.status === "paid") {
           return (
@@ -201,6 +209,18 @@ export default function Payments() {
           </span>
         );
       },
+      sorter: (a: RowType, b: RowType) => {
+        let first = a.balance;
+        let second = b.balance;
+        if (a.status == "unpaid") {
+          first = -first;
+        }
+        if (b.status == "unpaid") {
+          second = -second;
+        }
+        return second - first;
+      },
+      sortDirections: ["ascend", "descend"],
     },
   ];
   return (
@@ -208,12 +228,13 @@ export default function Payments() {
       <Table
         dataSource={dataSource}
         columns={columns}
-        pagination={{ pageSize: 8 }}
+        pagination={false}
         onRow={(record, rowIndex) => ({
           onClick: () => {
             console.log("first");
           },
         })}
+        sticky
       />
     </div>
   );
