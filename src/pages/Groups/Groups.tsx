@@ -1,4 +1,4 @@
-import { Button, Space, Table, TableProps, Tag } from "antd";
+import { Button, Dropdown, MenuProps, Table, TableProps } from "antd";
 
 export default function Groups() {
   interface DataGroups {
@@ -12,6 +12,17 @@ export default function Groups() {
     actions: any;
   }
   interface DataStudents {}
+
+  const items: MenuProps["items"] = [
+    {
+      key: 1,
+      label: <Button type="primary">tahrirlash</Button>,
+    },
+    {
+      key: 2,
+      label: <Button type="primary">o'chirish</Button>,
+    },
+  ];
 
   const columns: TableProps<DataGroups>["columns"] = [
     {
@@ -48,6 +59,15 @@ export default function Groups() {
       title: "Amaller",
       dataIndex: "actions",
       key: "amaller",
+      render: () => (
+        <Dropdown
+          trigger={["click"]}
+          menu={{ items }}
+          placement="bottom"
+        >
+          <Button type="primary">...</Button>
+        </Dropdown>
+      ),
     },
   ];
 
@@ -62,108 +82,17 @@ export default function Groups() {
       amoundStudent: 18,
       actions: <Button type="primary">...</Button>,
     },
-    {
-      key: 16,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 145697,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 15674567,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 15467456,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 14567,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 14567456745,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 16754,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 174567,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 75544,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
   ];
   return (
     <div className="bg-[var(--dark-backround)] w-full">
       <Table
-        onRow={() => {
-          return {
-            onClick: (e) => console.log(e),
-          };
-        }}
+        onRow={(record, rowIndex) => ({
+          onClick: () => console.log(rowIndex),
+        })}
         className=" justify-between  items-center w-full cursor-pointer"
         columns={columns}
         dataSource={data}
+        pagination={{ pageSize: 7 }}
       />
     </div>
   );
