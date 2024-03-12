@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.jpg";
 import HeaderComponent from "../components/Header/Header";
 import { useAppSelector } from "../hooks/redux-hooks";
+import BottomNavigation from "./BottomNavigation/BottomNavigation";
 
 const { Header, Sider, Content } = Layout;
 
@@ -51,7 +52,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         collapsible
         collapsed={collapsed}
         style={{ borderRadius: borderRadiusLG }}
-        className="dark:bg-[var(--dark-background-800)]"
+        className="dark:bg-[var(--dark-background-800)] lg:block hidden"
       >
         <div
           className={`demo-logo-vertical flex justify-center items-center py-[2rem] dark:bg-[var(--dark-background-800)] rounded-[1rem] dark:rounded-tr-none`}
@@ -120,7 +121,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                   <path d="M22.0049 10.9998V19.9998C22.0049 20.5521 21.5572 20.9998 21.0049 20.9998H3.00488C2.4526 20.9998 2.00488 20.5521 2.00488 19.9998V10.9998H22.0049ZM22.0049 6.99979H2.00488V3.99979C2.00488 3.4475 2.4526 2.99979 3.00488 2.99979H21.0049C21.5572 2.99979 22.0049 3.4475 22.0049 3.99979V6.99979Z"></path>
                 </svg>
               ),
-              label: "To'lovlar tarixi",
+              label: "To'lovlar",
               onClick: () => navigate("/payments"),
             },
             {
@@ -143,6 +144,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
           ]}
         />
       </Sider>
+      <BottomNavigation />
       <Layout>
         <Header
           style={
@@ -188,7 +190,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
             style={{
               borderRadius: borderRadiusLG,
             }}
-            className="h-full    bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen"
+            className="h-full bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen pb-20"
           >
             {children}
           </div>

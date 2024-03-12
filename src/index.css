@@ -44,6 +44,9 @@
   --dark-background-800: #121212;
   --dark-background-700: #272727;
 
+  --primary-color: #925fe2;
+  --dark-primary-color: #2b30ea;
+
   --white-text: rgba(255, 255, 255, 0.85);
 }
 

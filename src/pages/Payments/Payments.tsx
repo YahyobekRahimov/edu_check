@@ -147,6 +147,7 @@ export default function Payments() {
         return index + 1;
       },
       width: 50,
+      responsive: ["xl"],
     },
     {
       title: "F.I.Sh",
@@ -184,6 +185,7 @@ export default function Payments() {
       title: "Holat",
       dataIndex: "status",
       key: "status",
+      responsive: ["lg"],
       render(value: string) {
         return value == "paid" ? "To'langan✅" : "Qarzi bor❌";
       },
