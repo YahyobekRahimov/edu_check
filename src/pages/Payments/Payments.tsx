@@ -209,6 +209,11 @@ export default function Payments() {
         dataSource={dataSource}
         columns={columns}
         pagination={{ pageSize: 8 }}
+        onRow={(record, rowIndex) => ({
+          onClick: () => {
+            console.log("first");
+          },
+        })}
       />
     </div>
   );
