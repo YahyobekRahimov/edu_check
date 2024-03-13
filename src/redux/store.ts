@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import isDarkSlice from "./isDarkSlice";
 import isModalOpen from "./isModalOpen";
+import selectedNavSlice from "./selectedNavSlice";
 
 const store = configureStore({
   reducer: {
     isDark: isDarkSlice,
-    isModalOpen:isModalOpen
+    isModalOpen: isModalOpen,
+    selectedNav: selectedNavSlice,
   },
 });
 
