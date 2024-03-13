@@ -1,25 +1,24 @@
-import {
-  Button,
-  Dropdown,
-  MenuProps,
-  Table,
-  TableProps,
-} from "antd";
+import { Button, Dropdown, MenuProps, Table, TableProps } from "antd";
 import GroupsHeader from "./components/GroupsHeader";
 import { DataGroups } from "../../types/types";
 
 export default function Groups() {
-  
-  
-
   const items: MenuProps["items"] = [
     {
       key: 1,
-      label: <Button type="primary">tahrirlash</Button>,
+      label: (
+        <Button className="w-full text-left" type="primary">
+          tahrirlash
+        </Button>
+      ),
     },
     {
       key: 2,
-      label: <Button type="primary">o'chirish</Button>,
+      label: (
+        <Button className="w-full text-left" type="primary">
+          o'chirish
+        </Button>
+      ),
     },
   ];
 
