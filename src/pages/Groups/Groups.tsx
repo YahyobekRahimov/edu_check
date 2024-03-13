@@ -4,22 +4,13 @@ import {
   MenuProps,
   Table,
   TableProps,
-  Tooltip,
 } from "antd";
 import GroupsHeader from "./components/GroupsHeader";
+import { DataGroups } from "../../types/types";
 
 export default function Groups() {
-  interface DataGroups {
-    key: number;
-    Guruh: string;
-    kursName: string;
-    teacher: string;
-    pastDate: string;
-    rooms: string;
-    amoundStudent: number;
-    actions: any;
-  }
-  interface DataStudents {}
+  
+  
 
   const items: MenuProps["items"] = [
     {
@@ -96,7 +87,7 @@ export default function Groups() {
       <GroupsHeader />
       <Table
         onRow={(record, rowIndex) => ({
-          onClick: () => console.log(rowIndex),
+          onClick: () => console.log(record),
         })}
         className=" justify-between  items-center w-full cursor-pointer"
         columns={columns}
