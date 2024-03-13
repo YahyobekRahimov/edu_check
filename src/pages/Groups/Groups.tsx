@@ -7,18 +7,31 @@ export default function Groups() {
     {
       key: 1,
       label: (
-        <Button className="w-full text-left" type="primary">
-          tahrirlash
-        </Button>
+        <button className="font-semibold tracking-wide text-base">
+          Tahrirlash
+        </button>
       ),
+    },
+    {
+      key: 4,
+      label: (
+        <button className="font-semibold tracking-wide text-base">
+          SMS
+        </button>
+      ),
+    },
+    {
+      key: 3,
+      type: "divider",
     },
     {
       key: 2,
       label: (
-        <Button className="w-full text-left" type="primary">
-          o'chirish
-        </Button>
+        <button className="font-semibold tracking-wide text-base">
+          O'chirish
+        </button>
       ),
+      danger: true,
     },
   ];
 
@@ -54,14 +67,14 @@ export default function Groups() {
       key: "talabalar soni",
     },
     {
-      title: "Amaller",
+      title: "Amallar",
       dataIndex: "actions",
-      key: "amaller",
+      key: "actions",
       render: () => (
         <Dropdown
           trigger={["click"]}
           menu={{ items }}
-          placement="bottom"
+          placement="bottomLeft"
         >
           <Button type="primary">...</Button>
         </Dropdown>

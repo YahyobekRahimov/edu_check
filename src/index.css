@@ -101,6 +101,20 @@
   --ant-modal-header-bg: var(--dark-background-800);
   --ant-modal-title-color: var(--white-text);
 }
+
 .dark .ant-modal-close-icon {
   color: white;
+}
+.dark .ant-dropdown-menu {
+  --ant-color-bg-elevated: var(--dark-background-800);
+  --ant-color-text: var(--white-text);
+  --ant-control-item-bg-hover: var(--dark-background-700);
+}
+
+.dark .ant-popover-inner {
+  --ant-color-bg-elevated: black;
+}
+
+.dark .ant-popover-arrow {
+  --antd-arrow-background-color: black;
 }
