@@ -5,20 +5,19 @@ import { DataGroups } from "../../types/types";
 export default function Groups() {
   const items: MenuProps["items"] = [
     {
-      key: 1,
-      label: (
-        <Button className="w-full text-left" type="primary">
-          tahrirlash
-        </Button>
-      ),
+      label: <button>Tahrirlash</button>,
+      key: "0",
     },
     {
-      key: 2,
-      label: (
-        <Button className="w-full text-left" type="primary">
-          o'chirish
-        </Button>
-      ),
+      label: <button>SMS</button>,
+      key: "1",
+    },
+    {
+      type: "divider",
+    },
+    {
+      label: <button>O'chirish</button>,
+      key: "3",
     },
   ];
 
@@ -85,7 +84,7 @@ export default function Groups() {
     <div className="bg-[var(--dark-backround)] w-full">
       <GroupsHeader />
       <Table
-        onRow={(record, rowIndex) => ({
+        onRow={(record, _) => ({
           onClick: () => console.log(record),
         })}
         className=" justify-between  items-center w-full cursor-pointer"
