@@ -18,20 +18,25 @@ export default function Header() {
     dispatch(setSelectedNav("4"));
   };
   return (
-    <div className="mr-6 flex items-center">
-      <ThemeSwitcher />
-      <Popover content={content} placement="bottom">
-        <div
-          onClick={handleAvatarClick}
-          className="flex items-center text-white gap-2 font-semibold cursor-pointer"
-        >
-          <Avatar
-            icon={<UserOutlined />}
-            src="https://picsum.photos/200/300"
-          />
-          <p>John Doe</p>
-        </div>
-      </Popover>
+    <div className="flex items-center justify-between w-full mx-2 xs:mx-10 lg:mx-6 lg:w-max">
+      <div className="w-10 rounded-full overflow-hidden lg:hidden">
+        <img src="/src/assets/images/logo.jpg" alt="Logo" />
+      </div>
+      <div className="flex items-center">
+        <ThemeSwitcher />
+        <Popover content={content} placement="bottom">
+          <div
+            onClick={handleAvatarClick}
+            className="flex items-center text-white gap-2 font-semibold cursor-pointer"
+          >
+            <Avatar
+              icon={<UserOutlined />}
+              src="https://picsum.photos/200/300"
+            />
+            <p className="hidden sm:block">John Doe</p>
+          </div>
+        </Popover>
+      </div>
     </div>
   );
 }

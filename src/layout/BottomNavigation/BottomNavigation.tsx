@@ -75,7 +75,7 @@ export default function BottomNavigation() {
   ];
   return (
     <div
-      className={`bg-white fixed bottom-0 left-0 w-screen dark:bg-[var(--dark-background-700)] text-[var(--white-text)] z-10 lg:hidden`}
+      className={`bg-white fixed bottom-0 left-0 w-screen dark:bg-[var(--dark-background-700)] dark:text-[var(--white-text)] z-10 lg:hidden`}
     >
       <ul className="flex justify-around">
         {menuItems.map((menu, index) => (
