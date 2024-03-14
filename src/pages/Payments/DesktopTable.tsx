@@ -3,6 +3,11 @@ import { ColumnType } from "antd/es/table";
 import { MenuProps } from "antd/lib";
 import { useState } from "react";
 import ActionModal from "./ActionModal";
+import { useAppDispatch } from "../../hooks/redux-hooks";
+import {
+  setPaymentModalData,
+  setPaymentModalOpen,
+} from "../../redux/isPaymentModalOpenSlice";
 
 export type RowType = {
   key: string;
@@ -20,11 +25,11 @@ export default function DesktopTable({
 }: {
   dataSource: any[];
 }) {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentRecordData, setCurrentRecordData] = useState<any>();
+  const dispatch = useAppDispatch();
 
   const handlePayment = () => {
-    setIsModalOpen(true);
+    dispatch(setPaymentModalOpen(true));
   };
   const handleDeduction = () => {};
 
@@ -62,6 +67,7 @@ export default function DesktopTable({
       title: "#",
       dataIndex: "index",
       key: "index",
+      // @ts-ignore
       render(value: any, _: any, index: number) {
         return index + 1;
       },
@@ -152,7 +158,7 @@ export default function DesktopTable({
             placement="bottomLeft"
           >
             <Button
-              onClick={() => setCurrentRecordData(record)}
+              onClick={() => dispatch(setPaymentModalData(record))}
               type="primary"
             >
               ...
@@ -176,11 +182,7 @@ export default function DesktopTable({
         // })}
         sticky
       />
-      <ActionModal
-        studentData={currentRecordData}
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-      />
+      <ActionModal studentData={currentRecordData} />
     </div>
   );
 }

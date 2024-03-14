@@ -1,23 +1,28 @@
 import { Form, InputNumber, Modal, message } from "antd";
 import { useState } from "react";
 import { RowType } from "./DesktopTable";
+import { setPaymentModalOpen } from "../../redux/isPaymentModalOpenSlice";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../hooks/redux-hooks";
 
 export default function ActionModal({
-  isModalOpen,
-  setIsModalOpen,
   studentData,
 }: {
-  isModalOpen: boolean;
-  setIsModalOpen: (value: boolean) => void;
   studentData: RowType;
 }) {
   const [inputValue, setInputValue] = useState<number | string>(0);
+  const dispatch = useAppDispatch();
+  const isModalOpen = useAppSelector(
+    (state) => state.isPaymentModalOpen.addPaymentModal.isOpen
+  );
   const handleOk = () => {
     handleSubmit(inputValue);
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    dispatch(setPaymentModalOpen(false));
   };
 
   const handleInputChange = (value: number | string | null) => {
@@ -44,7 +49,7 @@ export default function ActionModal({
         </p>
       ),
       onOk: () => {
-        setIsModalOpen(false);
+        dispatch(setPaymentModalOpen(false));
         setInputValue(0);
         message.success(
           `${
@@ -84,7 +89,6 @@ export default function ActionModal({
             value={inputValue}
             onChange={handleInputChange}
             autoFocus={true}
-            defaultValue={0}
             formatter={(value) =>
               `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }

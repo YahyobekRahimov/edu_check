@@ -98,6 +98,7 @@ export default function Groups() {
     <div className="bg-[var(--dark-backround)] w-full">
       <GroupsHeader />
       <Table
+        // @ts-ignore
         onRow={(record, rowIndex) => ({
           onClick: () => console.log(record),
         })}
