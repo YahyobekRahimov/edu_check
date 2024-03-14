@@ -105,9 +105,7 @@
 .dark .ant-modal-close-icon {
   color: white;
 }
-<<<<<<< HEAD
 
-=======
 .dark .ant-dropdown-menu {
   --ant-color-bg-elevated: var(--dark-background-800);
   --ant-color-text: var(--white-text);
@@ -121,4 +119,33 @@
 .dark .ant-popover-arrow {
   --antd-arrow-background-color: black;
 }
->>>>>>> 272b21faf0165b60b7b2d8cb5c5170a55a92256a
+
+
+.dark .ant-layout-header {
+  --ant-layout-header-height: max-content;
+}
+
+.dark .ant-dropdown-menu {
+  --ant-color-split: rgba(255, 255, 255, 0.3);
+}
+
+.dark .ant-btn-default {
+  --ant-button-default-hover-bg: var(--dark-background-800);
+  --ant-button-default-active-bg: var(--dark-background-800);
+  --ant-button-default-color: var(--white-text);
+  --ant-button-default-hover-color: var(--dark-primary-color);
+  --ant-button-default-hover-border-color: var(--dark-primary-color);
+  --ant-button-default-active-color: var(--dark-primary-color);
+  --ant-button-default-active-border-color: var(--dark-primary-color);
+}
+
+.dark .ant-input-number-group-addon {
+  --ant-color-text: var(--white-text);
+}
+
+.dark .ant-input-number {
+  --ant-color-text: var(--white-text);
+  background-color: var(--dark-background-800);
+  --ant-color-text-placeholder: rgba(255, 255, 255, 0.4);
+}
+

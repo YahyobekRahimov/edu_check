@@ -5,7 +5,6 @@ import { ConfigProvider } from "antd";
 import { Provider } from "react-redux";
 import store from "./redux/store.ts";
 import en_US from "antd/locale/en_US";
-import useLocale from "antd/es/locale/useLocale";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ConfigProvider
