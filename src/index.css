@@ -118,3 +118,7 @@
 .dark .ant-popover-arrow {
   --antd-arrow-background-color: black;
 }
+
+.dark .ant-layout-header {
+  --ant-layout-header-height: max-content;
+}

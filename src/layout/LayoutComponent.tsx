@@ -3,7 +3,7 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, Button, theme } from "antd";
+import { Layout, Button, theme } from "antd";
 import HeaderComponent from "../components/Header/Header";
 import { useAppSelector } from "../hooks/redux-hooks";
 import BottomNavigation from "./BottomNavigation/BottomNavigation";
@@ -48,7 +48,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                   padding: 0,
                 }
           }
-          className="bg-header-gradient mx-[1.5rem] dark:mx-0 flex items-center justify-between rounded-lg dark:rounded-none"
+          className="bg-header-gradient md:mx-[1.5rem] dark:mx-0 flex items-center justify-between rounded-lg dark:rounded-none"
         >
           <Button
             type="text"
@@ -65,6 +65,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
               width: 64,
               height: 64,
             }}
+            className="hidden lg:block"
           />
           <HeaderComponent />
         </Header>
@@ -78,7 +79,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                   background: "#f5f5f5",
                 }
           }
-          className="px-6 pt-6"
+          className="md:px-6 pt-6"
         >
           <div
             style={{

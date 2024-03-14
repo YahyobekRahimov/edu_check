@@ -1,6 +1,8 @@
-import { Table } from "antd";
-import { ColumnsType } from "antd/es/table";
+import { Input, Select, Table } from "antd";
 import { ColumnType } from "antd/lib/table";
+import { useState } from "react";
+import MobileTable from "../../components/MobileTable/MobileTable";
+import TableWithFilter from "./TableWithFilter";
 
 type RowType = {
   key: string;
@@ -153,8 +155,6 @@ export default function Payments() {
       title: "F.I.Sh",
       dataIndex: "name",
       key: "name",
-      onFilter: (value: any, record: RowType) =>
-        record.name.charAt(0).toUpperCase() === value.toUpperCase(),
       sorter: (a: RowType, b: RowType) =>
         a.name.localeCompare(b.name),
       sortDirections: ["ascend", "descend"],
@@ -225,19 +225,23 @@ export default function Payments() {
       sortDirections: ["ascend", "descend"],
     },
   ];
+
   return (
-    <div>
-      <Table
-        dataSource={dataSource}
-        columns={columns}
-        pagination={false}
-        onRow={(record, rowIndex) => ({
-          onClick: () => {
-            console.log("first");
-          },
-        })}
-        sticky
-      />
-    </div>
+    <>
+      <div className="hidden md:block">
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          pagination={false}
+          onRow={(record, rowIndex) => ({
+            onClick: () => {
+              console.log("first");
+            },
+          })}
+          sticky
+        />
+      </div>
+      <TableWithFilter dataSource={dataSource} />
+    </>
   );
 }
