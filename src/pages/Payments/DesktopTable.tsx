@@ -4,7 +4,7 @@ import { MenuProps } from "antd/lib";
 import { useState } from "react";
 import ActionModal from "./ActionModal";
 
-type RowType = {
+export type RowType = {
   key: string;
   name: string;
   address: string;
@@ -21,6 +21,7 @@ export default function DesktopTable({
   dataSource: any[];
 }) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [currentRecordData, setCurrentRecordData] = useState<any>();
 
   const handlePayment = () => {
     setIsModalOpen(true);
@@ -143,14 +144,19 @@ export default function DesktopTable({
       title: "Amallar",
       dataIndex: "actions",
       key: "actions",
-      render: () => {
+      render: (_, record: RowType) => {
         return (
           <Dropdown
             menu={{ items }}
             trigger={["click"]}
             placement="bottomLeft"
           >
-            <Button type="primary">...</Button>
+            <Button
+              onClick={() => setCurrentRecordData(record)}
+              type="primary"
+            >
+              ...
+            </Button>
           </Dropdown>
         );
       },
@@ -163,14 +169,15 @@ export default function DesktopTable({
         dataSource={dataSource}
         columns={columns}
         pagination={false}
-        onRow={(record, rowIndex) => ({
-          onClick: () => {
-            console.log("first");
-          },
-        })}
+        // onRow={(record, rowIndex) => ({
+        //   onClick: () => {
+        //     console.log("first");
+        //   },
+        // })}
         sticky
       />
       <ActionModal
+        studentData={currentRecordData}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />

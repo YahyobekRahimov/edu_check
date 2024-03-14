@@ -1,13 +1,15 @@
-import { Form, InputNumber, Modal } from "antd";
+import { Form, InputNumber, Modal, message } from "antd";
 import { useState } from "react";
-import { removeLeadingZeros } from "../../utils/utils";
+import { RowType } from "./DesktopTable";
 
 export default function ActionModal({
   isModalOpen,
   setIsModalOpen,
+  studentData,
 }: {
   isModalOpen: boolean;
   setIsModalOpen: (value: boolean) => void;
+  studentData: RowType;
 }) {
   const [inputValue, setInputValue] = useState<number | string>(0);
   const handleOk = () => {
@@ -22,11 +24,37 @@ export default function ActionModal({
     setInputValue(value ?? 0);
   };
 
-  function handleSubmit(values: {}) {
+  function handleSubmit(values: any) {
+    let amount: string | number = "";
+    if (values?.amount) {
+      amount = values.amount;
+    } else {
+      amount = values;
+    }
+
     Modal.confirm({
-      content: "Are you sure that you want to do this?",
-      onOk: () => setIsModalOpen(false),
+      content: (
+        <p>
+          <span className="font-semibold">{studentData.name}</span>
+          ning balansiga{" "}
+          <span className="font-semibold text-green-600">
+            +{amount.toLocaleString()}
+          </span>{" "}
+          so'mni o'tkazib berishga ishonchingiz komilmi?
+        </p>
+      ),
+      onOk: () => {
+        setIsModalOpen(false);
+        setInputValue(0);
+        message.success(
+          `${
+            studentData.name
+          }ning balansiga ${amount.toLocaleString()} so'm tushdi`
+        );
+      },
       onCancel: () => {},
+      okText: "Ha",
+      cancelText: "Yo'q",
     });
   }
   return (
@@ -35,6 +63,9 @@ export default function ActionModal({
       open={isModalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
+      okText="To'lov qilish"
+      cancelText="Bekor qilish"
+      destroyOnClose={true}
     >
       <Form name="amount" onFinish={handleSubmit}>
         <Form.Item
@@ -43,7 +74,7 @@ export default function ActionModal({
           rules={[
             { required: true, message: "Iltimos, summa kiriting" },
           ]}
-          style={{ color: "white" }}
+          className="dark:text-white"
         >
           <InputNumber
             addonAfter="so'm"
