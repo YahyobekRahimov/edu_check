@@ -5,21 +5,7 @@ import { DataGroups } from "../../types/types";
 export default function Groups() {
   const items: MenuProps["items"] = [
     {
-<<<<<<< HEAD
-      label: <button>Tahrirlash</button>,
-      key: "0",
-    },
-    {
-      label: <button>SMS</button>,
-      key: "1",
-    },
-    {
-      type: "divider",
-    },
-    {
-      label: <button>O'chirish</button>,
-      key: "3",
-=======
+
       key: 1,
       label: (
         <button className="font-semibold tracking-wide text-base">
@@ -47,7 +33,7 @@ export default function Groups() {
         </button>
       ),
       danger: true,
->>>>>>> 272b21faf0165b60b7b2d8cb5c5170a55a92256a
+
     },
   ];
 
