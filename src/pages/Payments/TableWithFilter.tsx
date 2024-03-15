@@ -1,6 +1,6 @@
 import { Input, Select } from "antd";
 import MobileTable from "../../components/MobileTable/MobileTable";
-import { ChangeEventHandler, useState } from "react";
+import { useState } from "react";
 
 export default function TableWithFilter({
   dataSource,
