@@ -67,20 +67,6 @@ export default function MobileTable({
             <span>O'qituvchi:</span>
             <span>{element.teacher}</span>
           </li>
-          <li className="flex justify-between items-center">
-            <span>Balans:</span>
-            <span>
-              {element.status === "paid" ? (
-                <span className="text-green-600 font-semibold">
-                  +${element.balance.toLocaleString()}
-                </span>
-              ) : (
-                <span className="text-red-500 font-semibold">
-                  -${element.balance.toLocaleString()}
-                </span>
-              )}
-            </span>
-          </li>
           <li>
             <Dropdown
               menu={{ items }}
