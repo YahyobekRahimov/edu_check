@@ -57,6 +57,7 @@
   --ant-color-text: var(--white-text);
   --ant-color-icon: rgba(255, 255, 255, 0.5);
   --ant-color-icon-hover: var(--white-text);
+  --ant-color-text-placeholder: rgba(255, 255, 255, 0.5);
 }
 
 .dark .ant-table {
@@ -120,7 +121,6 @@
   --antd-arrow-background-color: black;
 }
 
-
 .dark .ant-layout-header {
   --ant-layout-header-height: max-content;
 }
@@ -148,4 +148,3 @@
   background-color: var(--dark-background-800);
   --ant-color-text-placeholder: rgba(255, 255, 255, 0.4);
 }
-
