@@ -6,10 +6,20 @@ import {
   setPaymentModalOpen,
 } from "../../redux/isPaymentModalOpenSlice";
 
+type RowType = {
+  key: string;
+  name: string;
+  phoneNumber: string;
+  group: string;
+  date: string;
+  status: "paid" | "unpaid";
+  teacher: string;
+};
+
 export default function MobileTable({
   dataSource,
 }: {
-  dataSource: any[];
+  dataSource: RowType[];
 }) {
   const dispatch = useAppDispatch();
   const handlePayment = () => {
@@ -67,7 +77,17 @@ export default function MobileTable({
             <span>O'qituvchi:</span>
             <span>{element.teacher}</span>
           </li>
-          <li>
+          <li className="flex justify-between items-center">
+            <span>Holat:</span>
+            <span>
+              {element.status === "paid"
+                ? "To'lagan✅"
+                : "Qarzi bor❌"}
+            </span>
+          </li>
+
+          <li className="flex justify-between items-center">
+            <span>Amallar:</span>
             <Dropdown
               menu={{ items }}
               trigger={["click"]}
