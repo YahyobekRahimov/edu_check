@@ -10,6 +10,7 @@ import Settings from "./pages/Settings/Settings";
 import LayoutComponent from "./layout/LayoutComponent";
 import Home from "./pages/Home";
 import Login from "./pages/Login/Login";
+import StudentProfile from "./pages/StudentProfile/StudentProfile";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,6 +53,10 @@ function App() {
           <Settings />
         </LayoutComponent>
       ),
+    },
+    {
+      path: "/students/:id",
+      element: <StudentProfile />,
     },
   ]);
   return (

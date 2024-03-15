@@ -1,6 +1,5 @@
-import { Table } from "antd";
-import { ColumnsType } from "antd/es/table";
-import { ColumnType } from "antd/lib/table";
+import TableWithFilter from "./TableWithFilter";
+import DesktopTable from "./DesktopTable";
 
 type RowType = {
   key: string;
@@ -138,106 +137,10 @@ export default function Payments() {
     },
   ];
 
-  const columns: ColumnType<RowType>[] = [
-    {
-      title: "#",
-      dataIndex: "index",
-      key: "index",
-      render(value: any, _: any, index: number) {
-        return index + 1;
-      },
-      width: 50,
-      responsive: ["xl"],
-    },
-    {
-      title: "F.I.Sh",
-      dataIndex: "name",
-      key: "name",
-      onFilter: (value: any, record: RowType) =>
-        record.name.charAt(0).toUpperCase() === value.toUpperCase(),
-      sorter: (a: RowType, b: RowType) =>
-        a.name.localeCompare(b.name),
-      sortDirections: ["ascend", "descend"],
-      defaultSortOrder: "ascend",
-    },
-
-    {
-      title: "Telefon raqam",
-      dataIndex: "phoneNumber",
-      key: "phoneNumber",
-    },
-    {
-      title: "Guruh",
-      dataIndex: "group",
-      key: "group",
-      sorter: (a: RowType, b: RowType) =>
-        a.group.charAt(0).localeCompare(b.group.charAt(0)),
-    },
-    {
-      title: "O'qituvchi",
-      dataIndex: "teacher",
-      key: "teacher",
-      sorter: (a: RowType, b: RowType) => {
-        return a.teacher.localeCompare(b.teacher);
-      },
-    },
-    {
-      title: "Holat",
-      dataIndex: "status",
-      key: "status",
-      responsive: ["lg"],
-      render(value: string) {
-        return value == "paid" ? "To'langan✅" : "Qarzi bor❌";
-      },
-      sorter: (a: RowType, b: RowType) =>
-        a.status.length - b.status.length,
-    },
-    {
-      title: "Balans",
-      dataIndex: "balance",
-      key: "balance",
-
-      render(value, record: RowType) {
-        if (record?.status === "paid") {
-          return (
-            <span className="text-green-600 font-semibold">
-              +${value}
-            </span>
-          );
-        }
-        return (
-          <span className="text-red-500 font-semibold">
-            -${value}
-          </span>
-        );
-      },
-      sorter: (a: RowType, b: RowType) => {
-        let first = a.balance;
-        let second = b.balance;
-        if (a.status == "unpaid") {
-          first = -first;
-        }
-        if (b.status == "unpaid") {
-          second = -second;
-        }
-        return second - first;
-      },
-      sortDirections: ["ascend", "descend"],
-    },
-  ];
   return (
-    <div>
-      <Table
-        dataSource={dataSource}
-        columns={columns}
-        pagination={false}
-        onRow={(record, rowIndex) => ({
-          onClick: () => {
-            console.log("first");
-          },
-        })}
-        sticky
-      />
-    </div>
+    <>
+      <DesktopTable dataSource={dataSource} />
+      <TableWithFilter dataSource={dataSource} />
+    </>
   );
 }

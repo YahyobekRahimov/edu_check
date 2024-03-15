@@ -1,25 +1,37 @@
-import {
-  Button,
-  Dropdown,
-  MenuProps,
-  Table,
-  TableProps,
-} from "antd";
+import { Button, Dropdown, MenuProps, Table, TableProps } from "antd";
 import GroupsHeader from "./components/GroupsHeader";
 import { DataGroups } from "../../types/types";
 
 export default function Groups() {
-  
-  
-
   const items: MenuProps["items"] = [
     {
       key: 1,
-      label: <Button type="primary">tahrirlash</Button>,
+      label: (
+        <button className="font-semibold tracking-wide text-base">
+          Tahrirlash
+        </button>
+      ),
+    },
+    {
+      key: 4,
+      label: (
+        <button className="font-semibold tracking-wide text-base">
+          SMS
+        </button>
+      ),
+    },
+    {
+      key: 3,
+      type: "divider",
     },
     {
       key: 2,
-      label: <Button type="primary">o'chirish</Button>,
+      label: (
+        <button className="font-semibold tracking-wide text-base">
+          O'chirish
+        </button>
+      ),
+      danger: true,
     },
   ];
 
@@ -55,14 +67,14 @@ export default function Groups() {
       key: "talabalar soni",
     },
     {
-      title: "Amaller",
+      title: "Amallar",
       dataIndex: "actions",
-      key: "amaller",
+      key: "actions",
       render: () => (
         <Dropdown
           trigger={["click"]}
           menu={{ items }}
-          placement="bottom"
+          placement="bottomLeft"
         >
           <Button type="primary">...</Button>
         </Dropdown>
