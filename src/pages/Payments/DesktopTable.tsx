@@ -25,6 +25,7 @@ export default function DesktopTable({
 }: {
   dataSource: any[];
 }) {
+  // @ts-ignore
   const [currentRecordData, setCurrentRecordData] = useState<any>();
   const dispatch = useAppDispatch();
 
