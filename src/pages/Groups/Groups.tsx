@@ -2,6 +2,8 @@ import { Button, Dropdown, MenuProps, Table, TableProps } from "antd";
 import GroupsHeader from "./components/GroupsHeader";
 import { DataGroups } from "../../types/types";
 
+import MobileTableGroups from "./components/MobileTableGroups";
+
 export default function Groups() {
   const items: MenuProps["items"] = [
     {
@@ -93,19 +95,30 @@ export default function Groups() {
       amoundStudent: 18,
       actions: <Button type="primary">...</Button>,
     },
+    {
+      key: 1,
+      guruh: "01-a",
+      kurslar: "inglis-tili",
+      teacher: "Teshaboyev A",
+      pastDate: "09-09-2023",
+      rooms: "4/203",
+      amoundStudent: 18,
+      actions: <Button type="primary">...</Button>,
+    },
   ];
   return (
     <div className="bg-[var(--dark-backround)] w-full">
       <GroupsHeader />
       <Table
-        onRow={(record, rowIndex) => ({
+        onRow={(record, _) => ({
           onClick: () => console.log(record),
         })}
-        className=" justify-between  items-center w-full cursor-pointer"
+        className=" hidden md:block  w-full cursor-pointer"
         columns={columns}
         dataSource={data}
         pagination={{ pageSize: 7 }}
       />
+      <MobileTableGroups dataSource={data} />
     </div>
   );
 }
