@@ -6,7 +6,7 @@ import DesktopTable from "./DesktopTable";
 import MobileTable from "./MobileTable";
 
 type RowType = {
-  index: number;
+  key: string;
   name: string;
   phoneNumber: string;
   group: string;
@@ -15,8 +15,9 @@ type RowType = {
   teacher: string;
 };
 export default function Students() {
-  const dataSource = [
+  const dataSource: RowType[] = [
     {
+      key: "1",
       name: "John Doe",
       phoneNumber: "(123) 456-7890",
       group: "A",
@@ -25,6 +26,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "2",
       name: "Alice Johnson",
       phoneNumber: "(234) 567-8901",
       group: "B",
@@ -33,6 +35,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "3",
       name: "Emily Wilson",
       phoneNumber: "(345) 678-9012",
       group: "C",
@@ -41,6 +44,7 @@ export default function Students() {
       status: "unpaid",
     },
     {
+      key: "4",
       name: "Daniel Smith",
       phoneNumber: "(456) 789-0123",
       group: "A",
@@ -49,6 +53,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "5",
       name: "Sophia Brown",
       phoneNumber: "(567) 890-1234",
       group: "B",
@@ -57,6 +62,7 @@ export default function Students() {
       status: "unpaid",
     },
     {
+      key: "6",
       name: "Olivia Taylor",
       phoneNumber: "(678) 901-2345",
       group: "C",
@@ -65,6 +71,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "7",
       name: "Noah Miller",
       phoneNumber: "(789) 012-3456",
       group: "A",
@@ -73,6 +80,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "8",
       name: "Isabella Lee",
       phoneNumber: "(890) 123-4567",
       group: "B",
@@ -81,6 +89,7 @@ export default function Students() {
       status: "unpaid",
     },
     {
+      key: "9",
       name: "Liam Garcia",
       phoneNumber: "(901) 234-5678",
       group: "C",
@@ -89,6 +98,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "10",
       name: "Emma Rodriguez",
       phoneNumber: "(012) 345-6789",
       group: "A",
@@ -97,6 +107,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "11",
       name: "William Martinez",
       phoneNumber: "(123) 456-7890",
       group: "B",
@@ -105,6 +116,7 @@ export default function Students() {
       status: "unpaid",
     },
     {
+      key: "12",
       name: "Ava Nguyen",
       phoneNumber: "(234) 567-8901",
       group: "C",
@@ -113,6 +125,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "13",
       name: "James Hernandez",
       phoneNumber: "(345) 678-9012",
       group: "A",
@@ -121,6 +134,7 @@ export default function Students() {
       status: "paid",
     },
     {
+      key: "14",
       name: "Charlotte Smith",
       phoneNumber: "(456) 789-0123",
       group: "B",
@@ -129,6 +143,7 @@ export default function Students() {
       status: "unpaid",
     },
     {
+      key: "15",
       name: "Mason Taylor",
       phoneNumber: "(567) 890-1234",
       group: "C",
