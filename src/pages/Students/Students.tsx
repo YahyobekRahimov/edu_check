@@ -17,48 +17,51 @@ type RowType = {
   group: string;
   sana: Number;
   tolov: string;
-  actions: any;
+  actions: any;  
+  status: "paid" | "unpaid";
+
 };
 export default function Students() {
   const dataSource = [
     {
       key: "1",
-      name: "Mike",
+      name: "a",
       sana: 32,
       group: 5,
       phoneNumber: 45454854454,
-      tolov: "qilindi",
-      Oqituvchi:"alijonov",
+      status: "paid",
+      Oqituvchi:"Alijonov",
     },
     {
       key: "2",
-      name: "Mike",
+      name: "B",
       sana: 32,
       group: 5,
       phoneNumber: 45454854454,
-      tolov: "qilindi",
-      Oqituvchi:"alijonov",
+      status:"unpaid",
+
+            Oqituvchi:"B",
     },
     {
       key: "3",
-      name: "Mike",
+      name: "s",
       sana: 32,
       group: 5,
       phoneNumber: 45454854454,
-      tolov: "qilindi",
+      status:"unpaid",
       Oqituvchi:"alijonov",
     },
     {
       key: "4",
       name: "Mike",
-      sana: 32,
-      group: 5,
-      phoneNumber: 45454854454,
-      tolov: "qilindi",
-      Oqituvchi:"alijonov",
+      sana:22551554,
+      group:5,
+      phoneNmber: 45454854454,
+     status: "paid",
+      Oqituvchi:"D",
     },
   ];
-
+  
   const columns: ColumnType<RowType> = [
     {
       title: "#",
@@ -69,6 +72,14 @@ export default function Students() {
       title: "Ism",
       dataIndex: "name",
       key: "name",
+      onFilter: (value: any, record: RowType) =>
+      record.name.charAt(0).toUpperCase() === value.toUpperCase(),
+    sorter: (a: RowType, b: RowType) =>
+      a.name.localeCompare(b.name),
+    sortDirections: ["ascend", "descend"],
+    defaultSortOrder: "ascend",
+      
+   
     },
     {
       title: "Telefon raqam",
@@ -79,21 +90,31 @@ export default function Students() {
       title: "Guruh",
       dataIndex: "group",
       key: "group",
+     
+
     },
     {
       title:"Oqituvchi",
       dataIndex:"Oqituvchi",
       key:"Oqituvchi",
+    
     },
     {
       title: "Mashgulot sana",
       dataIndex: "sana",
       key: "sana",
+     
     },
     {
       title: "tolov",
       dataIndex: "tolov",
       key: "tolov",
+     
+      render(value: string) {
+        return value == "paid" ? "To'langan✅" : "Qarzi bor❌";
+      },
+      sorter: (a: RowType, b: RowType) =>
+        a.status.length - b.status.length,
     },
 
     {
