@@ -105,6 +105,7 @@
 .dark .ant-modal-close-icon {
   color: white;
 }
+
 .dark .ant-dropdown-menu {
   --ant-color-bg-elevated: var(--dark-background-800);
   --ant-color-text: var(--white-text);
@@ -118,6 +119,7 @@
 .dark .ant-popover-arrow {
   --antd-arrow-background-color: black;
 }
+
 
 .dark .ant-layout-header {
   --ant-layout-header-height: max-content;
@@ -146,3 +148,4 @@
   background-color: var(--dark-background-800);
   --ant-color-text-placeholder: rgba(255, 255, 255, 0.4);
 }
+
