@@ -152,7 +152,7 @@ export default function Students() {
       status: "paid",
     },
   ];
-
+  // @ts-ignore
   const columns: ColumnType<RowType> = [
     {
       title: "#",
