@@ -239,7 +239,7 @@ export default function Students() {
   ];
 
   return (
-    <main>
+    <main className="bg-[#f5f5f5] dark:bg-[var(--dark-background-900)]">
       <DesktopTable columns={columns} dataSource={dataSource} />
       <MobileTable dataSource={dataSource} />
     </main>

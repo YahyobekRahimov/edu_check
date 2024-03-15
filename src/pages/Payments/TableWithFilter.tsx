@@ -35,7 +35,7 @@ export default function TableWithFilter({
   }
 
   return (
-    <div className="md:hidden flex flex-col gap-2 bg-[#f5f5f5]">
+    <div className="md:hidden flex flex-col gap-2 bg-[#f5f5f5] dark:bg-[var(--dark-background-900)]">
       <div className="flex items-center gap-2 sticky">
         <Input
           placeholder="Qidiruv..."
