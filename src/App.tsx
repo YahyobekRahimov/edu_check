@@ -11,6 +11,7 @@ import LayoutComponent from "./layout/LayoutComponent";
 import Home from "./pages/Home";
 import Login from "./pages/Login/Login";
 import StudentProfile from "./pages/StudentProfile/StudentProfile";
+import Group from "./pages/Groups/Group/Group";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,7 +30,14 @@ function App() {
           <Groups />
         </LayoutComponent>
       ),
+      children: [
+        {
+          path: "singleGroup",
+          element: <Group />,
+        },
+      ],
     },
+
     {
       path: "/students",
       element: (

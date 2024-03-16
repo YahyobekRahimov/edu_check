@@ -16,7 +16,9 @@ function GroupsHeader() {
   return (
     <>
       <div className="flex items-center justify-between  px-4 py-5  border-b">
-        <div className=" text-[32px] font-semibold">Guruhlar</div>
+        <div className=" text-[25px] md:text-[3.2rem] font-semibold">
+          Guruhlar
+        </div>
         <div className="px-4">
           <Tooltip title={"Guruh qo'shish"}>
             <Button

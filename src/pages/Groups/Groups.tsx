@@ -3,8 +3,19 @@ import GroupsHeader from "./components/GroupsHeader";
 import { DataGroups } from "../../types/types";
 
 import MobileTableGroups from "./components/MobileTableGroups";
+import {
+  NavigateFunction,
+  Outlet,
+  useNavigate,
+} from "react-router-dom";
 
 export default function Groups() {
+  const navigate: NavigateFunction = useNavigate();
+  function handleChangePage(record: DataGroups) {
+    console.log(record);
+
+    navigate("singleGroup");
+  }
   const items: MenuProps["items"] = [
     {
       key: 1,
@@ -107,18 +118,21 @@ export default function Groups() {
     },
   ];
   return (
-    <div className="bg-[var(--dark-backround)] w-full">
-      <GroupsHeader />
-      <Table
-        onRow={(record, _) => ({
-          onClick: () => console.log(record),
-        })}
-        className=" hidden md:block  w-full cursor-pointer"
-        columns={columns}
-        dataSource={data}
-        pagination={{ pageSize: 7 }}
-      />
-      <MobileTableGroups dataSource={data} />
-    </div>
+    <>
+      <Outlet />
+      <div className="bg-[var(--dark-backround)] w-full">
+        <GroupsHeader />
+        <Table
+          onRow={(record, _) => ({
+            onClick: () => handleChangePage(record),
+          })}
+          className=" hidden md:block  w-full cursor-pointer"
+          columns={columns}
+          dataSource={data}
+          pagination={{ pageSize: 7 }}
+        />
+        <MobileTableGroups dataSource={data} />
+      </div>
+    </>
   );
 }

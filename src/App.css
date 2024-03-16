@@ -29,3 +29,6 @@
 .ant-btn-primary {
   background-color: rgb(167, 113, 255);
 }
+.logo {
+  display: none;
+}
