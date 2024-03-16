@@ -1,6 +1,5 @@
 import { Form, InputNumber, Modal, message } from "antd";
 import { useState } from "react";
-import { RowType } from "./DesktopTable";
 import {
   setDeductionModal,
   setPaymentModalOpen,
