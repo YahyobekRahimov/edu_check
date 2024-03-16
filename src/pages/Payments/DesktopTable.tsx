@@ -5,6 +5,7 @@ import { useState } from "react";
 import ActionModal from "./ActionModal";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import {
+  setDeductionModal,
   setPaymentModalData,
   setPaymentModalOpen,
 } from "../../redux/isPaymentModalOpenSlice";
@@ -32,7 +33,9 @@ export default function DesktopTable({
   const handlePayment = () => {
     dispatch(setPaymentModalOpen(true));
   };
-  const handleDeduction = () => {};
+  const handleDeduction = () => {
+    dispatch(setDeductionModal(true));
+  };
 
   const items: MenuProps["items"] = [
     {
@@ -183,7 +186,7 @@ export default function DesktopTable({
         // })}
         sticky
       />
-      <ActionModal studentData={currentRecordData} />
+      <ActionModal />
     </div>
   );
 }

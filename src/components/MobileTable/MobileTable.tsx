@@ -81,7 +81,8 @@ export default function MobileTable({
               )}
             </span>
           </li>
-          <li>
+          <li className="flex justify-between items-center">
+            <span>Amallar:</span>
             <Dropdown
               menu={{ items }}
               trigger={["click"]}
