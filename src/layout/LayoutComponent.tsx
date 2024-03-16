@@ -43,12 +43,15 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
         <Header
           style={
             isDark
-              ? { background: "var(--dark-background-800)" }
+              ? {
+                  background: "var(--dark-background-800)",
+                  padding: 0,
+                }
               : {
                   padding: 0,
                 }
           }
-          className="bg-header-gradient md:mx-[1.5rem] dark:mx-0 flex items-center justify-between rounded-lg dark:rounded-none"
+          className="bg-header-gradient md:mx-[1.5rem] dark:p-0 py-2 dark:mx-0 flex items-center justify-between rounded-lg dark:rounded-none"
         >
           <Button
             type="text"

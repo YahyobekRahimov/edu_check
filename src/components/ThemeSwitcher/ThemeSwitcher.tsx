@@ -60,7 +60,7 @@ export default function ThemeSwitcher() {
         setTheme(value);
         localStorage.theme = value;
       }}
-      className="w-[6rem] dark:bg-[var(--dark-background-900)] mr-6"
+      className="w-[6rem] mr-6"
       dropdownStyle={
         isDark
           ? {
@@ -69,31 +69,18 @@ export default function ThemeSwitcher() {
             }
           : {}
       }
-      rootClassName="dark:bg-[rgb(2,6,23)]"
       options={[
         {
           value: "light",
-          label: (
-            <span className="dark:text-[rgba(255,255,255,0.8)]">
-              Light
-            </span>
-          ),
+          label: <span>Light</span>,
         },
         {
           value: "dark",
-          label: (
-            <span className="dark:text-[rgba(255,255,255,0.8)]">
-              Dark
-            </span>
-          ),
+          label: <span>Dark</span>,
         },
         {
           value: "system",
-          label: (
-            <span className="dark:text-[rgba(255,255,255,0.8)]">
-              System
-            </span>
-          ),
+          label: <span>System</span>,
         },
       ]}
     />

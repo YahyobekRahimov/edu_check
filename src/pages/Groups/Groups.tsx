@@ -110,7 +110,7 @@ export default function Groups() {
     <div className="bg-[var(--dark-backround)] w-full">
       <GroupsHeader />
       <Table
-        onRow={(record, rowIndex) => ({
+        onRow={(record, _) => ({
           onClick: () => console.log(record),
         })}
         className=" hidden md:block  w-full cursor-pointer"
