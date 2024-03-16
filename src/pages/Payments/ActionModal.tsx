@@ -1,28 +1,37 @@
 import { Form, InputNumber, Modal, message } from "antd";
 import { useState } from "react";
 import { RowType } from "./DesktopTable";
-import { setPaymentModalOpen } from "../../redux/isPaymentModalOpenSlice";
+import {
+  setDeductionModal,
+  setPaymentModalOpen,
+} from "../../redux/isPaymentModalOpenSlice";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../hooks/redux-hooks";
 
-export default function ActionModal({
-  studentData,
-}: {
-  studentData: RowType;
-}) {
+export default function ActionModal() {
   const [inputValue, setInputValue] = useState<number | string>(0);
   const dispatch = useAppDispatch();
   const isModalOpen = useAppSelector(
     (state) => state.isPaymentModalOpen.addPaymentModal.isOpen
+  );
+  const isDeductionModalOpen = useAppSelector(
+    (state) => state.isPaymentModalOpen.deductionModal.isOpen
+  );
+  const studentData = useAppSelector(
+    (state) => state.isPaymentModalOpen.paymentData
   );
   const handleOk = () => {
     handleSubmit(inputValue);
   };
 
   const handleCancel = () => {
-    dispatch(setPaymentModalOpen(false));
+    if (isModalOpen) {
+      dispatch(setPaymentModalOpen(false));
+    } else {
+      dispatch(setDeductionModal(false));
+    }
   };
 
   const handleInputChange = (value: number | string | null) => {
@@ -41,21 +50,39 @@ export default function ActionModal({
       content: (
         <p>
           <span className="font-semibold">{studentData.name}</span>
-          ning balansiga{" "}
-          <span className="font-semibold text-green-600">
-            +{amount.toLocaleString()}
+          ning balansidan{" "}
+          <span
+            className={`font-semibold  ${
+              isModalOpen ? "text-green-600" : "text-red-500"
+            }`}
+          >
+            {isModalOpen ? "+" : "-"}
+            {amount.toLocaleString()}
           </span>{" "}
-          so'mni o'tkazib berishga ishonchingiz komilmi?
+          so'mni olib tashlashga ishonchingiz komilmi?
         </p>
       ),
       onOk: () => {
-        dispatch(setPaymentModalOpen(false));
+        if (isModalOpen) {
+          dispatch(setPaymentModalOpen(false));
+          message.success(
+            `${
+              studentData.name
+            }ning balansiga ${amount.toLocaleString()} so'm tushdi`
+          );
+        } else if (isDeductionModalOpen) {
+          dispatch(setDeductionModal(false));
+          message.success(
+            <div>
+              {studentData.name}ning balansidan{" "}
+              <span className="text-red-500 font-semibold">
+                {amount.toLocaleString()} so'm
+              </span>{" "}
+              so'm olib tashlandi
+            </div>
+          );
+        }
         setInputValue(0);
-        message.success(
-          `${
-            studentData.name
-          }ning balansiga ${amount.toLocaleString()} so'm tushdi`
-        );
       },
       onCancel: () => {},
       okText: "Ha",
@@ -64,13 +91,26 @@ export default function ActionModal({
   }
   return (
     <Modal
-      title="To'lov qilish"
-      open={isModalOpen}
+      title={
+        isModalOpen ? (
+          "To'lov qilish"
+        ) : (
+          <span className="text-[var(--ant-color-error)]">
+            Hisobdan pul ayrish
+          </span>
+        )
+      }
+      open={isModalOpen || isDeductionModalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
-      okText="To'lov qilish"
+      okText={isModalOpen ? "To'lov qilish" : "Pul ayrish"}
       cancelText="Bekor qilish"
       destroyOnClose={true}
+      okButtonProps={{
+        className: `${
+          isModalOpen ? "" : "modal-button-danger-styles"
+        }`,
+      }}
     >
       <Form name="amount" onFinish={handleSubmit}>
         <Form.Item

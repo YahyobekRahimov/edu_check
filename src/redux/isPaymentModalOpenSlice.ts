@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: {
+  paymentData: any;
   addPaymentModal: {
-    data: any;
     isOpen: boolean;
   };
   deductionModal: {
-    data: any;
     isOpen: boolean;
   };
 } = {
-  addPaymentModal: { data: {}, isOpen: false },
-  deductionModal: { data: {}, isOpen: false },
+  paymentData: {},
+  addPaymentModal: { isOpen: false },
+  deductionModal: { isOpen: false },
 };
 
 const isPaymentModalOpenSlice = createSlice({
@@ -26,21 +26,16 @@ const isPaymentModalOpenSlice = createSlice({
     },
     // state to keep the user whose balance is being increased
     setPaymentModalData: (state, { payload }: { payload: any }) => {
-      state.addPaymentModal.data = payload;
+      state.paymentData = payload;
     },
     setDeductionModal: (state, { payload }: { payload: boolean }) => {
       state.deductionModal.isOpen = payload;
-    },
-    // state to keep the user whose balance is being deducted
-    setDeductionData: (state, { payload }: { payload: any }) => {
-      state.deductionModal.data = payload;
     },
   },
 });
 
 export const {
   setPaymentModalOpen,
-  setDeductionData,
   setDeductionModal,
   setPaymentModalData,
 } = isPaymentModalOpenSlice.actions;
