@@ -18,11 +18,15 @@ export default function Header() {
     dispatch(setSelectedNav("4"));
   };
   return (
-    <div className="flex items-center justify-between w-full mx-2 xs:mx-10 lg:mx-6 lg:w-max">
-      <div className="w-10 rounded-full overflow-hidden lg:hidden">
-        <img src="/src/assets/images/logo.jpg" alt="Logo" />
+    <div className="flex items-center justify-between  w-full mx-2 xs:mx-10 lg:mx-6 lg:w-max">
+      <div className="w-10 rounded-full overflow-hidden logo">
+        <img
+          className="logo  "
+          src="/src/assets/images/logo.jpg"
+          alt="Logo"
+        />
       </div>
-      <div className="flex items-center">
+      <div className=" w-full flex items-center justify-between">
         <ThemeSwitcher />
         <Popover content={content} placement="bottom">
           <div

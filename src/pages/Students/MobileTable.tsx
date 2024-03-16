@@ -34,7 +34,7 @@ export default function MobileTable({
           onClick={handlePayment}
           className="text-green-500 text-lg font-semibold"
         >
-         Tahrirlash
+          Tahrirlash
         </button>
       ),
     },
@@ -55,7 +55,7 @@ export default function MobileTable({
     },
   ];
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 md:hidden">
       {dataSource.map((element, index) => (
         <ul
           key={index}
