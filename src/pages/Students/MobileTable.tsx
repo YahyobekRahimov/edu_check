@@ -34,7 +34,7 @@ export default function MobileTable({
           onClick={handlePayment}
           className="text-green-500 text-lg font-semibold"
         >
-          To'lov qo'shish
+         Tahrirlash
         </button>
       ),
     },
@@ -49,7 +49,7 @@ export default function MobileTable({
           onClick={handleDeduction}
           className="text-lg font-semibold text-red-500"
         >
-          Pul ayrish
+          O'chirish
         </button>
       ),
     },
