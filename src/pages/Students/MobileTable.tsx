@@ -32,9 +32,20 @@ export default function MobileTable({
       label: (
         <button
           onClick={handlePayment}
-          className="text-green-500 text-lg font-semibold"
+          className=" text-lg font-semibold"
         >
          Tahrirlash
+        </button>
+      ),
+    },
+    {
+      key: 4,
+      label: (
+        <button
+          onClick={handleDeduction}
+          className="text-lg font-semibold "
+        >
+          SMS
         </button>
       ),
     },
@@ -47,12 +58,13 @@ export default function MobileTable({
       label: (
         <button
           onClick={handleDeduction}
-          className="text-lg font-semibold text-red-500"
+          className="text-lg text-red-500 font-semibold "
         >
           O'chirish
         </button>
       ),
     },
+ 
   ];
   return (
     <div className="flex flex-col gap-2">
