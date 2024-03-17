@@ -10,7 +10,6 @@ export default function SMSDrawer() {
   const open = useAppSelector(
     (state) => state.isPaymentModalOpen.SMSDrawer.isOpen
   );
-  console.log(open);
 
   const dispatch = useAppDispatch();
 
