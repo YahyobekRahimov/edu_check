@@ -13,7 +13,9 @@ const store = configureStore({
   },
 });
 
-store.subscribe(() => console.log(store.getState()));
+store.subscribe(() =>
+  console.log(store.getState().isPaymentModalOpen)
+);
 
 export type AppDispatch = typeof store.dispatch;
 

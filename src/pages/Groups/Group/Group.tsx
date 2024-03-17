@@ -1,5 +1,3 @@
-function Group() {
-  return <div className="">singlGroup</div>;
+export default function Group() {
+  return <>Hello</>;
 }
-
-export default Group;

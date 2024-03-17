@@ -107,7 +107,7 @@ export default function Groups() {
       actions: <Button type="primary">...</Button>,
     },
     {
-      key: 1,
+      key: 2,
       guruh: "01-a",
       kurslar: "inglis-tili",
       teacher: "Teshaboyev A",
