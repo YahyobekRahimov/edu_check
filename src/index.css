@@ -137,6 +137,12 @@
   --ant-button-default-hover-border-color: var(--dark-primary-color);
   --ant-button-default-active-color: var(--dark-primary-color);
   --ant-button-default-active-border-color: var(--dark-primary-color);
+  background: var(--dark-background-800);
+  color: var(--white-text);
+}
+
+.dark .ant-btn-default:hover {
+  background: var(--dark-background-800) !important;
 }
 
 .dark .ant-input-number-group-addon {
@@ -188,8 +194,13 @@
 .dark .ant-drawer-content {
   --ant-color-bg-elevated: var(--dark-background-700);
   --ant-color-icon: var(--white-text);
+  --ant-color-icon-hover: white;
 }
 
 .dark .ant-form-item-label {
   --ant-form-label-color: var(--white-text);
+}
+
+.dark .ant-modal-confirm-content {
+  color: var(--white-text);
 }

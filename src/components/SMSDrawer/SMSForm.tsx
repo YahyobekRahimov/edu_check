@@ -1,4 +1,4 @@
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, App } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import { useRef } from "react";
 import {
@@ -13,9 +13,13 @@ const SMSForm = () => {
   const [form] = useForm();
   const dispatch = useAppDispatch();
   const textAreaRef = useRef(null);
+  const { message, modal } = App.useApp();
 
   const isDrawerOpen = useAppSelector(
     (state) => state.isPaymentModalOpen.SMSDrawer.isOpen
+  );
+  const receiverData = useAppSelector(
+    (state) => state.isPaymentModalOpen.paymentData
   );
 
   if (isDrawerOpen && textAreaRef.current) {
@@ -29,31 +33,60 @@ const SMSForm = () => {
     // Handle form submission here, such as sending the SMS message
     console.log("SMS content:", values.message);
     // Reset form fields after submission
+    modal.confirm({
+      content: (
+        <div>
+          Shu SMSni {receiverData.name}ga jo'natishga ishonchingiz
+          komilmi?
+        </div>
+      ),
+      okText: "Ha",
+      cancelText: "Yo'q",
+      onOk: () => {
+        message.success(
+          `${receiverData.name}ga xabaringiz yuborildi`
+        );
+      },
+      onCancel: () => {},
+    });
+
     dispatch(setSMSDrawer(false));
     form.resetFields();
   };
 
   return (
-    <Form form={form} layout="vertical" onFinish={onFinish}>
-      <Form.Item
-        name="message"
-        label="SMS Xabarni kiriting"
-        rules={[
-          { required: true, message: "Iltimos, xabarni kiriting" },
-        ]}
-      >
-        <TextArea
-          ref={textAreaRef}
-          rows={4}
-          placeholder="SMS xabar..."
-        />
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Yuborish
-        </Button>
-      </Form.Item>
-    </Form>
+    <div className="dark:text-[rgba(255,255,255,0.85)]">
+      <div className="flex gap-3 items-center text-sm my-2">
+        <span className="font-semibold">
+          Qabul qiluvchining ismi:
+        </span>
+        <span>{receiverData.name}</span>
+      </div>
+      <div className="flex gap-3 items-center text-sm mb-10">
+        <span className="font-semibold">Telefon raqami:</span>
+        <span>{receiverData.phoneNumber}</span>
+      </div>
+      <Form form={form} layout="vertical" onFinish={onFinish}>
+        <Form.Item
+          name="message"
+          label="SMS Xabarni kiriting"
+          rules={[
+            { required: true, message: "Iltimos, xabarni kiriting" },
+          ]}
+        >
+          <TextArea
+            ref={textAreaRef}
+            rows={4}
+            placeholder="SMS xabar..."
+          />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            Yuborish
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 
