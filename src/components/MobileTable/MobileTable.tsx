@@ -2,6 +2,7 @@ import { Button, Dropdown } from "antd";
 import { MenuProps } from "antd/lib";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import {
+  setDeductionModal,
   setPaymentModalData,
   setPaymentModalOpen,
 } from "../../redux/isPaymentModalOpenSlice";
@@ -15,18 +16,40 @@ export default function MobileTable({
   const handlePayment = () => {
     dispatch(setPaymentModalOpen(true));
   };
-  const handleDeduction = () => {};
+  const handleDeduction = () => {
+    dispatch(setDeductionModal(true));
+  };
   const items: MenuProps["items"] = [
     {
       key: 1,
       label: (
         <button
-          onClick={handlePayment}
-          className="text-green-500 text-lg font-semibold"
+          onClick={(e) => {
+            e.stopPropagation();
+            handlePayment();
+          }}
+          className="text-green-500 font-semibold w-full text-start py-[5px] px-3"
         >
           To'lov qo'shish
         </button>
       ),
+      style: {
+        padding: 0,
+      },
+    },
+    {
+      key: 4,
+      label: (
+        <button
+          onClick={(e) => e.stopPropagation()}
+          className="py-[5px] px-3"
+        >
+          SMS
+        </button>
+      ),
+      style: {
+        padding: 0,
+      },
     },
     {
       key: 3,
@@ -36,12 +59,18 @@ export default function MobileTable({
       key: 2,
       label: (
         <button
-          onClick={handleDeduction}
-          className="text-lg font-semibold text-red-500"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDeduction();
+          }}
+          className="font-semibold text-red-500 w-full text-start py-[5px] px-3"
         >
           Pul ayrish
         </button>
       ),
+      style: {
+        padding: 0,
+      },
     },
   ];
   return (

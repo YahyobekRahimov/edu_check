@@ -8,7 +8,9 @@ import {
   setDeductionModal,
   setPaymentModalData,
   setPaymentModalOpen,
+  setSMSDrawer,
 } from "../../redux/isPaymentModalOpenSlice";
+import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
 
 export type RowType = {
   key: string;
@@ -42,12 +44,35 @@ export default function DesktopTable({
       key: 1,
       label: (
         <button
-          onClick={handlePayment}
-          className="text-green-500 text-lg font-semibold"
+          onClick={(e) => {
+            e.stopPropagation();
+            handlePayment();
+          }}
+          className="text-green-500 font-semibold w-full text-start py-[5px] px-3"
         >
           To'lov qo'shish
         </button>
       ),
+      style: {
+        padding: 0,
+      },
+    },
+    {
+      key: 4,
+      label: (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(setSMSDrawer(true));
+          }}
+          className="py-[5px] px-3 font-semibold w-full text-start"
+        >
+          SMS
+        </button>
+      ),
+      style: {
+        padding: 0,
+      },
     },
     {
       key: 3,
@@ -57,12 +82,18 @@ export default function DesktopTable({
       key: 2,
       label: (
         <button
-          onClick={handleDeduction}
-          className="text-lg font-semibold text-red-500"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDeduction();
+          }}
+          className="font-semibold text-red-500 w-full text-start py-[5px] px-3"
         >
           Pul ayrish
         </button>
       ),
+      style: {
+        padding: 0,
+      },
     },
   ];
 
@@ -162,7 +193,10 @@ export default function DesktopTable({
             placement="bottomLeft"
           >
             <Button
-              onClick={() => dispatch(setPaymentModalData(record))}
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(setPaymentModalData(record));
+              }}
               type="primary"
             >
               ...
@@ -179,14 +213,17 @@ export default function DesktopTable({
         dataSource={dataSource}
         columns={columns}
         pagination={false}
-        // onRow={(record, rowIndex) => ({
-        //   onClick: () => {
-        //     console.log("first");
-        //   },
-        // })}
+        // @ts-ignore
+        onRow={(record, rowIndex) => ({
+          onClick: () => {
+            console.log("row click");
+          },
+        })}
+        className="cursor-pointer"
         sticky
       />
       <ActionModal />
+      <SMSDrawer />
     </div>
   );
 }
