@@ -8,10 +8,12 @@ const initialState: {
   deductionModal: {
     isOpen: boolean;
   };
+  SMSDrawer: { isOpen: boolean };
 } = {
   paymentData: {},
   addPaymentModal: { isOpen: false },
   deductionModal: { isOpen: false },
+  SMSDrawer: { isOpen: false },
 };
 
 const isPaymentModalOpenSlice = createSlice({
@@ -31,6 +33,9 @@ const isPaymentModalOpenSlice = createSlice({
     setDeductionModal: (state, { payload }: { payload: boolean }) => {
       state.deductionModal.isOpen = payload;
     },
+    setSMSDrawer: (state, { payload }: { payload: boolean }) => {
+      state.SMSDrawer.isOpen = payload;
+    },
   },
 });
 
@@ -38,6 +43,7 @@ export const {
   setPaymentModalOpen,
   setDeductionModal,
   setPaymentModalData,
+  setSMSDrawer,
 } = isPaymentModalOpenSlice.actions;
 
 export default isPaymentModalOpenSlice.reducer;

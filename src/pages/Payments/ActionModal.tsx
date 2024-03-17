@@ -1,5 +1,5 @@
 import { Form, InputNumber, Modal } from "antd";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   setDeductionModal,
   setPaymentModalOpen,
@@ -13,6 +13,7 @@ import { App } from "antd";
 export default function ActionModalComponent() {
   const [inputValue, setInputValue] = useState<number | string>(0);
   const dispatch = useAppDispatch();
+  const numberInputRef = useRef(null);
   const { message, modal } = App.useApp();
   const isModalOpen = useAppSelector(
     (state) => state.isPaymentModalOpen.addPaymentModal.isOpen
@@ -49,7 +50,7 @@ export default function ActionModalComponent() {
 
     modal.confirm({
       content: (
-        <p className="text-[rgba(255,255,255,0.85)]">
+        <p className="dark:text-[rgba(255,255,255,0.85)]">
           <span className="font-semibold">{studentData.name}</span>
           ning balansidan{" "}
           <span
@@ -102,6 +103,12 @@ export default function ActionModalComponent() {
         )
       }
       open={isModalOpen || isDeductionModalOpen}
+      afterOpenChange={() => {
+        if (numberInputRef?.current) {
+          // @ts-ignore
+          numberInputRef.current.focus();
+        }
+      }}
       onOk={handleOk}
       onCancel={handleCancel}
       okText={isModalOpen ? "To'lov qilish" : "Pul ayrish"}
@@ -123,6 +130,7 @@ export default function ActionModalComponent() {
           className="dark:text-white"
         >
           <InputNumber
+            ref={numberInputRef}
             addonAfter="so'm"
             controls={false}
             size="large"
