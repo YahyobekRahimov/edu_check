@@ -16,18 +16,15 @@ const initialState: {
   SMSDrawer: { isOpen: false },
 };
 
-const isPaymentModalOpenSlice = createSlice({
-  name: "Payment Modal Open Slice",
+const ModalSlice = createSlice({
+  name: "Modal Slice",
   initialState,
   reducers: {
-    setPaymentModalOpen: (
-      state,
-      { payload }: { payload: boolean }
-    ) => {
+    setModalOpen: (state, { payload }: { payload: boolean }) => {
       state.addPaymentModal.isOpen = payload;
     },
     // state to keep the user whose balance is being increased
-    setPaymentModalData: (state, { payload }: { payload: any }) => {
+    setModalData: (state, { payload }: { payload: any }) => {
       state.paymentData = payload;
     },
     setDeductionModal: (state, { payload }: { payload: boolean }) => {
@@ -40,10 +37,10 @@ const isPaymentModalOpenSlice = createSlice({
 });
 
 export const {
-  setPaymentModalOpen,
+  setModalData,
   setDeductionModal,
-  setPaymentModalData,
+  setModalOpen,
   setSMSDrawer,
-} = isPaymentModalOpenSlice.actions;
+} = ModalSlice.actions;
 
-export default isPaymentModalOpenSlice.reducer;
+export default ModalSlice.reducer;

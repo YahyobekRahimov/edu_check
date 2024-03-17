@@ -5,7 +5,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../hooks/redux-hooks";
-import { setSMSDrawer } from "../../redux/isPaymentModalOpenSlice";
+import { setSMSDrawer } from "../../redux/ModalSlice";
 
 const { TextArea } = Input;
 
@@ -16,10 +16,10 @@ const SMSForm = () => {
   const { message, modal } = App.useApp();
 
   const isDrawerOpen = useAppSelector(
-    (state) => state.isPaymentModalOpen.SMSDrawer.isOpen
+    (state) => state.ModalSlice.SMSDrawer.isOpen
   );
   const receiverData = useAppSelector(
-    (state) => state.isPaymentModalOpen.paymentData
+    (state) => state.ModalSlice.paymentData
   );
 
   if (isDrawerOpen && textAreaRef.current) {

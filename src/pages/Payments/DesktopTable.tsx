@@ -6,10 +6,10 @@ import ActionModal from "./ActionModal";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import {
   setDeductionModal,
-  setPaymentModalData,
-  setPaymentModalOpen,
+  setModalData,
+  setModalOpen,
   setSMSDrawer,
-} from "../../redux/isPaymentModalOpenSlice";
+} from "../../redux/ModalSlice";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
 
 export type RowType = {
@@ -33,7 +33,7 @@ export default function DesktopTable({
   const dispatch = useAppDispatch();
 
   const handlePayment = () => {
-    dispatch(setPaymentModalOpen(true));
+    dispatch(setModalOpen(true));
   };
   const handleDeduction = () => {
     dispatch(setDeductionModal(true));
@@ -195,7 +195,7 @@ export default function DesktopTable({
             <Button
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(setPaymentModalData(record));
+                dispatch(setModalData(record));
               }}
               type="primary"
             >

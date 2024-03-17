@@ -2,8 +2,8 @@ import { Form, InputNumber, Modal } from "antd";
 import { useRef, useState } from "react";
 import {
   setDeductionModal,
-  setPaymentModalOpen,
-} from "../../redux/isPaymentModalOpenSlice";
+  setModalOpen,
+} from "../../redux/ModalSlice";
 import {
   useAppDispatch,
   useAppSelector,
@@ -16,13 +16,13 @@ export default function ActionModalComponent() {
   const numberInputRef = useRef(null);
   const { message, modal } = App.useApp();
   const isModalOpen = useAppSelector(
-    (state) => state.isPaymentModalOpen.addPaymentModal.isOpen
+    (state) => state.ModalSlice.addPaymentModal.isOpen
   );
   const isDeductionModalOpen = useAppSelector(
-    (state) => state.isPaymentModalOpen.deductionModal.isOpen
+    (state) => state.ModalSlice.deductionModal.isOpen
   );
   const studentData = useAppSelector(
-    (state) => state.isPaymentModalOpen.paymentData
+    (state) => state.ModalSlice.paymentData
   );
   const handleOk = () => {
     handleSubmit(inputValue);
@@ -30,7 +30,7 @@ export default function ActionModalComponent() {
 
   const handleCancel = () => {
     if (isModalOpen) {
-      dispatch(setPaymentModalOpen(false));
+      dispatch(setModalOpen(false));
     } else {
       dispatch(setDeductionModal(false));
     }
@@ -66,7 +66,7 @@ export default function ActionModalComponent() {
       ),
       onOk: () => {
         if (isModalOpen) {
-          dispatch(setPaymentModalOpen(false));
+          dispatch(setModalOpen(false));
           message.success(
             `${
               studentData.name

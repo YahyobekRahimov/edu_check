@@ -158,6 +158,7 @@ export default function Students() {
       title: "#",
       dataIndex: "index",
       key: "index",
+      width: 50,
       // @ts-ignore
       render(value: any, _: any, index: number) {
         return index + 1;
@@ -178,21 +179,30 @@ export default function Students() {
       title: "Telefon raqam",
       dataIndex: "phoneNumber",
       key: "phoneNumber",
+      sorter: (a: RowType, b: RowType) =>
+        a.phoneNumber.localeCompare(b.phoneNumber),
     },
     {
       title: "Guruh",
       dataIndex: "group",
       key: "group",
+      sorter: (a: RowType, b: RowType) =>
+        a.group.localeCompare(b.group),
     },
     {
       title: "O'qituvchi",
       dataIndex: "teacher",
       key: "teacher",
+      sorter: (a: RowType, b: RowType) =>
+        a.teacher.localeCompare(b.teacher),
     },
     {
       title: "Mashg'ulot sana",
       dataIndex: "date",
       key: "date",
+      sorter: (a: RowType, b: RowType) =>
+        a.date.localeCompare(b.date),
+      sortDirections: ["ascend", "descend"],
     },
     {
       title: "Holat",
