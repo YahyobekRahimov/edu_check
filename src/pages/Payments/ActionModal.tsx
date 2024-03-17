@@ -1,4 +1,4 @@
-import { Form, InputNumber, Modal, message } from "antd";
+import { Form, InputNumber, Modal } from "antd";
 import { useState } from "react";
 import {
   setDeductionModal,
@@ -8,10 +8,12 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../hooks/redux-hooks";
+import { App } from "antd";
 
-export default function ActionModal() {
+export default function ActionModalComponent() {
   const [inputValue, setInputValue] = useState<number | string>(0);
   const dispatch = useAppDispatch();
+  const { message, modal } = App.useApp();
   const isModalOpen = useAppSelector(
     (state) => state.isPaymentModalOpen.addPaymentModal.isOpen
   );
@@ -45,9 +47,9 @@ export default function ActionModal() {
       amount = values;
     }
 
-    Modal.confirm({
+    modal.confirm({
       content: (
-        <p>
+        <p className="text-[rgba(255,255,255,0.85)]">
           <span className="font-semibold">{studentData.name}</span>
           ning balansidan{" "}
           <span

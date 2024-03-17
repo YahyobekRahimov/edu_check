@@ -3,7 +3,7 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
-import { Layout, Button, theme } from "antd";
+import { Layout, Button, theme, App as AntApp } from "antd";
 import HeaderComponent from "../components/Header/Header";
 import { useAppSelector } from "../hooks/redux-hooks";
 import BottomNavigation from "./BottomNavigation/BottomNavigation";
@@ -90,7 +90,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
             }}
             className="h-full bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen pb-20"
           >
-            {children}
+            <AntApp>{children}</AntApp>
           </div>
         </Content>
       </Layout>

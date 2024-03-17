@@ -30,12 +30,14 @@ function App() {
           <Groups />
         </LayoutComponent>
       ),
-      children: [
-        {
-          path: "singleGroup",
-          element: <Group />,
-        },
-      ],
+    },
+    {
+      path: "/groups/:id",
+      element: (
+        <LayoutComponent>
+          <Group />
+        </LayoutComponent>
+      ),
     },
 
     {
@@ -67,10 +69,7 @@ function App() {
       element: <StudentProfile />,
     },
   ]);
-  return (
-    // @ts-ignore
-    <RouterProvider router={router}></RouterProvider>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

@@ -227,10 +227,11 @@ export default function Students() {
     },
     {
       label: <button>SMS</button>,
-      key: "1",
+      key: "4",
     },
     {
       type: "divider",
+      key: "2",
     },
     {
       label: <button>O'chirish</button>,
