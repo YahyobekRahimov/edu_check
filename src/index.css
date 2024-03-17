@@ -175,3 +175,6 @@
 .dark .modal-button-danger-styles:hover {
   background: rgba(255, 77, 79, 0.85) !important;
 }
+.ant-switch{
+  background: rgba(0, 0, 0, 0.25);
+}
