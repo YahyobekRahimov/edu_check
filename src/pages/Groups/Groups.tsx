@@ -3,24 +3,26 @@ import GroupsHeader from "./components/GroupsHeader";
 import { DataGroups } from "../../types/types";
 
 import MobileTableGroups from "./components/MobileTableGroups";
-import {
-  NavigateFunction,
-  Outlet,
-  useNavigate,
-} from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 export default function Groups() {
   const navigate: NavigateFunction = useNavigate();
   function handleChangePage(record: DataGroups) {
     console.log(record);
-
     navigate("singleGroup");
   }
+
   const items: MenuProps["items"] = [
     {
       key: 1,
       label: (
-        <button className="font-semibold tracking-wide text-base">
+        <button
+          onClick={(e) => {
+            console.log(e);
+            e.stopPropagation();
+          }}
+          className="font-semibold w-full text-start  tracking-wide text-base"
+        >
           Tahrirlash
         </button>
       ),
@@ -28,7 +30,12 @@ export default function Groups() {
     {
       key: 4,
       label: (
-        <button className="font-semibold tracking-wide text-base">
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          className="font-semibold w-full text-start tracking-wide text-base"
+        >
           SMS
         </button>
       ),
@@ -40,7 +47,13 @@ export default function Groups() {
     {
       key: 2,
       label: (
-        <button className="font-semibold tracking-wide text-base">
+        <button
+          onClick={(e) => {
+            console.log(e);
+            e.stopPropagation();
+          }}
+          className="font-semibold w-full text-start  tracking-wide text-base"
+        >
           O'chirish
         </button>
       ),
@@ -83,13 +96,22 @@ export default function Groups() {
       title: "Amallar",
       dataIndex: "actions",
       key: "actions",
-      render: () => (
+      render: (_, text) => (
         <Dropdown
           trigger={["click"]}
           menu={{ items }}
           placement="bottomLeft"
         >
-          <Button type="primary">...</Button>
+          <Button
+            onClick={(e) => {
+              console.log(text);
+
+              e.stopPropagation();
+            }}
+            type="primary"
+          >
+            ...
+          </Button>
         </Dropdown>
       ),
     },
@@ -119,7 +141,6 @@ export default function Groups() {
   ];
   return (
     <>
-      <Outlet />
       <div className="bg-[var(--dark-backround)] w-full">
         <GroupsHeader />
         <Table
@@ -129,7 +150,7 @@ export default function Groups() {
           className=" hidden md:block  w-full cursor-pointer"
           columns={columns}
           dataSource={data}
-          pagination={{ pageSize: 7 }}
+          pagination={false}
         />
         <MobileTableGroups dataSource={data} />
       </div>
