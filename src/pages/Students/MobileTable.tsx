@@ -1,10 +1,7 @@
 import { Button, Dropdown } from "antd";
 import { MenuProps } from "antd/lib";
 import { useAppDispatch } from "../../hooks/redux-hooks";
-import {
-  setPaymentModalData,
-  setPaymentModalOpen,
-} from "../../redux/isPaymentModalOpenSlice";
+import { setModalData, setModalOpen } from "../../redux/ModalSlice";
 
 type RowType = {
   key: string;
@@ -23,7 +20,7 @@ export default function MobileTable({
 }) {
   const dispatch = useAppDispatch();
   const handlePayment = () => {
-    dispatch(setPaymentModalOpen(true));
+    dispatch(setModalOpen(true));
   };
   const handleDeduction = () => {};
   const items: MenuProps["items"] = [
@@ -32,7 +29,7 @@ export default function MobileTable({
       label: (
         <button
           onClick={handlePayment}
-          className=" text-lg font-semibold"
+          className="text-lg font-semibold"
         >
           Tahrirlash
         </button>
@@ -64,7 +61,6 @@ export default function MobileTable({
         </button>
       ),
     },
- 
   ];
   return (
     <div className="flex flex-col gap-2 md:hidden">
@@ -106,7 +102,7 @@ export default function MobileTable({
               placement="bottomLeft"
             >
               <Button
-                onClick={() => dispatch(setPaymentModalData(element))}
+                onClick={() => dispatch(setModalData(element))}
                 type="primary"
               >
                 ...

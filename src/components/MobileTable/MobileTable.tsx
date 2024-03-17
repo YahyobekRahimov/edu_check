@@ -3,9 +3,10 @@ import { MenuProps } from "antd/lib";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import {
   setDeductionModal,
-  setPaymentModalData,
-  setPaymentModalOpen,
-} from "../../redux/isPaymentModalOpenSlice";
+  setModalData,
+  setModalOpen,
+  setSMSDrawer,
+} from "../../redux/ModalSlice";
 
 export default function MobileTable({
   dataSource,
@@ -14,7 +15,7 @@ export default function MobileTable({
 }) {
   const dispatch = useAppDispatch();
   const handlePayment = () => {
-    dispatch(setPaymentModalOpen(true));
+    dispatch(setModalOpen(true));
   };
   const handleDeduction = () => {
     dispatch(setDeductionModal(true));
@@ -41,8 +42,11 @@ export default function MobileTable({
       key: 4,
       label: (
         <button
-          onClick={(e) => e.stopPropagation()}
-          className="py-[5px] px-3"
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(setSMSDrawer(true));
+          }}
+          className="py-[5px] px-3 font-semibold w-full text-start"
         >
           SMS
         </button>
@@ -118,7 +122,7 @@ export default function MobileTable({
               placement="bottomLeft"
             >
               <Button
-                onClick={() => dispatch(setPaymentModalData(element))}
+                onClick={() => dispatch(setModalData(element))}
                 type="primary"
               >
                 ...

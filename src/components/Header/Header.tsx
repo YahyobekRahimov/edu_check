@@ -35,7 +35,7 @@ export default function Header() {
           >
             <Avatar
               icon={<UserOutlined />}
-              src="https://picsum.photos/200/300"
+              // src="https://picsum.photos/200/300"
             />
             <p className="hidden sm:block">John Doe</p>
           </div>
