@@ -48,7 +48,7 @@ export default function DesktopTable({
             e.stopPropagation();
             handlePayment();
           }}
-          className="text-green-500 font-semibold w-full text-start py-[5px] px-3"
+          className="tracking-wider text-green-500 font-semibold w-full text-start py-[5px] px-3"
         >
           To'lov qo'shish
         </button>
@@ -65,7 +65,7 @@ export default function DesktopTable({
             e.stopPropagation();
             dispatch(setSMSDrawer(true));
           }}
-          className="py-[5px] px-3 font-semibold w-full text-start"
+          className="tracking-wider py-[5px] px-3 font-semibold w-full text-start"
         >
           SMS
         </button>
@@ -86,7 +86,7 @@ export default function DesktopTable({
             e.stopPropagation();
             handleDeduction();
           }}
-          className="font-semibold text-red-500 w-full text-start py-[5px] px-3"
+          className="tracking-wider font-semibold text-red-500 w-full text-start py-[5px] px-3"
         >
           Pul ayrish
         </button>

@@ -186,6 +186,21 @@
   background: rgba(0, 0, 0, 0.25);
 }
 
+.dark .ant-switch {
+  background: rgba(255, 255, 255, 0.3);
+}
+.dark .ant-switch:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.dark .ant-switch-checked {
+  background: var(--dark-primary-color);
+}
+
+.dark .ant-switch-checked:hover {
+  background: rgb(63, 69, 247) !important;
+}
+
 .dark .ant-modal-content {
   background: var(--dark-background-800);
 }

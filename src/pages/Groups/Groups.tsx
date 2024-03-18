@@ -18,14 +18,16 @@ export default function Groups() {
       label: (
         <button
           onClick={(e) => {
-            console.log(e);
             e.stopPropagation();
           }}
-          className="font-semibold w-full text-start  tracking-wide text-base"
+          className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
           Tahrirlash
         </button>
       ),
+      style: {
+        padding: 0,
+      },
     },
     {
       key: 4,
@@ -34,11 +36,12 @@ export default function Groups() {
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className="font-semibold w-full text-start tracking-wide text-base"
+          className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
           SMS
         </button>
       ),
+      style: { padding: 0 },
     },
     {
       key: 3,
@@ -49,15 +52,17 @@ export default function Groups() {
       label: (
         <button
           onClick={(e) => {
-            console.log(e);
             e.stopPropagation();
           }}
-          className="font-semibold w-full text-start  tracking-wide text-base"
+          className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
           O'chirish
         </button>
       ),
       danger: true,
+      style: {
+        padding: 0,
+      },
     },
   ];
 
@@ -104,8 +109,6 @@ export default function Groups() {
         >
           <Button
             onClick={(e) => {
-              console.log(text);
-
               e.stopPropagation();
             }}
             type="primary"
