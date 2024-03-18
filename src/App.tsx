@@ -66,7 +66,11 @@ function App() {
     },
     {
       path: "/students/:id",
-      element: <StudentProfile />,
+      element: (
+        <LayoutComponent>
+          <StudentProfile />
+        </LayoutComponent>
+      ),
     },
   ]);
   return <RouterProvider router={router}></RouterProvider>;

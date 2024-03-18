@@ -3,6 +3,7 @@ import isDarkSlice from "./isDarkSlice";
 import isModalOpen from "./isModalOpen";
 import selectedNavSlice from "./selectedNavSlice";
 import ModalSlice from "./ModalSlice";
+import currentStudentSlice from "./currentStudentSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     isModalOpen: isModalOpen,
     selectedNav: selectedNavSlice,
     ModalSlice: ModalSlice,
+    currentStudent: currentStudentSlice,
   },
 });
 
