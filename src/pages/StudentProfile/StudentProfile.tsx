@@ -2,16 +2,8 @@ import { Tabs, TabsProps } from "antd";
 import { useAppSelector } from "../../hooks/redux-hooks";
 
 export default function StudentProfile() {
-  const {
-    id,
-    name,
-    balance,
-    phoneNumber,
-    teacher,
-    birthDate,
-    group,
-    status,
-  } = useAppSelector((state) => state.currentStudent);
+  const { name, phoneNumber, teacher, birthDate, group, status } =
+    useAppSelector((state) => state.currentStudent);
   const items: TabsProps["items"] = [
     {
       key: "1",
