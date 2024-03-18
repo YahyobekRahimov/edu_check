@@ -101,7 +101,7 @@ export default function Groups() {
       title: "Amallar",
       dataIndex: "actions",
       key: "actions",
-      render: (_, text) => (
+      render: () => (
         <Dropdown
           trigger={["click"]}
           menu={{ items }}
