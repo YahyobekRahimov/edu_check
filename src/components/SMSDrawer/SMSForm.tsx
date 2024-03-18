@@ -19,7 +19,7 @@ const SMSForm = () => {
     (state) => state.ModalSlice.SMSDrawer.isOpen
   );
   const receiverData = useAppSelector(
-    (state) => state.ModalSlice.paymentData
+    (state) => state.ModalSlice.userData
   );
 
   if (isDrawerOpen && textAreaRef.current) {

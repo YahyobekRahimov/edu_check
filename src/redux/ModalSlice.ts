@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: {
-  paymentData: any;
+  userData: any;
   addPaymentModal: {
     isOpen: boolean;
   };
@@ -10,7 +10,7 @@ const initialState: {
   };
   SMSDrawer: { isOpen: boolean };
 } = {
-  paymentData: {},
+  userData: {},
   addPaymentModal: { isOpen: false },
   deductionModal: { isOpen: false },
   SMSDrawer: { isOpen: false },
@@ -25,7 +25,7 @@ const ModalSlice = createSlice({
     },
     // state to keep the user whose balance is being increased
     setModalData: (state, { payload }: { payload: any }) => {
-      state.paymentData = payload;
+      state.userData = payload;
     },
     setDeductionModal: (state, { payload }: { payload: boolean }) => {
       state.deductionModal.isOpen = payload;

@@ -22,13 +22,13 @@ export default function SideBar({
 
   const handleMenuItemClick: (route: string) => void = (route) => {
     let selected = "";
-    if (route === "/groups") {
+    if (route.startsWith("/groups")) {
       selected = "1";
-    } else if (route === "/students") {
+    } else if (route.startsWith("/students")) {
       selected = "2";
-    } else if (route === "/payments") {
+    } else if (route.startsWith("/payments")) {
       selected = "3";
-    } else if (route === "/settings") {
+    } else if (route.startsWith("/settings")) {
       selected = "4";
     }
     dispatch(setSelectedNav(selected));

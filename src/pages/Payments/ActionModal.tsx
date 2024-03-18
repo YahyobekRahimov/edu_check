@@ -22,7 +22,7 @@ export default function ActionModalComponent() {
     (state) => state.ModalSlice.deductionModal.isOpen
   );
   const studentData = useAppSelector(
-    (state) => state.ModalSlice.paymentData
+    (state) => state.ModalSlice.userData
   );
   const handleOk = () => {
     handleSubmit(inputValue);
