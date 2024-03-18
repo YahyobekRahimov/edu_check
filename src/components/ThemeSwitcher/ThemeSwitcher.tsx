@@ -25,6 +25,8 @@ export default function ThemeSwitcher() {
         setTheme("light");
         localStorage.setItem("theme", "light");
       }
+    } else {
+      setTheme("system");
     }
   }, []);
 
