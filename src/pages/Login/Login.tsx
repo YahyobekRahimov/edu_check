@@ -1,11 +1,23 @@
 import { Form, Input, Button, message } from "antd";
 import ThemeSwitcher from "../../components/ThemeSwitcher/ThemeSwitcher";
+import axios from "axios";
 
 export default function Login() {
-  const onFinish = (values: string) => {
-    console.log("Received values:", values);
+  const onFinish = async (values: string) => {
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/login/token/",
+        {
+          email: "ryahyobek570@gmail.com",
+          password: "Password",
+        }
+      );
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
     message.success("You are logged in");
-    // Here you can handle login logic, such as API calls, authentication, etc.
   };
 
   return (
