@@ -1,13 +1,16 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
-    if (location.pathname === "/") {
-      navigate("/groups");
-    }
+    // const jwt = getCookie("access_token");
+    navigate("/groups");
+    // if (jwt) {
+    //   navigate("/groups");
+    // } else {
+    //   navigate("/login");
+    // }
   }, []);
   return <div></div>;
 }

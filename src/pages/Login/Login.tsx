@@ -1,23 +1,35 @@
 import { Form, Input, Button, message } from "antd";
 import ThemeSwitcher from "../../components/ThemeSwitcher/ThemeSwitcher";
 import axios from "axios";
+import { setCookie } from "../../utils/cookies";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
   const onFinish = async (values: string) => {
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/login/token/",
-        {
-          email: "ryahyobek570@gmail.com",
-          password: "Password",
-        }
-      );
+    setError("");
+    setLoading(true);
 
-      console.log(response);
+    try {
+      const baseURL = import.meta.env.VITE_API_BASE_URL;
+      const response = await axios.post(
+        `${baseURL}/api/login/token/`,
+        values
+      );
+      setCookie("access_token", response.data.access_token, 10);
+      setCookie("refresh_token", response.data.refresh_token, 10);
+      setLoading(false);
+      message.success("You are logged in");
+      navigate("/");
     } catch (error) {
       console.log(error);
+      setLoading(false);
+      // @ts-ignore
+      setError(error.response.data.error);
     }
-    message.success("You are logged in");
   };
 
   return (
@@ -40,16 +52,21 @@ export default function Login() {
           </h2>
           <Form.Item
             className="dark:text-[var(--white-text)]"
-            label="Username"
-            name="username"
+            label="Email"
+            name="email"
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: "Iltimos, elektron pochta kiriting!",
+              },
+              {
+                type: "email",
+                message: "Iltimos, haqiqiy elektron pochta kiriting!",
               },
             ]}
+            validateStatus={error ? "error" : "success"}
           >
-            <Input />
+            <Input autoFocus={true} />
           </Form.Item>
 
           <Form.Item
@@ -59,15 +76,23 @@ export default function Login() {
             rules={[
               {
                 required: true,
-                message: "Please input your password!",
+                message: "Please, input your password!",
               },
             ]}
+            validateStatus={error ? "error" : "success"}
           >
             <Input.Password />
           </Form.Item>
 
+          <div className="text-red-500">{error}</div>
+
           <Form.Item className="dark:text-[var(--white-text)]">
-            <Button type="primary" htmlType="submit" block>
+            <Button
+              loading={loading}
+              type="primary"
+              htmlType="submit"
+              block
+            >
               Log in
             </Button>
           </Form.Item>
