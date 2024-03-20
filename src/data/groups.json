@@ -1,1 +1,110 @@
-{}
+[
+  {
+    "id": 1,
+    "name": "Introduction to Web Development",
+    "course": "Web Development",
+    "opened": "2023-10-24",
+    "days": ["Tuesday", "Thursday"],
+    "time": "18:00 - 20:00",
+    "students": 12
+  },
+  {
+    "id": 2,
+    "name": "Advanced Python Programming",
+    "course": "Python Programming",
+    "opened": "2024-02-05",
+    "days": ["Monday", "Wednesday"],
+    "time": "19:00 - 21:00",
+    "students": 8
+  },
+  {
+    "id": 3,
+    "name": "English Conversation for Beginners",
+    "course": "English Language",
+    "opened": "2024-01-10",
+    "days": ["Monday", "Wednesday", "Friday"],
+    "time": "10:00 - 11:30",
+    "students": 15
+  },
+  {
+    "id": 4,
+    "name": "Data Analysis with Excel",
+    "course": "Data Analysis",
+    "opened": "2023-12-01",
+    "days": ["Tuesday", "Thursday"],
+    "time": "16:00 - 18:00",
+    "students": 10
+  },
+  {
+    "id": 5,
+    "name": "Public Speaking Fundamentals",
+    "course": "Communication Skills",
+    "opened": "2024-03-15",
+    "days": ["Wednesday", "Friday"],
+    "time": "11:00 - 12:30",
+    "students": 7
+  },
+  {
+    "id": 6,
+    "name": "Machine Learning with TensorFlow",
+    "course": "Artificial Intelligence",
+    "opened": "2024-01-22",
+    "days": ["Tuesday", "Thursday"],
+    "time": "20:00 - 22:00",
+    "students": 5
+  },
+  {
+    "id": 7,
+    "name": "Graphic Design for Beginners",
+    "course": "Design",
+    "opened": "2023-11-07",
+    "days": ["Monday", "Wednesday"],
+    "time": "16:00 - 18:00",
+    "students": 14
+  },
+  {
+    "id": 8,
+    "name": "Financial Modeling with Excel",
+    "course": "Finance",
+    "opened": "2024-02-19",
+    "days": ["Tuesday", "Thursday"],
+    "time": "19:00 - 21:00",
+    "students": 9
+  },
+  {
+    "id": 9,
+    "name": "Java Programming for Beginners",
+    "course": "Programming Languages",
+    "opened": "2024-03-04",
+    "days": ["Monday", "Wednesday", "Friday"],
+    "time": "14:00 - 16:00",
+    "students": 11
+  },
+  {
+    "id": 10,
+    "name": "Introduction to Git and GitHub",
+    "course": "Version Control",
+    "opened": "2024-02-26",
+    "days": ["Friday"],
+    "time": "10:00 - 12:00",
+    "students": 6
+  },
+  {
+    "id": 11,
+    "name": "Creative Writing for Beginners",
+    "course": "Creative Arts",
+    "opened": "2024-01-08",
+    "days": ["Tuesday", "Thursday"],
+    "time": "11:00 - 12:30",
+    "students": 13
+  },
+  {
+    "id": 12,
+    "name": "SEO Fundamentals for Beginners",
+    "course": "Marketing",
+    "opened": "2024-02-12",
+    "days": ["Monday", "Wednesday"],
+    "time": "10:00 - 11:30",
+    "students": 8
+  }
+]

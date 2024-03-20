@@ -1,12 +1,11 @@
 export interface IGroup {
+  id: number;
   name: string;
-  courseName: string;
-  groupSchedule: {
-    days: ["odd"] | ["even"] | ["every_day"] | ["weekend"] | string[];
-    time: string;
-  };
-  groupStart: IDate;
-  groupEnd: IDate;
+  course: string;
+  opened: string; // Date string (YYYY-MM-DD)
+  days: string[];
+  time: string;
+  students: number;
 }
 
 export interface ITeacher {

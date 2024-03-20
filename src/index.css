@@ -51,6 +51,10 @@
   --white-text: rgba(255, 255, 255, 0.85);
 }
 
+.dark {
+  --primary-color: var(--dark-primary-color);
+}
+
 .dark .ant-input-outlined {
   --ant-color-bg-container: var(--dark-background-800);
   --ant-input-hover-bg: var(--dark-background-800);
@@ -227,4 +231,23 @@
 
 .dark .ant-avatar {
   --ant-color-text-placeholder: rgba(255, 255, 255, 0.25);
+}
+
+.dark .rc-virtual-list-scrollbar-thumb {
+  background: rgba(223, 212, 212, 0.5) !important;
+}
+
+.dark .ant-picker-outlined {
+  --ant-color-bg-container: var(--dark-background-800);
+  --ant-date-picker-hover-bg: var(--dark-background-800);
+  --ant-date-picker-active-bg: var(--dark-background-800);
+  --ant-color-text-placeholder: var(--white-text);
+}
+
+.dark .anticon.anticon-calendar {
+  color: var(--white-text);
+}
+
+.dark .ant-picker-dropdown {
+  --ant-color-bg-elevated: var(--dark-background-700);
 }

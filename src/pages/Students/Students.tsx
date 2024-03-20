@@ -5,9 +5,14 @@ import { MenuProps } from "antd/lib";
 import DesktopTable from "./DesktopTable";
 import MobileTable from "./MobileTable";
 import StudentsJSON from "../../data/students.json";
-import { setModalData, setSMSDrawer } from "../../redux/ModalSlice";
+import {
+  setSMSDrawer,
+  setStudentEditModal,
+} from "../../redux/ModalSlice";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
+import StudentEditModal from "../../components/StudentEditModal/StudentEditModal";
+import { setCurrentStudentData } from "../../redux/currentStudentSlice";
 
 type RowType = {
   key: string;
@@ -24,9 +29,6 @@ export default function Students() {
     ...item,
     status: item.status as "paid" | "unpaid",
   }));
-  const handleEdit = () => {
-    console.log("editing");
-  };
   const handleDelete = () => {
     console.log("deleting");
   };
@@ -104,7 +106,7 @@ export default function Students() {
             <Button
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(setModalData(record));
+                dispatch(setCurrentStudentData(record));
               }}
               type="primary"
             >
@@ -123,7 +125,7 @@ export default function Students() {
           className="tracking-wider font-semibold w-full text-start py-[5px] px-3"
           onClick={(e) => {
             e.stopPropagation();
-            handleEdit();
+            dispatch(setStudentEditModal(true));
           }}
         >
           Tahrirlash
@@ -180,6 +182,7 @@ export default function Students() {
       <DesktopTable columns={columns} dataSource={dataSource} />
       <MobileTable dataSource={dataSource} />
       <SMSDrawer />
+      <StudentEditModal />
     </main>
   );
 }
