@@ -4,12 +4,16 @@ import { DataGroups } from "../../types/types";
 
 import MobileTableGroups from "./components/MobileTableGroups";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../hooks/redux-hooks";
+import { setSMSDrawer } from "../../redux/ModalSlice";
+import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
 
 export default function Groups() {
   const navigate: NavigateFunction = useNavigate();
+  const dispatch = useAppDispatch()
   function handleChangePage(record: DataGroups) {
-    console.log(record);
-    navigate("singleGroup");
+   
+    navigate(`${record.key}`);
   }
 
   const items: MenuProps["items"] = [
@@ -35,6 +39,8 @@ export default function Groups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
+            dispatch(setSMSDrawer(true))
+            
           }}
           className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
@@ -157,6 +163,7 @@ export default function Groups() {
         />
         <MobileTableGroups dataSource={data} />
       </div>
+      <SMSDrawer/>
     </>
   );
 }
