@@ -1,7 +1,8 @@
-import { Button, Dropdown } from "antd";
+import { Button, Dropdown ,} from "antd";
 import { MenuProps } from "antd/lib";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { setModalData, setModalOpen } from "../../redux/ModalSlice";
+
 
 type RowType = {
   key: string;
@@ -18,6 +19,7 @@ export default function MobileTable({
 }: {
   dataSource: RowType[];
 }) {
+ 
   const dispatch = useAppDispatch();
   const handlePayment = () => {
     dispatch(setModalOpen(true));
@@ -63,6 +65,7 @@ export default function MobileTable({
     },
   ];
   return (
+    
     <div className="flex flex-col gap-2 md:hidden">
       {dataSource.map((element, index) => (
         <ul
@@ -108,9 +111,11 @@ export default function MobileTable({
                 ...
               </Button>
             </Dropdown>
+            
           </li>
         </ul>
       ))}
+    
     </div>
   );
 }
