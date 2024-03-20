@@ -7,18 +7,25 @@ export default function StudentProfile() {
   const items: TabsProps["items"] = [
     {
       key: "1",
-      label: "Tab 1",
+      label: "To'lovlar",
       children: "Cont",
     },
     {
       key: "2",
-      label: "Tab 2",
+      label: "Ballar",
       children: "Content of Tab Pane 2",
+      
     },
     {
       key: "3",
-      label: "Tab 3",
+      label: "Davomt",
       children: "Content of Tab Pane 3",
+    },
+    {
+      key: "4",
+      label: "Natijalar",
+      children: "Content of Tab Pane 3",
+      
     },
   ];
   const onChange = () => {};
