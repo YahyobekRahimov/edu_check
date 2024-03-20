@@ -32,6 +32,9 @@ export default function ConfigProviderComponent({
           Select: {
             selectorBg: "white",
             colorText: "black",
+            colorIcon: `${isDark && "white"}`,
+            colorFillQuaternary: `${isDark && "white"}`,
+            colorTextQuaternary: `${isDark && "white"}`,
           },
           Form: {
             labelColor: "inherit",

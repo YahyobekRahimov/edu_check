@@ -18,7 +18,7 @@ import { IGroup } from "../../types/types";
 export default function () {
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
-  // const { modal, message } = App.useApp();
+  const {} = App.useApp();
   const isOpen: boolean = useAppSelector(
     (state) => state.ModalSlice.studentEditModal.isOpen
   );
@@ -43,6 +43,7 @@ export default function () {
 
   return (
     <Modal
+      width={400}
       title="O'quvchini tahrirlash"
       open={isOpen} // Use open attribute for visibility (v5+)
       onCancel={handleClose}
