@@ -16,7 +16,7 @@ export default function Group() {
       dataIndex: "davomat",
       key: "davomat",
       render: () => {
-        return <Switch  defaultChecked />;
+        return <Switch   />;
       },
     },
   ];
