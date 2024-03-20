@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { ConfigProvider } from "antd";
 import { Provider } from "react-redux";
 import store from "./redux/store.ts";
 import { App as AntApp } from "antd";

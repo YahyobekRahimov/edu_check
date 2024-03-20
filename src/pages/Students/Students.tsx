@@ -1,4 +1,4 @@
-import { Button, Dropdown, Tabs } from "antd";
+import { Button, Dropdown } from "antd";
 
 import { ColumnType } from "antd/es/table";
 import { MenuProps } from "antd/lib";
@@ -24,7 +24,6 @@ type RowType = {
   teacher: string;
 };
 export default function Students() {
-
   const dispatch = useAppDispatch();
   const dataSource: RowType[] = StudentsJSON.map((item) => ({
     ...item,
