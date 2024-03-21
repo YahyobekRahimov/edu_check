@@ -150,7 +150,7 @@ export default function Groups() {
   ];
   return (
     <>
-      <div className="bg-[var(--dark-backround)] w-full">
+      <div className="bg-[var(--dark-backround)] w-full"> 
         <GroupsHeader />
         <Table
           onRow={(record, _) => ({
