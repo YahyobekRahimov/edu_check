@@ -2,10 +2,14 @@ import { Tabs, TabsProps } from "antd";
 import { useLocation } from "react-router-dom";
 import StudentsJSON from "../../data/students.json";
 import PaymentHistory from "./PaymentHistory";
+import CheckAttendance from "./CheckAttendance";
+import Results from "./Results";
 
 export default function StudentProfile() {
   const location = useLocation();
-  const studentID = location.pathname.split("/").at(-1);
+  const studentID: number = Number(
+    location.pathname.split("/").at(-1)
+  );
   const studentData = StudentsJSON.find(
     (student) => student.id == studentID
   );
@@ -13,27 +17,27 @@ export default function StudentProfile() {
     {
       key: "1",
       label: "To'lovlar",
-      children: <PaymentHistory />,
+      children: <PaymentHistory studentData={studentData} />,
     },
     {
       key: "2",
       label: "Ballar",
-      children: "Content of Tab Pane 2",
+      children: "Ballar",
     },
     {
       key: "3",
       label: "Davomat",
-      children: "Content of Tab Pane 3",
+      children: <CheckAttendance />,
     },
     {
       key: "4",
       label: "Natijalar",
-      children: "Content of Tab Pane 3",
+      children: <Results />,
     },
   ];
   const onChange = () => {};
   return (
-    <div className="p-4 flex  ">
+    <div className="p-10 flex gap-10">
       <div className="flex flex-col gap-10">
         <div className="max-w-[200px] max-h-[200px] overflow-hidden rounded-full select-none pointer-events-none">
           <img
@@ -41,8 +45,8 @@ export default function StudentProfile() {
             alt={studentData?.name}
           />
         </div>
-        <div className="h-max w-full">
-          <ul className="grid text-lg w-full gap-[2rem]">
+        <div className="h-max">
+          <ul className="grid text-lg gap-[1rem]">
             <li className="text-nowrap">
               <span className="font-semibold ">Ism Familiya:</span>{" "}
               {studentData?.name}
@@ -73,7 +77,7 @@ export default function StudentProfile() {
         </div>
       </div>
       <Tabs
-        className="w-full"
+        className="overflow-x-hidden"
         defaultActiveKey="1"
         items={items}
         onChange={onChange}

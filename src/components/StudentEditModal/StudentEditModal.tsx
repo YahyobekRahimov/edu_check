@@ -56,7 +56,7 @@ export default function () {
         </Button>,
       ]}
     >
-      <Form layout="vertical">
+      <Form layout="vertical" form={form}>
         <Form.Item
           label="Ism"
           name="name"
