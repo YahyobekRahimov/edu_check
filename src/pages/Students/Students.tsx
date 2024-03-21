@@ -19,7 +19,7 @@ type RowType = {
   name: string;
   phoneNumber: string;
   group: string;
-  date: string;
+  birthDate: string;
   status: "paid" | "unpaid";
   teacher: string;
 };
@@ -78,10 +78,10 @@ export default function Students() {
     },
     {
       title: "Mashg'ulot sana",
-      dataIndex: "date",
-      key: "date",
+      dataIndex: "birthDate",
+      key: "birthDate",
       sorter: (a: RowType, b: RowType) =>
-        a.date.localeCompare(b.date),
+        a.birthDate.localeCompare(b.birthDate),
       sortDirections: ["ascend", "descend"],
     },
     {

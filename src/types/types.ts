@@ -42,3 +42,9 @@ export interface DataGroups {
   amoundStudent: number;
   actions: any;
 }
+
+export interface IPayment {
+  id: number;
+  time: string;
+  amount: number;
+}

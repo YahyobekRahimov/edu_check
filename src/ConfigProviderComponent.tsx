@@ -1,4 +1,4 @@
-import { ConfigProvider, Tabs } from "antd";
+import { ConfigProvider } from "antd";
 import { ReactNode } from "react";
 import { useAppSelector } from "./hooks/redux-hooks";
 
