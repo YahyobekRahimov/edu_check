@@ -1,4 +1,14 @@
+import { Button } from "antd";
+import { deleteCookie } from "../../utils/cookies";
+import { useNavigate } from "react-router-dom";
+
 export default function Settings() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    deleteCookie("access_token");
+    deleteCookie("refresh_token");
+    navigate("/");
+  };
   return (
     <div className="p-10">
       <div className="max-w-[200px] max-h-[200px] overflow-hidden rounded-full pointer-events-none">
@@ -8,7 +18,9 @@ export default function Settings() {
           className="pointer-events-none"
         />
       </div>
-      <div></div>
+      <div>
+        <Button onClick={handleLogout}>Logout</Button>
+      </div>
     </div>
   );
 }
