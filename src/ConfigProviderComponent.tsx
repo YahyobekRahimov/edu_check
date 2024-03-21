@@ -1,4 +1,4 @@
-import { ConfigProvider } from "antd";
+import { ConfigProvider, Tabs } from "antd";
 import { ReactNode } from "react";
 import { useAppSelector } from "./hooks/redux-hooks";
 
@@ -60,6 +60,9 @@ export default function ConfigProviderComponent({
             colorIconHover: `${isDark && "white"}`,
 
             cellHoverBg: `${isDark && "rgba(255,255,255,0.1)"}`,
+          },
+          Tabs: {
+            colorText: `${isDark && "var(--white-text)"}`,
           },
         },
       }}
