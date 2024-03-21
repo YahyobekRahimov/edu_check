@@ -7,7 +7,8 @@
     "group": "A",
     "teacher": "Jane Smith",
     "date": "2024-03-01",
-    "status": "paid"
+    "status": "paid",
+    "balance": 800
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "group": "B",
     "teacher": "David Brown",
     "date": "2024-02-15",
-    "status": "paid"
+    "status": "paid",
+    "balance": 700
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "group": "C",
     "teacher": "Michael Taylor",
     "date": "2024-03-10",
-    "status": "unpaid"
+    "status": "unpaid",
+    "balance": 500
   },
   {
     "id": 4,
@@ -37,7 +40,8 @@
     "group": "A",
     "teacher": "Emma Johnson",
     "date": "2024-02-20",
-    "status": "paid"
+    "status": "paid",
+    "balance": 600
   },
   {
     "id": 5,
@@ -47,7 +51,8 @@
     "group": "B",
     "teacher": "James Wilson",
     "date": "2024-03-05",
-    "status": "unpaid"
+    "status": "unpaid",
+    "balance": 100
   },
   {
     "id": 6,
@@ -57,7 +62,8 @@
     "group": "C",
     "teacher": "Benjamin Davis",
     "date": "2024-02-25",
-    "status": "paid"
+    "status": "paid",
+    "balance": 213
   },
   {
     "id": 7,
@@ -67,7 +73,8 @@
     "group": "A",
     "teacher": "Liam Martinez",
     "date": "2024-03-08",
-    "status": "paid"
+    "status": "paid",
+    "balance": 5421
   },
   {
     "id": 8,
@@ -77,7 +84,8 @@
     "group": "B",
     "teacher": "Ethan Anderson",
     "date": "2024-02-22",
-    "status": "unpaid"
+    "status": "unpaid",
+    "balance": 451
   },
   {
     "id": 9,
@@ -87,7 +95,8 @@
     "group": "C",
     "teacher": "Ava Hernandez",
     "date": "2024-03-03",
-    "status": "paid"
+    "status": "paid",
+    "balance": 1223
   },
   {
     "id": 10,
@@ -97,7 +106,8 @@
     "group": "A",
     "teacher": "Mia Nguyen",
     "date": "2024-02-18",
-    "status": "paid"
+    "status": "paid",
+    "balance": 8050
   },
   {
     "id": 11,
@@ -107,7 +117,8 @@
     "group": "B",
     "teacher": "Oliver Perez",
     "date": "2024-03-12",
-    "status": "unpaid"
+    "status": "unpaid",
+    "balance": 122
   },
   {
     "id": 12,
@@ -117,7 +128,8 @@
     "group": "C",
     "teacher": "Sophia Roberts",
     "date": "2024-03-02",
-    "status": "paid"
+    "status": "paid",
+    "balance": 5421
   },
   {
     "id": 13,
@@ -127,7 +139,8 @@
     "group": "A",
     "teacher": "Alexander Sullivan",
     "date": "2024-02-28",
-    "status": "paid"
+    "status": "paid",
+    "balance": 1225
   },
   {
     "id": 14,
@@ -137,7 +150,8 @@
     "group": "B",
     "teacher": "Mason Cooper",
     "date": "2024-03-09",
-    "status": "unpaid"
+    "status": "unpaid",
+    "balance": 1232
   },
   {
     "id": 15,
@@ -147,6 +161,7 @@
     "group": "C",
     "teacher": "Harper Ramirez",
     "date": "2024-02-17",
-    "status": "paid"
+    "status": "paid",
+    "balance": 4212
   }
 ]

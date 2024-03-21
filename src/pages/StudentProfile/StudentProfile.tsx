@@ -1,31 +1,34 @@
 import { Tabs, TabsProps } from "antd";
-import { useAppSelector } from "../../hooks/redux-hooks";
+import { useLocation } from "react-router-dom";
+import StudentsJSON from "../../data/students.json";
+import PaymentHistory from "./PaymentHistory";
 
 export default function StudentProfile() {
-  const { name, phoneNumber, teacher, birthDate, group, status } =
-    useAppSelector((state) => state.currentStudent);
+  const location = useLocation();
+  const studentID = location.pathname.split("/").at(-1);
+  const studentData = StudentsJSON.find(
+    (student) => student.id == studentID
+  );
   const items: TabsProps["items"] = [
     {
       key: "1",
       label: "To'lovlar",
-      children: "Cont",
+      children: <PaymentHistory />,
     },
     {
       key: "2",
       label: "Ballar",
       children: "Content of Tab Pane 2",
-      
     },
     {
       key: "3",
-      label: "Davomt",
+      label: "Davomat",
       children: "Content of Tab Pane 3",
     },
     {
       key: "4",
       label: "Natijalar",
       children: "Content of Tab Pane 3",
-      
     },
   ];
   const onChange = () => {};
@@ -33,32 +36,38 @@ export default function StudentProfile() {
     <div className="p-4 flex  ">
       <div className="flex flex-col gap-10">
         <div className="max-w-[200px] max-h-[200px] overflow-hidden rounded-full select-none pointer-events-none">
-          <img src="https://picsum.photos/300/300" alt={name} />
+          <img
+            src="https://picsum.photos/300/300"
+            alt={studentData?.name}
+          />
         </div>
         <div className="h-max w-full">
           <ul className="grid text-lg w-full gap-[2rem]">
             <li className="text-nowrap">
               <span className="font-semibold ">Ism Familiya:</span>{" "}
-              {name}
+              {studentData?.name}
             </li>
             <li className="text-nowrap">
               <span className="font-semibold"> O'qituvchi:</span>{" "}
-              {teacher}
+              {studentData?.teacher}
             </li>
             <li className="text-nowrap">
               <span className="font-semibold">Telefon:</span>{" "}
-              {phoneNumber}
+              {studentData?.phoneNumber}
             </li>
             <li>
               <span className="font-semibold">Tugilgan:</span>{" "}
-              {birthDate}
+              {"2004-02-03"}
             </li>
             <li>
               <span className="font-semibold">Holat:</span>{" "}
-              {status == "paid" ? "To'langan" : "Qarzi bor"}
+              {studentData?.status == "paid"
+                ? "To'langan"
+                : "Qarzi bor"}
             </li>
             <li>
-              <span className="font-semibold">Guruhi:</span> {group}
+              <span className="font-semibold">Guruhi:</span>{" "}
+              {studentData?.group}
             </li>
           </ul>
         </div>
@@ -69,7 +78,6 @@ export default function StudentProfile() {
         items={items}
         onChange={onChange}
       />
-      ;
     </div>
   );
 }

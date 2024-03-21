@@ -27,7 +27,6 @@ export default function DesktopTable({
         onRow={(data) => ({
           onClick: () => {
             navigate(`/students/${data.id}`);
-            dispatch(setCurrentStudentData(data));
           },
         })}
       />
