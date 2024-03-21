@@ -251,3 +251,7 @@
 .dark .ant-picker-dropdown {
   --ant-color-bg-elevated: var(--dark-background-700);
 }
+.ant-dropdown-css-var{
+
+  --ant-dropdown-z-index-popup:10!important;
+}

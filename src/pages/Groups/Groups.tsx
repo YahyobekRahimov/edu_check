@@ -7,13 +7,14 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { setSMSDrawer } from "../../redux/ModalSlice";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
-
+import data from "../../data/groups.json"
 export default function Groups() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch()
   function handleChangePage(record: DataGroups) {
    
-    navigate(`${record.key}`);
+   
+    navigate(`${record.id}`);
   }
 
   const items: MenuProps["items"] = [
@@ -23,6 +24,7 @@ export default function Groups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
+            // dispatch(setStudentEditModal(true))
           }}
           className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
@@ -72,15 +74,15 @@ export default function Groups() {
     },
   ];
 
-  const columns: TableProps<DataGroups>["columns"] = [
+  const columns: TableProps<any>["columns"] = [
     {
       title: "Guruh",
-      dataIndex: "guruh",
+      dataIndex: "name",
       key: "guruh",
     },
     {
       title: "Kurslar",
-      dataIndex: "kurslar",
+      dataIndex: "course",
       key: "kurslar",
     },
     {
@@ -89,9 +91,9 @@ export default function Groups() {
       key: "o'qituvchi",
     },
     {
-      title: "O'tilgan muddati",
-      dataIndex: "pastDate",
-      key: "o'tilgan muddati",
+      title: "Ochilgan muddati",
+      dataIndex: "opened",
+      key: "ochilgan muddati",
     },
     {
       title: "Xonalar",
@@ -100,7 +102,7 @@ export default function Groups() {
     },
     {
       title: "Talabalar soni",
-      dataIndex: "amoundStudent",
+      dataIndex: "students",
       key: "talabalar soni",
     },
     {
@@ -109,6 +111,7 @@ export default function Groups() {
       key: "actions",
       render: () => (
         <Dropdown
+          
           trigger={["click"]}
           menu={{ items }}
           placement="bottomLeft"
@@ -126,28 +129,7 @@ export default function Groups() {
     },
   ];
 
-  const data: any = [
-    {
-      key: 1,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-    {
-      key: 2,
-      guruh: "01-a",
-      kurslar: "inglis-tili",
-      teacher: "Teshaboyev A",
-      pastDate: "09-09-2023",
-      rooms: "4/203",
-      amoundStudent: 18,
-      actions: <Button type="primary">...</Button>,
-    },
-  ];
+
   return (
     <>
       <div className="bg-[var(--dark-backround)] w-full">

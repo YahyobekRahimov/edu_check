@@ -55,7 +55,7 @@ const SMSForm = () => {
   };
 
   return (
-    <div className="dark:text-[rgba(255,255,255,0.85)]">
+    <div className="dark:text-[rgba(255,255,255,0.85)] z-20">
       <div className="flex gap-3 items-center text-sm my-2">
         <span className="font-semibold">
           Qabul qiluvchining ismi:
