@@ -83,6 +83,7 @@ export default function () {
         <Form.Item
           label="Group"
           name="group"
+          
           initialValue={studentData.group}
           rules={[{ required: true }]}
         >
