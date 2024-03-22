@@ -1,7 +1,11 @@
 import { Button, Dropdown } from "antd";
 import { MenuProps } from "antd/lib";
 import { useAppDispatch } from "../../hooks/redux-hooks";
-import { setModalData, setModalOpen } from "../../redux/ModalSlice";
+import {
+  setSMSDrawer,
+  setStudentEditModal,
+} from "../../redux/ModalSlice";
+import { setCurrentStudentData } from "../../redux/currentStudentSlice";
 
 type RowType = {
   key: string;
@@ -19,47 +23,65 @@ export default function MobileTable({
   dataSource: RowType[];
 }) {
   const dispatch = useAppDispatch();
-  const handlePayment = () => {
-    dispatch(setModalOpen(true));
+  const handleDelete = () => {
+    console.log("deleting");
   };
-  const handleDeduction = () => {};
   const items: MenuProps["items"] = [
     {
-      key: 1,
       label: (
         <button
-          onClick={handlePayment}
-          className="text-lg font-semibold"
+          className="tracking-wider font-semibold w-full text-start py-[5px] px-3"
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(setStudentEditModal(true));
+          }}
         >
           Tahrirlash
         </button>
       ),
+      key: "0",
+      style: {
+        padding: 0,
+      },
     },
     {
-      key: 4,
       label: (
         <button
-          onClick={handleDeduction}
-          className="text-lg font-semibold "
+          className="tracking-wider font-semibold w-full text-start py-[5px] px-3"
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(setSMSDrawer(true));
+          }}
         >
           SMS
         </button>
       ),
+      key: "4",
+      style: {
+        padding: 0,
+      },
     },
     {
-      key: 3,
       type: "divider",
+      key: "2",
     },
     {
-      key: 2,
       label: (
         <button
-          onClick={handleDeduction}
-          className="text-lg text-red-500 font-semibold "
+          className="tracking-wider font-semibold w-full text-start py-[5px] px-3"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDelete();
+          }}
         >
           O'chirish
         </button>
       ),
+      key: "3",
+      style: {
+        padding: 0,
+      },
+      danger: true,
     },
   ];
   return (
@@ -96,13 +118,12 @@ export default function MobileTable({
 
           <li className="flex justify-between items-center">
             <span>Amallar:</span>
-            <Dropdown
-              menu={{ items }}
-              trigger={["click"]}
-              placement="bottomLeft"
-            >
+            <Dropdown trigger={["click"]} menu={{ items }}>
               <Button
-                onClick={() => dispatch(setModalData(element))}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch(setCurrentStudentData(element));
+                }}
                 type="primary"
               >
                 ...
