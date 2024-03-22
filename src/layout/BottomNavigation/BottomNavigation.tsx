@@ -56,6 +56,25 @@ export default function BottomNavigation() {
       onClick: () => navigate("/payments"),
     },
     {
+      key: "5",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={20}
+          height={20}
+          viewBox="0 0 897 1024"
+        >
+          <path
+            d="M832.27 1024h-768q-26 0-45-18.5T.27 960V65q0-27 19-45.5t45-18.5h448v352q0 13 9.5 22.5t22.5 9.5h352v575q0 27-18.5 45.5t-45.5 18.5zm-96-192h-32V608q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v224h-64V480q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v352h-64V672q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v160h-32q-13 0-22.5 9.5t-9.5 22.5t9.5 22.5t22.5 9.5h576q14 0 23-9.5t9-22.5t-9.5-22.5t-22.5-9.5zm-160-832q26 0 44 18l257 257q19 19 19 46h-320V0z"
+            fill="currentColor"
+          />
+        </svg>
+      ),
+      label: "Hisobot",
+      location: "/report",
+      onClick: () => navigate("/report"),
+    },
+    {
       key: "4",
       icon: (
         <svg
@@ -81,7 +100,7 @@ export default function BottomNavigation() {
         {menuItems.map((menu, index) => (
           <li
             className={`flex flex-col items-center gap-2 w-full py-3 ${
-              menu.location === location.pathname
+              location.pathname.startsWith(menu.location)
                 ? "bg-[var(--primary-color)] text-white dark:bg-[var(--dark-primary-color)]"
                 : ""
             }`}
