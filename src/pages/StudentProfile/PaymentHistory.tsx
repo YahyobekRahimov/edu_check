@@ -15,7 +15,7 @@ export default function PaymentHistory({
   const dataSource = studentData.paymentsHistory;
   const columns: ColumnType<paymentRowType>[] = [
     {
-      title: "#",
+      title: "ID",
       dataIndex: "id",
       key: "id",
     },
@@ -36,11 +36,22 @@ export default function PaymentHistory({
   ];
   return (
     <div>
-      <p>
-        {studentData.status == "paid"
-          ? `+$${studentData.balance}`
-          : `-$${studentData.balance}`}
-      </p>
+      <div className="flex items-center gap-2 text-2xl my-3">
+        <span className="font-semibold">Balance:</span>
+        <span
+          className={`
+          ${
+            studentData.status == "paid"
+              ? "text-green-500"
+              : "text-red-500"
+          }
+        `}
+        >
+          {studentData.status == "paid"
+            ? `+$${studentData.balance}`
+            : `-$${studentData.balance}`}
+        </span>
+      </div>
       <Table
         dataSource={dataSource}
         columns={columns}
