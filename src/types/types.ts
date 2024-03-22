@@ -17,9 +17,11 @@ export interface IGroup {
   )[];
   time: string;
   students_number: number;
+  teacher: ITeacher;
   students: IStudent[];
   sms_history: ISMS[];
   lessons: ILesson[];
+  payments_history: IPayment[];
 }
 
 export interface IStudent {
@@ -57,7 +59,7 @@ export interface ITeacher {
   phone_number: number;
   birth_date: string;
   photo: string;
-  groups: [{ id: string; name: string }]; // Groups ID and name
+  groups: IGroup[]; // Groups ID and name
   students: [{ id: number; name: string }];
   balance: number;
   payments_history: IPayments[];
@@ -66,6 +68,12 @@ export interface ITeacher {
 export interface ILesson {
   id: string;
   date: string;
+  title?: string;
+  description?: string;
+  media: {
+    images: string[]; // links to images
+    videos: string[]; // links to videos
+  };
   attendance: IStudentAttendance[]; // all students presence or absence
 }
 

@@ -251,7 +251,10 @@
 .dark .ant-picker-dropdown {
   --ant-color-bg-elevated: var(--dark-background-700);
 }
-.ant-dropdown-css-var{
+.ant-dropdown-css-var {
+  --ant-dropdown-z-index-popup: 10 !important;
+}
 
-  --ant-dropdown-z-index-popup:10!important;
+.custom-tab-423 .ant-tabs-nav-wrap {
+  justify-content: center;
 }
