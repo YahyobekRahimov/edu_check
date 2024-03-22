@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login/Login";
 import StudentProfile from "./pages/StudentProfile/StudentProfile";
 import Group from "./pages/Groups/Group/Group";
+import Report from "./pages/Report/Report";
 
 function App() {
   const router = createBrowserRouter([
@@ -61,6 +62,14 @@ function App() {
       element: (
         <LayoutComponent>
           <Settings />
+        </LayoutComponent>
+      ),
+    },
+    {
+      path: "/report",
+      element: (
+        <LayoutComponent>
+          <Report />
         </LayoutComponent>
       ),
     },

@@ -1,4 +1,7 @@
-import { Switch, Table } from "antd";
+import { Switch, Tabs } from "antd";
+import GroupAttendance from "./GroupAttendance/GroupAttendance";
+import { TabsProps } from "antd/lib";
+import AboutGroup from "./AboutGroup/AboutGroup";
 export default function Group() {
   const colums = [
     {
@@ -16,7 +19,7 @@ export default function Group() {
       dataIndex: "davomat",
       key: "davomat",
       render: () => {
-        return <Switch   />;
+        return <Switch />;
       },
     },
   ];
@@ -26,10 +29,39 @@ export default function Group() {
       payments: "ok",
     },
   ];
+  const items: TabsProps["items"] = [
+    {
+      key: "8",
+      label: "Guruh haqida",
+      children: <AboutGroup />,
+    },
+    {
+      key: "1",
+      label: "Davomat",
+      children: <GroupAttendance />,
+    },
+    {
+      key: "2",
+      label: "Darslar",
+      children: <div>Darslar</div>,
+    },
+    {
+      key: "3",
+      label: "To'lovlar tarixi",
+      children: <div>To'lovlar tarixi</div>,
+    },
+  ];
+  const onChange = () => {};
   return (
     <>
       <div className="bg-[var(--dark-backround)] w-full">
-        <Table columns={colums} dataSource={data} />
+        {/* <Table columns={colums} dataSource={data} /> */}
+        <Tabs
+          className="overflow-x-hidden custom-tab-423"
+          defaultActiveKey="1"
+          items={items}
+          onChange={onChange}
+        />
       </div>
     </>
   );

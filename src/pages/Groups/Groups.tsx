@@ -7,13 +7,11 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { setSMSDrawer } from "../../redux/ModalSlice";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
-import data from "../../data/groups.json"
+import data from "../../data/groups.json";
 export default function Groups() {
   const navigate: NavigateFunction = useNavigate();
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   function handleChangePage(record: DataGroups) {
-   
-   
     navigate(`${record.id}`);
   }
 
@@ -41,8 +39,7 @@ export default function Groups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            dispatch(setSMSDrawer(true))
-            
+            dispatch(setSMSDrawer(true));
           }}
           className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
@@ -111,7 +108,6 @@ export default function Groups() {
       key: "actions",
       render: () => (
         <Dropdown
-          
           trigger={["click"]}
           menu={{ items }}
           placement="bottomLeft"
@@ -129,7 +125,6 @@ export default function Groups() {
     },
   ];
 
-
   return (
     <>
       <div className="bg-[var(--dark-backround)] w-full">
@@ -142,10 +137,11 @@ export default function Groups() {
           columns={columns}
           dataSource={data}
           pagination={false}
+          sticky={true}
         />
         <MobileTableGroups dataSource={data} />
       </div>
-      <SMSDrawer/>
+      <SMSDrawer />
     </>
   );
 }
