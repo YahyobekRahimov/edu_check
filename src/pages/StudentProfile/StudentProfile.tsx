@@ -1,11 +1,13 @@
-import { Tabs, TabsProps } from "antd";
+import { Skeleton, Tabs, TabsProps } from "antd";
 import { useLocation } from "react-router-dom";
 import StudentsJSON from "../../data/students.json";
 import PaymentHistory from "./PaymentHistory";
 import CheckAttendance from "./CheckAttendance";
 import Results from "./Results";
+import { useState } from "react";
 
 export default function StudentProfile() {
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
   const location = useLocation();
   const studentID: number = Number(
     location.pathname.split("/").at(-1)
@@ -43,6 +45,13 @@ export default function StudentProfile() {
           <img
             src="https://picsum.photos/300/300"
             alt={studentData?.name}
+            onLoad={() => setImageLoaded(true)}
+          />
+          <Skeleton.Avatar
+            active={!imageLoaded}
+            size={"large"}
+            shape="circle"
+            style={{ width: "200px", height: "200px" }}
           />
         </div>
         <div className="h-max">
@@ -60,7 +69,7 @@ export default function StudentProfile() {
               {studentData?.phoneNumber}
             </li>
             <li>
-              <span className="font-semibold">Tugilgan:</span>{" "}
+              <span className="font-semibold">Tug'ilgan:</span>{" "}
               {"2004-02-03"}
             </li>
             <li>
