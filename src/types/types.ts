@@ -1,37 +1,80 @@
 export interface IGroup {
-  id: number;
+  id: string;
   name: string;
   course: string;
-  opened: string; // Date string (YYYY-MM-DD)
-  days: string[];
+  opened: string; // Date string (DD-MM-YYYY)
+  closed: string | false;
+  price: number;
+  room: string;
+  days: (
+    | "monday"
+    | "tuesday"
+    | "wednesday"
+    | "thursday"
+    | "friday"
+    | "saturday"
+    | "sunday"
+  )[];
   time: string;
-  students: number;
+  students_number: number;
+  students: IStudent[];
+  sms_history: ISMS[];
+  lessons: ILesson[];
+}
+
+export interface IStudent {
+  id: number;
+  name: string;
+  phone_number: number;
+  birth_date: string;
+  photo: string;
+  groups: string; // Group ID
+  teacher: string;
+  status: "paid" | "unpaid";
+  balance: number;
+  payments_history: IPayments[];
+}
+
+type Groups = string[];
+
+type Courses = string[];
+
+interface IPayments {
+  id: string;
+  time: string; // example: 21/3/2024 13:52
+  amount: number;
+}
+
+interface ISMS {
+  id: string;
+  time: string;
+  message: string;
 }
 
 export interface ITeacher {
-  id: string;
-  firstName: string;
-  lastName?: string;
-  birthDate: IDate;
+  id: number;
+  name: string;
+  phone_number: number;
+  birth_date: string;
+  photo: string;
+  groups: [{ id: string; name: string }]; // Groups ID and name
+  students: [{ id: number; name: string }];
+  balance: number;
+  payments_history: IPayments[];
 }
 
 export interface ILesson {
-  date: IDate;
-  attendance: AttendanceType;
+  id: string;
+  date: string;
+  attendance: IStudentAttendance[]; // all students presence or absence
 }
 
-export type AttendanceType = {
-  firstName: string;
-  lastName: string;
-  patronymicName: string;
+interface IStudentAttendance {
+  id: string;
+  name: string;
   wasPresent: boolean;
-}[];
-
-export interface IDate {
-  year: number;
-  month: number;
-  day: number;
 }
+
 export interface DataGroups {
   id: number;
   name: string;
@@ -41,7 +84,6 @@ export interface DataGroups {
   students: number;
   teacher: string;
   rooms: string;
-
 }
 
 export interface IPayment {
