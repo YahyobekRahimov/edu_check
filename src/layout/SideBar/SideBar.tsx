@@ -37,6 +37,22 @@ export default function SideBar({
     navigate(route);
   };
 
+  useEffect(() => {
+    let selected = "";
+    if (location.pathname.startsWith("/groups")) {
+      selected = "1";
+    } else if (location.pathname.startsWith("/students")) {
+      selected = "2";
+    } else if (location.pathname.startsWith("/payments")) {
+      selected = "3";
+    } else if (location.pathname.startsWith("/settings")) {
+      selected = "4";
+    } else if (location.pathname.startsWith("/report")) {
+      selected = "5";
+    }
+    dispatch(setSelectedNav(selected));
+  }, []);
+
   const menuItems: MenuProps["items"] = [
     {
       key: "1",
@@ -101,7 +117,7 @@ export default function SideBar({
           />
         </svg>
       ),
-      label: "Xisobot",
+      label: "Hisobot",
       onClick: () => handleMenuItemClick("/report"),
     },
     {
@@ -122,20 +138,6 @@ export default function SideBar({
       onClick: () => handleMenuItemClick("/settings"),
     },
   ];
-
-  useEffect(() => {
-    let selected = "";
-    if (location.pathname === "/groups") {
-      selected = "1";
-    } else if (location.pathname === "/students") {
-      selected = "2";
-    } else if (location.pathname === "/payments") {
-      selected = "3";
-    } else if (location.pathname === "/settings") {
-      selected = "4";
-    }
-    dispatch(setSelectedNav(selected));
-  }, []);
 
   return (
     <>
