@@ -2,6 +2,7 @@ import { Switch, Tabs } from "antd";
 import GroupAttendance from "./GroupAttendance/GroupAttendance";
 import { TabsProps } from "antd/lib";
 import AboutGroup from "./AboutGroup/AboutGroup";
+import OnlineDars from "./OnlineDars/OnlineDars";
 export default function Group() {
   const colums = [
     {
@@ -43,7 +44,7 @@ export default function Group() {
     {
       key: "2",
       label: "Darslar",
-      children: <div>Darslar</div>,
+      children: <OnlineDars />,
     },
     {
       key: "3",
