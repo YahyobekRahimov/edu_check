@@ -7,7 +7,7 @@ import { setIsModalOpen } from "../../../redux/isModalOpen";
 import { UsergroupAddOutlined } from "@ant-design/icons";
 import ModalComp from "./ModalComp";
 
-function GroupsHeader() {
+function OpenGroupsHeader() {
   const dispatch = useAppDispatch();
   const isModalOpen = useAppSelector((state) => state.isModalOpen);
   function openModal() {
@@ -16,8 +16,8 @@ function GroupsHeader() {
   return (
     <>
       <div className="flex items-center justify-between  px-4 py-5  border-b">
-        <div className=" text-[25px] md:text-[3.2rem] font-semibold">
-          Guruhlar
+        <div className="text-[25px] md:text-[2.8rem] font-semibold">
+          Ochiq guruhlar
         </div>
         <div className="px-4">
           <Tooltip title={"Guruh qo'shish"}>
@@ -36,4 +36,4 @@ function GroupsHeader() {
   );
 }
 
-export default GroupsHeader;
+export default OpenGroupsHeader;
