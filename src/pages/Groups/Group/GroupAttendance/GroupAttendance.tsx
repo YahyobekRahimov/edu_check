@@ -1,3 +1,3 @@
-export default function GroupAttendance() {
-  return <div>Attendance</div>;
+export default function AboutGroup() {
+  return <div>AboutGroup</div>;
 }
