@@ -258,3 +258,15 @@
 .custom-tab-423 .ant-tabs-nav-wrap {
   justify-content: center;
 }
+
+.custom-tab-sticky .ant-tabs-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: var(--dark-background-800);
+}
+
+.custom-table-top-position .ant-table-sticky-holder {
+  top: 43px !important;
+}
