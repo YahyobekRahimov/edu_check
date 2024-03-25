@@ -11,6 +11,8 @@ import {
   setSMSDrawer,
 } from "../../redux/ModalSlice";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
+import TickIcon from "../../components/Icons/TickIcon";
+import XLetterIcon from "../../components/Icons/XLetterIcon";
 
 export type RowType = {
   key: string;
@@ -145,7 +147,15 @@ export default function DesktopTable({
       key: "status",
       responsive: ["lg"],
       render(value: string) {
-        return value == "paid" ? "To'langan✅" : "Qarzi bor❌";
+        return value == "paid" ? (
+          <span className="flex gap-1">
+            To'langan <TickIcon />
+          </span>
+        ) : (
+          <span className="flex gap-1">
+            Qarzi bor <XLetterIcon />
+          </span>
+        );
       },
       sorter: (a: RowType, b: RowType) =>
         a.status.length - b.status.length,

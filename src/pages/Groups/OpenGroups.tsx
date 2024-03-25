@@ -1,5 +1,4 @@
 import { Button, Dropdown, MenuProps, Table, TableProps } from "antd";
-import GroupsHeader from "./components/OpenGroupsHeader";
 import { DataGroups } from "../../types/types";
 
 import MobileTableGroups from "./components/MobileTableGroups";
