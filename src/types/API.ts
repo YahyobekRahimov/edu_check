@@ -6,3 +6,8 @@ type Groups = {
   closed: string | false;
   price: number;
 }[];
+
+type AttendanceForEachLesson = {
+  student: string;
+  lessons: { date: string; wasPresent: boolean }[];
+}[];

@@ -1,0 +1,302 @@
+[
+  {
+    "student": "Alice",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-05", "wasPresent": false }
+    ]
+  },
+  {
+    "student": "Bob",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": false },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Charlie",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "David",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": false },
+      { "date": "2024-03-02", "wasPresent": false },
+      { "date": "2024-03-03", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-05", "wasPresent": false }
+    ]
+  },
+  {
+    "student": "Eva",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": false },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Frank",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Grace",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-05", "wasPresent": false }
+    ]
+  },
+  {
+    "student": "Henry",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": false },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-05", "wasPresent": false }
+    ]
+  },
+  {
+    "student": "Ivy",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": false },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Jack",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Alexandra Elizabeth",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-05", "wasPresent": false }
+    ]
+  },
+  {
+    "student": "Benjamin Christopher",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": false },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Charlotte Isabella",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Daniel Alexander",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": false },
+      { "date": "2024-03-02", "wasPresent": false },
+      { "date": "2024-03-03", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-05", "wasPresent": false }
+    ]
+  },
+  {
+    "student": "Evelyn Gabriella",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": false },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Frederick Nathaniel",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Georgina Penelope",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-05", "wasPresent": false }
+    ]
+  },
+  {
+    "student": "Harrison Theodore",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": false },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-04", "wasPresent": false },
+      { "date": "2024-03-05", "wasPresent": false }
+    ]
+  },
+  {
+    "student": "Isabelle Victoria",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": false },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  },
+  {
+    "student": "Jonathan Alexander",
+    "lessons": [
+      { "date": "2024-03-01", "wasPresent": true },
+      { "date": "2024-03-02", "wasPresent": true },
+      { "date": "2024-03-03", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-04", "wasPresent": true },
+      { "date": "2024-03-05", "wasPresent": true }
+    ]
+  }
+]
