@@ -1,35 +1,9 @@
-import { Switch, Tabs } from "antd";
+import { Tabs } from "antd";
 import GroupAttendance from "./GroupAttendance/GroupAttendance";
 import { TabsProps } from "antd/lib";
 import AboutGroup from "./AboutGroup/AboutGroup";
 import OnlineDars from "./OnlineDars/OnlineDars";
 export default function Group() {
-  const colums = [
-    {
-      title: "F.I.Sh",
-      dataIndex: "fullName",
-      key: "fullName",
-    },
-    {
-      title: "To'lovlar",
-      dataIndex: "payments",
-      key: "payments",
-    },
-    {
-      title: "Davomat",
-      dataIndex: "davomat",
-      key: "davomat",
-      render: () => {
-        return <Switch />;
-      },
-    },
-  ];
-  const data = [
-    {
-      fullName: "Rustamov D",
-      payments: "ok",
-    },
-  ];
   const items: TabsProps["items"] = [
     {
       key: "8",
@@ -56,7 +30,6 @@ export default function Group() {
   return (
     <>
       <div className="bg-[var(--dark-backround)] w-full">
-        {/* <Table columns={colums} dataSource={data} /> */}
         <Tabs
           className="overflow-x-hidden custom-tab-423"
           defaultActiveKey="1"

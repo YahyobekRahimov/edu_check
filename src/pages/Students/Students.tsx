@@ -13,6 +13,8 @@ import { useAppDispatch } from "../../hooks/redux-hooks";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
 import StudentEditModal from "../../components/StudentEditModal/StudentEditModal";
 import { setCurrentStudentData } from "../../redux/currentStudentSlice";
+import TickIcon from "../../components/Icons/TickIcon";
+import XLetterIcon from "../../components/Icons/XLetterIcon";
 
 type RowType = {
   key: string;
@@ -89,9 +91,15 @@ export default function Students() {
       dataIndex: "status",
       key: "status",
       render(_: string, record: RowType) {
-        return record.status == "paid"
-          ? "To'langan✅"
-          : "Qarzi bor❌";
+        return record.status == "paid" ? (
+          <span className="flex gap-1">
+            To'langan <TickIcon />
+          </span>
+        ) : (
+          <span className="flex gap-1">
+            Qarzi bor <XLetterIcon />
+          </span>
+        );
       },
       sorter: (a: RowType, b: RowType) =>
         a.status.length - b.status.length,
