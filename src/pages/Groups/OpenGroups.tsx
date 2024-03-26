@@ -1,5 +1,5 @@
 import { Button, Dropdown, MenuProps, Table, TableProps } from "antd";
-import GroupsHeader from "./components/OpenGroupsHeader";
+
 import { DataGroups } from "../../types/types";
 
 import MobileTableGroups from "./components/MobileTableGroups";
@@ -8,13 +8,24 @@ import { useAppDispatch } from "../../hooks/redux-hooks";
 import { setSMSDrawer } from "../../redux/ModalSlice";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
 import data from "../../data/groups.json";
+import { useState } from "react";
 export default function OpenGroups() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
   function handleChangePage(record: DataGroups) {
+    
     navigate(`${record.id}`);
   }
+  const [dataJs , setDataJs] = useState<DataGroups[]>([...data])
+  console.log(dataJs);
 
+  const handleFilter = (id:number) => {
+    const newData = dataJs.filter((d) => d.id !== id)
+    setDataJs(newData)
+    
+  }
+  
+ 
   const items: MenuProps["items"] = [
     {
       key: 1,
@@ -58,6 +69,7 @@ export default function OpenGroups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
+            handleFilter(3)
           }}
           className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
@@ -111,6 +123,7 @@ export default function OpenGroups() {
           trigger={["click"]}
           menu={{ items }}
           placement="bottomLeft"
+          
         >
           <Button
             onClick={(e) => {
@@ -134,11 +147,11 @@ export default function OpenGroups() {
           })}
           className="hidden md:block w-full cursor-pointer custom-table-top-position"
           columns={columns}
-          dataSource={data}
+          dataSource={dataJs}
           pagination={false}
           sticky={true}
         />
-        <MobileTableGroups dataSource={data} />
+        <MobileTableGroups dataSource={dataJs} />
       </div>
       <SMSDrawer />
     </>
