@@ -13,6 +13,7 @@ import Login from "./pages/Login/Login";
 import StudentProfile from "./pages/StudentProfile/StudentProfile";
 import Group from "./pages/Groups/Group/Group";
 import Report from "./pages/Report/Report";
+import CheckingAttendance from "./pages/Groups/Group/GroupAttendance/CheckingAttendance";
 
 function App() {
   const router = createBrowserRouter([
@@ -78,6 +79,14 @@ function App() {
       element: (
         <LayoutComponent>
           <StudentProfile />
+        </LayoutComponent>
+      ),
+    },
+    {
+      path: "/groups/:id/attendance",
+      element: (
+        <LayoutComponent>
+          <CheckingAttendance />
         </LayoutComponent>
       ),
     },
