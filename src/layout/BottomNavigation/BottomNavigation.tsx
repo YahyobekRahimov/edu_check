@@ -108,7 +108,9 @@ export default function BottomNavigation() {
             onClick={menu.onClick}
           >
             <span className={``}>{menu.icon}</span>
-            <span>{menu.label}</span>
+            <span className="text-[0.6rem] xs:text-xs sm:text-sm">
+              {menu.label}
+            </span>
           </li>
         ))}
       </ul>
