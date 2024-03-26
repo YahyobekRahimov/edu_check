@@ -90,7 +90,7 @@
   background-color: #925fe2;
 }
 
-.ant-btn-primary:hover {
+.ant-btn-primary:not(:disabled):hover {
   background-color: rgba(146, 95, 226, 0.85) !important;
 }
 
@@ -264,6 +264,10 @@
   top: 0;
   left: 0;
   z-index: 10;
+  background-color: white;
+}
+
+.dark .custom-tab-sticky .ant-tabs-nav {
   background-color: var(--dark-background-800);
 }
 

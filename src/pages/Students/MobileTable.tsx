@@ -6,6 +6,8 @@ import {
   setStudentEditModal,
 } from "../../redux/ModalSlice";
 import { setCurrentStudentData } from "../../redux/currentStudentSlice";
+import TickIcon from "../../components/Icons/TickIcon";
+import XLetterIcon from "../../components/Icons/XLetterIcon";
 
 type RowType = {
   key: string;
@@ -110,9 +112,15 @@ export default function MobileTable({
           <li className="flex justify-between items-center">
             <span>Holat:</span>
             <span>
-              {element.status === "paid"
-                ? "To'lagan✅"
-                : "Qarzi bor❌"}
+              {element.status === "paid" ? (
+                <span className="flex gap-1">
+                  To'langan <TickIcon />
+                </span>
+              ) : (
+                <span className="flex gap-1">
+                  Qarzi bor <XLetterIcon />
+                </span>
+              )}
             </span>
           </li>
 

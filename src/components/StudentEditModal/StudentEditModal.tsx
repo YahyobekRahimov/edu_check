@@ -13,7 +13,6 @@ import {
 } from "antd";
 import { setStudentEditModal } from "../../redux/ModalSlice";
 import GroupsData from "../../data/groups.json";
-import { IGroup } from "../../types/types";
 
 export default function () {
   const [form] = Form.useForm();
@@ -83,12 +82,11 @@ export default function () {
         <Form.Item
           label="Group"
           name="group"
-          
           initialValue={studentData.group}
           rules={[{ required: true }]}
         >
           <Select>
-            {GroupsData.map((group: IGroup) => (
+            {GroupsData.map((group) => (
               <Select.Option key={group.name} value={group.id}>
                 {group.name}
               </Select.Option>

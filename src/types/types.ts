@@ -37,9 +37,9 @@ export interface IStudent {
   payments_history: IPayments[];
 }
 
-type Groups = string[];
+export type Groups = string[];
 
-type Courses = string[];
+export type Courses = string[];
 
 interface IPayments {
   id: string;
