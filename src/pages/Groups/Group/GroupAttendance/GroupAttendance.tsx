@@ -38,7 +38,7 @@ export default function AboutGroup() {
             <th className="w-32 text-start border border-gray-800 px-4 py-2">
               Students
             </th>
-            {attendanceData[0].lessons.map((data, index) => {
+            {attendanceData[0].lessons.map((data) => {
               return (
                 <th className="w-32 text-start border border-gray-800 px-4 py-2">
                   {data.date.slice(5)}
