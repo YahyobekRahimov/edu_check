@@ -40,10 +40,12 @@
 }
 
 :root {
-  --dark-background-900: #0d0d0d;
-  /* --dark-background-800: #121212; */
+  --dark-background-900: #020617;
+  --dark-background-800: #0f172a;
+  --dark-background-700: #1e293b;
+  /* --dark-background-900: #0d0d0d;
   --dark-background-800: #181818;
-  --dark-background-700: #272727;
+  --dark-background-700: #272727; */
 
   --primary-color: #925fe2;
   --dark-primary-color: #2b30ea;

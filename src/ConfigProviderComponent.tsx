@@ -64,6 +64,11 @@ export default function ConfigProviderComponent({
           Tabs: {
             colorText: `${isDark && "var(--white-text)"}`,
           },
+          InputNumber: {
+            colorBgContainer: `${
+              isDark && "var(--dark-background-800)"
+            }`,
+          },
         },
       }}
     >
