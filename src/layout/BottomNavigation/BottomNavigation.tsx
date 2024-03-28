@@ -99,9 +99,9 @@ export default function BottomNavigation() {
       <ul className="flex justify-around">
         {menuItems.map((menu, index) => (
           <li
-            className={`flex flex-col items-center gap-2 w-full py-3 ${
+            className={`flex flex-col items-center gap-2 active:bg-[var(--primary-color)] w-full py-3 ${
               location.pathname.startsWith(menu.location)
-                ? "bg-[var(--primary-color)] text-white dark:bg-[var(--dark-primary-color)]"
+                ? "bg-[var(--primary-color)] text-white"
                 : ""
             }`}
             key={index}

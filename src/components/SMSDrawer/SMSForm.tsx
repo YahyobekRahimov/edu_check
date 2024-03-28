@@ -46,12 +46,11 @@ const SMSForm = () => {
         message.success(
           `${receiverData.name}ga xabaringiz yuborildi`
         );
+        dispatch(setSMSDrawer(false));
+        form.resetFields();
       },
       onCancel: () => {},
     });
-
-    dispatch(setSMSDrawer(false));
-    form.resetFields();
   };
 
   return (

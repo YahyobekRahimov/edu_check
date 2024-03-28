@@ -15,6 +15,12 @@ export default function StudentProfile() {
   const studentData = StudentsJSON.find(
     (student) => student.id == studentID
   );
+  let defaultValue = "1";
+  if (location.state?.defaultValue === "payments") {
+    defaultValue = "1";
+  } else {
+    defaultValue = "3";
+  }
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -39,7 +45,7 @@ export default function StudentProfile() {
   ];
   const onChange = () => {};
   return (
-    <div className="p-10 flex gap-10">
+    <div className="p-2 xs:p-5 lg:p-10 flex flex-col gap-10 md:flex-row">
       <div className="flex flex-col gap-10">
         <div className="max-w-[200px] max-h-[200px] overflow-hidden rounded-full select-none pointer-events-none">
           <img
@@ -87,7 +93,7 @@ export default function StudentProfile() {
       </div>
       <Tabs
         className="overflow-x-hidden"
-        defaultActiveKey="1"
+        defaultActiveKey={defaultValue}
         items={items}
         onChange={onChange}
       />

@@ -9,7 +9,7 @@ export default function AboutGroup() {
 
   return (
     <div className="p-3 text-base flex flex-col gap-10 overflow-x-auto lg:overflow-x-visible">
-      <div className="flex justify-between">
+      <div className="flex justify-between gap-10">
         <Button
           className="w-max"
           type="primary"
@@ -17,7 +17,7 @@ export default function AboutGroup() {
         >
           Hozirgi dars uchun yo'qlama qilish
         </Button>
-        <div className="flex justify-between items-center gap-10">
+        <div className="flex justify-between items-center gap-10 text-nowrap">
           <p className="flex items-center gap-1">
             <TickIcon /> <span> - Darsda bo'lgan</span>
           </p>
@@ -29,13 +29,16 @@ export default function AboutGroup() {
       <div className="dark:text-white">
         <table className="w-full">
           <thead className="">
-            <tr className="border border-b-0 bg-[#fafafa] dark:bg-[var(--dark-background-900)] cursor-pointer">
-              <th className="w-32 text-start border border-[#e5e7eb] px-4 py-2 border-l-0 border-r-0">
+            <tr className="border border-b-0 bg-[#fafafa] dark:bg-[var(--dark-background-900)] cursor-pointer font-normal text-[var(--primary-color)]">
+              <th className="w-32 text-start border border-[#e5e7eb] px-4 py-2 border-l-0 border-r">
                 Students
               </th>
-              {attendanceData[0].lessons.map((data) => {
+              {attendanceData[0].lessons.map((data, index) => {
                 return (
-                  <th className="w-32 text-start border border-[#e5e7eb] px-4 py-2 border-l-0 border-r-0">
+                  <th
+                    key={index}
+                    className="w-32 text-start border border-[#e5e7eb] border-r px-4 py-2 border-l-0"
+                  >
                     {data.date.slice(8)}
                   </th>
                 );
@@ -46,13 +49,16 @@ export default function AboutGroup() {
             {attendanceData.map((data, index) => (
               <tr
                 key={index}
-                className="border hover:bg-slate-100 dark:hover:bg-[var(--dark-background-700)] duration-75 "
+                className="border duration-75 even:bg-slate-100 odd:bg-lime-200 even:dark:bg-[var(--dark-background-800)] odd:dark:bg-[var(--dark-background-700)]"
               >
                 <td className="w-32 border border-[#e5e7eb] border-l-0 border-r-0 px-4 py-2 text-nowrap">
                   {data.student}
                 </td>
-                {data.lessons.map((lesson) => (
-                  <td className="w-32 border border-[#e5e7eb] px-4 py-2 border-l-0 border-r-0">
+                {data.lessons.map((lesson, index) => (
+                  <td
+                    key={index}
+                    className="w-32 border border-[#e5e7eb] px-4 py-2 border-l-0 border-r-0"
+                  >
                     {lesson.wasPresent ? (
                       <TickIcon />
                     ) : (

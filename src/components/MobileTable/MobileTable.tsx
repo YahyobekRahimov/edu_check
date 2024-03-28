@@ -7,12 +7,14 @@ import {
   setModalOpen,
   setSMSDrawer,
 } from "../../redux/ModalSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function MobileTable({
   dataSource,
 }: {
   dataSource: any[];
 }) {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const handlePayment = () => {
     dispatch(setModalOpen(true));
@@ -83,6 +85,11 @@ export default function MobileTable({
         <ul
           key={index}
           className="bg-white p-2 shadow-sm dark:bg-[var(--dark-background-800)] flex flex-col w-full"
+          onClick={() =>
+            navigate(`/students/${element.id}`, {
+              state: { defaultValue: "payments" },
+            })
+          }
         >
           <li className="flex justify-between items-center">
             <span>F.I.SH:</span>
@@ -122,7 +129,10 @@ export default function MobileTable({
               placement="bottomLeft"
             >
               <Button
-                onClick={() => dispatch(setModalData(element))}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch(setModalData(element));
+                }}
                 type="primary"
               >
                 ...
