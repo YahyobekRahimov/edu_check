@@ -13,6 +13,7 @@ import {
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
 import TickIcon from "../../components/Icons/TickIcon";
 import XLetterIcon from "../../components/Icons/XLetterIcon";
+import { useNavigate } from "react-router-dom";
 
 export type RowType = {
   key: string;
@@ -30,6 +31,7 @@ export default function DesktopTable({
 }: {
   dataSource: any[];
 }) {
+  const navigate = useNavigate();
   // @ts-ignore
   const [currentRecordData, setCurrentRecordData] = useState<any>();
   const dispatch = useAppDispatch();
@@ -226,7 +228,9 @@ export default function DesktopTable({
         // @ts-ignore
         onRow={(record, rowIndex) => ({
           onClick: () => {
-            console.log("row click");
+            navigate(`/students/${record.id}`, {
+              state: { defaultValue: "payments" },
+            });
           },
         })}
         className="cursor-pointer"

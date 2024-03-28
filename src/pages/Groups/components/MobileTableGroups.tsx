@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { DataGroups } from "../../../types/types";
 import { Button, Dropdown, MenuProps } from "antd";
+import { useAppDispatch } from "../../../hooks/redux-hooks";
+import { setSMSDrawer } from "../../../redux/ModalSlice";
 export default function MobileTableGroups({
   dataSource,
 }: {
-  dataSource: DataGroups[]
+  dataSource: DataGroups[];
 }) {
   const navigator = useNavigate();
+  const dispatch = useAppDispatch();
   function handleChangePage(record: any) {
     console.log(record);
     navigator("singleGroup");
@@ -36,8 +39,7 @@ export default function MobileTableGroups({
         <button
           onClick={(e) => {
             e.stopPropagation();
-            // dispatch(setSMSDrawer(true))
-            
+            dispatch(setSMSDrawer(true));
           }}
           className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
@@ -69,7 +71,7 @@ export default function MobileTableGroups({
     },
   ];
   return (
-    <div className="flex flex-col gap-2  bg-[#f5f5f5]  md:hidden">
+    <div className="flex flex-col gap-2  bg-[#f5f5f5] dark:bg-[var(--dark-background-900)] md:hidden">
       {dataSource.map((element, index) => (
         <ul
           onClick={() => {
@@ -79,42 +81,51 @@ export default function MobileTableGroups({
           className="bg-white cursor-pointer p-2 shadow-sm dark:bg-[var(--dark-background-800)] flex flex-col   w-full"
         >
           <li className="flex justify-between items-center">
-            <span className="font-semibold text-[16px]">Guruhlar:</span>
+            <span className="font-semibold text-[16px]">
+              Guruhlar:
+            </span>
             <span>{element.course}</span>
           </li>
           <li className="flex justify-between items-center">
-            <span className="font-semibold text-[16px]">Kurslar:</span>
-            <span>{element.name}</span>
+            <span className="font-semibold text-[16px]">Kurs:</span>
+            <span>{element.name.slice(0, 15)}...</span>
           </li>
           <li className="flex justify-between items-center">
-            <span className="font-semibold text-[16px]">O'qituvchi:</span>
+            <span className="font-semibold text-[16px]">
+              O'qituvchi:
+            </span>
             <span>{element.teacher}</span>
           </li>
           <li className="flex justify-between items-center">
-            <span className="font-semibold text-[16px]">O'tilgan muddati:</span>
+            <span className="font-semibold text-[16px]">
+              O'tilgan muddati:
+            </span>
             <span>{element.opened}</span>
           </li>
           <li className="flex justify-between items-center">
-            <span className="font-semibold text-[16px]">Xonalar:</span>
+            <span className="font-semibold text-[16px]">
+              Xonalar:
+            </span>
             <span>{element.students}</span>
           </li>
           <li className="flex justify-between items-center">
-            <span className="font-semibold text-[16px]">Amallar:</span>
+            <span className="font-semibold text-[16px]">
+              Amallar:
+            </span>
             <Dropdown
-          
-          trigger={["click"]}
-          menu={{ items }}
-          placement="bottomLeft"
-        >
-          <Button
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-            type="primary"
-          >
-            ...
-          </Button>
-        </Dropdown>
+              trigger={["click"]}
+              menu={{ items }}
+              placement="bottomLeft"
+            >
+              <Button
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+                type="primary"
+              >
+                ...
+              </Button>
+            </Dropdown>
           </li>
         </ul>
       ))}

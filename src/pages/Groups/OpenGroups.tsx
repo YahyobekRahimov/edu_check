@@ -12,19 +12,16 @@ export default function OpenGroups() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
   function handleChangePage(record: DataGroups) {
-    
     navigate(`${record.id}`);
   }
-  const [dataJs , setDataJs] = useState<DataGroups[]>([...data])
+  const [dataJs, setDataJs] = useState<DataGroups[]>([...data]);
   console.log(dataJs);
 
-  const handleFilter = (id:number) => {
-    const newData = dataJs.filter((d) => d.id !== id)
-    setDataJs(newData)
-    
-  }
-  
- 
+  const handleFilter = (id: number) => {
+    const newData = dataJs.filter((d) => d.id !== id);
+    setDataJs(newData);
+  };
+
   const items: MenuProps["items"] = [
     {
       key: 1,
@@ -68,7 +65,7 @@ export default function OpenGroups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            handleFilter(3)
+            handleFilter(3);
           }}
           className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
@@ -122,7 +119,6 @@ export default function OpenGroups() {
           trigger={["click"]}
           menu={{ items }}
           placement="bottomLeft"
-          
         >
           <Button
             onClick={(e) => {

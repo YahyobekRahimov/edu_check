@@ -14,6 +14,7 @@ type RowType = {
 
 export default function Payments() {
   const dataSource: RowType[] = studentsJSON.map((student: any) => ({
+    id: student.id,
     key: student.key,
     name: student.name,
     phoneNumber: student.phoneNumber,

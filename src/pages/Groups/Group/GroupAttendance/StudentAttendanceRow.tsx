@@ -11,19 +11,20 @@ export default function StudentAttendanceRow({
   const [checked, setChecked] = useState<boolean>(true);
   return (
     <li
-      className={`p-5 lg:px-36 xs:px-10 flex justify-between border-l-0 border-r-0 border border-[#e5e7eb] ${
-        checked ? "bg-green-300" : "bg-red-300"
+      className={`px-5 py-3 lg:px-36 xs:px-10 flex justify-between border-l-0 border-r-0 border border-[#e5e7eb] cursor-pointer ${
+        checked
+          ? "bg-green-300 dark:bg-green-900"
+          : "bg-red-300 dark:bg-red-900"
       }`}
       key={key}
+      onClick={() => setChecked(!checked)}
     >
       <div>{name}</div>
       <div>
-        {
-          <Switch
-            checked={checked}
-            onChange={() => setChecked(!checked)}
-          />
-        }
+        <Switch
+          checked={checked}
+          onChange={() => setChecked(!checked)}
+        />
       </div>
     </li>
   );
