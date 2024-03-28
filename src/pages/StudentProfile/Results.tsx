@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Table, Button } from "antd";
 
 export default function Results() {
@@ -13,7 +13,7 @@ export default function Results() {
   const [ButtonPressed8, setButtonPressed8] = useState(false);
   const [ButtonPressed9, setButtonPressed9] = useState(false);
 
-  const handleAddScore = (value) => {
+  const handleAddScore = (value: any) => {
     setScore(score + value);
   };
 
@@ -21,6 +21,7 @@ export default function Results() {
     <div>
       <p>Ummumiy achko'lar: {score}</p>
       <Table
+        className="overflow-auto"
         columns={[
           {
             title: "shaxar tuman musobaqalari",
@@ -166,6 +167,82 @@ export default function Results() {
                         ? "green"
                         : "unset",
                       color: ButtonPressed6 ? "white" : "black", // Matn rangini o'zgartirish
+                    }}
+                  >
+                    30+
+                  </Button>
+                ),
+              },
+            ],
+          },
+          {
+            title: "Respublika chempionati va kubogi musobaqalari",
+            dataIndex: "firstHeader",
+            key: "firstHeader",
+            children: [
+              {
+                title: "1",
+                dataIndex: "firstHeader1",
+                key: "firstHeader1",
+                render: () => (
+                  <Button
+                    type="primary"
+                    onClick={() => {
+                      handleAddScore(5);
+                      setButtonPressed7(true);
+                    }}
+                    disabled={ButtonPressed7}
+                    style={{
+                      backgroundColor: ButtonPressed7
+                        ? "green"
+                        : "unset",
+                      color: ButtonPressed7 ? "white" : "black", // Matn rangini o'zgartirish
+                    }}
+                  >
+                    5+
+                  </Button>
+                ),
+              },
+              {
+                title: "2",
+                dataIndex: "firstHeader2",
+                key: "firstHeader2",
+                render: () => (
+                  <Button
+                    type="primary"
+                    onClick={() => {
+                      handleAddScore(20);
+                      setButtonPressed8(true);
+                    }}
+                    disabled={ButtonPressed8}
+                    style={{
+                      backgroundColor: ButtonPressed8
+                        ? "green"
+                        : "unset",
+                      color: ButtonPressed8 ? "white" : "black", // Matn rangini o'zgartirish
+                    }}
+                  >
+                    20+
+                  </Button>
+                ),
+              },
+              {
+                title: "3",
+                dataIndex: "firstHeader3",
+                key: "firstHeader3",
+                render: () => (
+                  <Button
+                    type="primary"
+                    onClick={() => {
+                      handleAddScore(30);
+                      setButtonPressed9(true);
+                    }}
+                    disabled={ButtonPressed9}
+                    style={{
+                      backgroundColor: ButtonPressed9
+                        ? "green"
+                        : "unset",
+                      color: ButtonPressed9 ? "white" : "black",
                     }}
                   >
                     30+
