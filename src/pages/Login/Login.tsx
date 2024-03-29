@@ -33,11 +33,6 @@ export default function Login() {
     }
   };
 
-  useEffect(() => {
-    setCookie("access_token", "asdkjfsl;", 10);
-    setCookie("refresh_token", "asdkjfsl;", 10);
-  }, []);
-
   return (
     <div className="h-screen dark:bg-[var(--dark-background-800)]">
       <div className="hidden">
