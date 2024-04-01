@@ -13,3 +13,25 @@ export function removeLeadingZeros(number: number) {
 
   return result;
 }
+
+export const getCurrentMonth = (): string => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const currentDate = new Date();
+  const currentMonthIndex = currentDate.getMonth();
+
+  return months[currentMonthIndex];
+};

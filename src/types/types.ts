@@ -15,7 +15,7 @@ export interface IGroup {
     | "saturday"
     | "sunday"
   )[];
-  time: string;
+  time: { start: string; end: string };
   students_number: number;
   teacher: ITeacher;
   students: IStudent[];
