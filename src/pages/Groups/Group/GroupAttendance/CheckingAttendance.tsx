@@ -1,10 +1,24 @@
 import { Button } from "antd";
 import studentsJSON from "../../../../data/students.json";
 import StudentAttendanceRow from "./StudentAttendanceRow";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CheckingAttendance() {
-  const [students, setStudents] = useState();
+  const [students, setStudents] = useState<{}>({});
+  const handleStatusChange = (
+    studentName: string,
+    newStatus: boolean
+  ) => {
+    setStudents({ ...students, [studentName]: newStatus });
+  };
+  useEffect(() => {
+    let names = {};
+    studentsJSON.forEach((student) => {
+      names = { ...names, [student.name]: true };
+    });
+    setStudents(names);
+  }, []);
+  console.log(students);
   return (
     <div>
       <ul className="">
@@ -14,7 +28,11 @@ export default function CheckingAttendance() {
         </li>
         {studentsJSON.map((student, index) => {
           return (
-            <StudentAttendanceRow name={student.name} key={index} />
+            <StudentAttendanceRow
+              handleStatusChange={handleStatusChange}
+              name={student.name}
+              key={index}
+            />
           );
         })}
       </ul>
