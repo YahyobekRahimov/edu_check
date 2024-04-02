@@ -89,7 +89,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
               style={{
                 borderRadius: borderRadiusLG,
               }}
-              className="h-full bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen pb-20"
+              className="h-full bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen pb-20 lg:p-0"
             >
               {children}
             </div>

@@ -257,10 +257,6 @@
   --ant-dropdown-z-index-popup: 10 !important;
 }
 
-.custom-tab-423 .ant-tabs-nav-wrap {
-  justify-content: center;
-}
-
 .custom-tab-sticky .ant-tabs-nav {
   position: sticky;
   top: 0;

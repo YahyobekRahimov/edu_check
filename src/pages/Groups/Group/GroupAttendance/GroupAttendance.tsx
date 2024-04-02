@@ -1,12 +1,23 @@
-import { Button } from "antd";
+import { Button, Select } from "antd";
 import TickIcon from "../../../../components/Icons/TickIcon";
 import XLetterIcon from "../../../../components/Icons/XLetterIcon";
 import attendanceData from "../../../../data/attendance.json";
 import { useNavigate } from "react-router-dom";
+import PersonPlus from "../../../../components/Icons/PersonPlus";
+// @ts-ignore
+import MONTHS from "/src/data/months.json";
+import { useState } from "react";
+import { getCurrentMonth } from "../../../../utils/utils";
 
 export default function AboutGroup() {
+  const [month, setMonth] = useState<string>(
+    getCurrentMonth().toLowerCase()
+  );
   const navigate = useNavigate();
 
+  const handleMonthChange = (e: string) => {
+    setMonth(e);
+  };
   return (
     <div className="p-3 text-base flex flex-col gap-10 overflow-x-auto lg:overflow-x-visible">
       <div className="flex justify-between gap-10">
@@ -17,6 +28,21 @@ export default function AboutGroup() {
         >
           Hozirgi dars uchun yo'qlama qilish
         </Button>
+        <Button
+          icon={<PersonPlus></PersonPlus>}
+          type="primary"
+          className="flex"
+        >
+          O'quvchi qo'shish
+        </Button>
+      </div>
+      <div className="flex items-center justify-between gap-10">
+        <Select
+          className="w-[150px] min-w-[100px]"
+          options={MONTHS}
+          value={month}
+          onChange={handleMonthChange}
+        ></Select>
         <div className="flex justify-between items-center gap-10 text-nowrap">
           <p className="flex items-center gap-1">
             <TickIcon /> <span> - Darsda bo'lgan</span>

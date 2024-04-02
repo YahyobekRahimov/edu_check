@@ -4,33 +4,40 @@ import { TabsProps } from "antd/lib";
 import AboutGroup from "./AboutGroup/AboutGroup";
 import OnlineDars from "./OnlineDars/OnlineDars";
 import JurnalJurnal from "./Jurnal/Jurnal";
+import GroupStudents from "./GroupStudents/GroupStudents";
+import GroupPaymentsHistory from "./GroupPaymentsHistory/GroupPaymentsHistory";
 
 export default function Group() {
   const items: TabsProps["items"] = [
     {
-      key: "8",
+      key: "1",
       label: "Guruh haqida",
       children: <AboutGroup />,
     },
     {
-      key: "1",
+      key: "2",
+      label: "O'quvchilar",
+      children: <GroupStudents />,
+    },
+    {
+      key: "3",
       label: "Davomat",
       children: <GroupAttendance />,
     },
     {
-      key: "2",
+      key: "4",
       label: "Darslar",
       children: <OnlineDars />,
     },
     {
-      key: "3",
+      key: "5",
       label: "Jurnal",
       children: <JurnalJurnal />,
     },
     {
-      key: "4",
+      key: "6",
       label: "To'lovlar tarixi",
-      children: <div>tolovlar</div>,
+      children: <GroupPaymentsHistory />,
     },
   ];
   const onChange = () => {};
@@ -42,6 +49,7 @@ export default function Group() {
           defaultActiveKey="1"
           items={items}
           onChange={onChange}
+          centered={true}
         />
       </div>
     </>

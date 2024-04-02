@@ -26,6 +26,7 @@ export default function Report() {
       defaultActiveKey="1"
       items={items}
       onChange={onChange}
+      centered={true}
     />
   );
 }

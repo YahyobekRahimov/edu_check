@@ -2,7 +2,7 @@ import { Form, Input, Button, App } from "antd";
 import ThemeSwitcher from "../../components/ThemeSwitcher/ThemeSwitcher";
 import axios from "axios";
 import { setCookie } from "../../utils/cookies";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -32,11 +32,6 @@ export default function Login() {
       setError(error.response.data.error);
     }
   };
-
-  useEffect(() => {
-    setCookie("access_token", "asdkjfsl;", 10);
-    setCookie("refresh_token", "asdkjfsl;", 10);
-  }, []);
 
   return (
     <div className="h-screen dark:bg-[var(--dark-background-800)]">
