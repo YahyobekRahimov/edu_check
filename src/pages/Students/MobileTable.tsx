@@ -8,23 +8,15 @@ import {
 import { setCurrentStudentData } from "../../redux/currentStudentSlice";
 import TickIcon from "../../components/Icons/TickIcon";
 import XLetterIcon from "../../components/Icons/XLetterIcon";
-
-type RowType = {
-  key: string;
-  name: string;
-  phoneNumber: string;
-  group: string;
-  birthDate: string;
-  status: "paid" | "unpaid";
-  teacher: string;
-};
+import { useNavigate } from "react-router-dom";
 
 export default function MobileTable({
   dataSource,
 }: {
-  dataSource: RowType[];
+  dataSource: any;
 }) {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const handleDelete = () => {
     console.log("deleting");
   };
@@ -88,8 +80,9 @@ export default function MobileTable({
   ];
   return (
     <div className="flex flex-col gap-2 md:hidden">
-      {dataSource.map((element, index) => (
+      {dataSource.map((element: any, index: number) => (
         <ul
+          onClick={() => navigate(`/students/${element.id}`)}
           key={index}
           className="bg-white p-2 shadow-sm dark:bg-[var(--dark-background-800)] flex flex-col w-full"
         >

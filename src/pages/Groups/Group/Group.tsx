@@ -5,6 +5,7 @@ import AboutGroup from "./AboutGroup/AboutGroup";
 import OnlineDars from "./OnlineDars/OnlineDars";
 import JurnalJurnal from "./Jurnal/Jurnal";
 import GroupStudents from "./GroupStudents/GroupStudents";
+import GroupPaymentsHistory from "./GroupPaymentsHistory/GroupPaymentsHistory";
 
 export default function Group() {
   const items: TabsProps["items"] = [
@@ -36,7 +37,7 @@ export default function Group() {
     {
       key: "6",
       label: "To'lovlar tarixi",
-      children: <div>tolovlar</div>,
+      children: <GroupPaymentsHistory />,
     },
   ];
   const onChange = () => {};

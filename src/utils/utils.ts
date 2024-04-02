@@ -35,3 +35,11 @@ export const getCurrentMonth = (): string => {
 
   return months[currentMonthIndex];
 };
+
+export function getScreenWidth() {
+  return (
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth
+  );
+}

@@ -1,5 +1,5 @@
 import { Switch } from "antd";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export default function StudentAttendanceRow({
   name,
@@ -15,14 +15,16 @@ export default function StudentAttendanceRow({
 }) {
   const [checked, setChecked] = useState<boolean>(true);
 
+  const memoizedHandleStatusChange = useCallback(
+    (newStatus: boolean) => {
+      setChecked(newStatus);
+      handleStatusChange(name, newStatus);
+    },
+    [handleStatusChange, name]
+  );
+
   const handleChecked = () => {
-    if (checked) {
-      setChecked(false);
-      handleStatusChange(name, false);
-    } else {
-      setChecked(true);
-      handleStatusChange(name, true);
-    }
+    memoizedHandleStatusChange(!checked);
   };
   return (
     <li
