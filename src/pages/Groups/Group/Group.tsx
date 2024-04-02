@@ -44,10 +44,11 @@ export default function Group() {
     <>
       <div className="bg-[var(--dark-backround)] w-full">
         <Tabs
-          className="overflow-x-hidden"
+          className="overflow-x-hidden custom-tab-423"
           defaultActiveKey="1"
           items={items}
           onChange={onChange}
+          centered={true}
         />
       </div>
     </>

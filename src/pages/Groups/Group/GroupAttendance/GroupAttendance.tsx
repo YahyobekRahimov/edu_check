@@ -36,9 +36,9 @@ export default function AboutGroup() {
           O'quvchi qo'shish
         </Button>
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-10">
         <Select
-          className="w-[150px]"
+          className="w-[150px] min-w-[100px]"
           options={MONTHS}
           value={month}
           onChange={handleMonthChange}

@@ -27,6 +27,7 @@ export default function () {
       className="custom-tab-423 custom-tab-sticky"
       items={items}
       defaultActiveKey="1"
+      centered={true}
     ></Tabs>
   );
 }

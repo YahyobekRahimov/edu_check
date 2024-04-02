@@ -11,20 +11,23 @@ import {
   setSMSDrawer,
 } from "../../../../redux/ModalSlice";
 import SMSDrawer from "../../../../components/SMSDrawer/SMSDrawer";
+import { useNavigate } from "react-router-dom";
 
 type RowType = {
-  key: string;
+  id: number | string;
+  index: any;
   name: string;
-  address: string;
   phoneNumber: string;
   group: string;
   teacher: string;
   status: "paid" | "unpaid";
   balance: number;
+  actions: any;
 };
 
 export default function GroupStudents() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const items: MenuProps["items"] = [
     {
       key: 1,
@@ -81,8 +84,7 @@ export default function GroupStudents() {
     },
   ];
   const dataSource = StudentsJSON;
-  // @ts-ignore
-  const columns: ColumnType<RowType> = [
+  const columns: ColumnType<RowType>[] = [
     {
       title: "#",
       dataIndex: "index",
@@ -201,8 +203,17 @@ export default function GroupStudents() {
   ];
   return (
     <>
-      {/* @ts-ignore */}
-      <Table dataSource={dataSource} columns={columns}></Table>;
+      <Table
+        dataSource={dataSource}
+        columns={columns}
+        pagination={false}
+        className="cursor-pointer"
+        onRow={(data: RowType) => ({
+          onClick: () => {
+            navigate(`/students/${data.id}`);
+          },
+        })}
+      ></Table>
       <SMSDrawer />
     </>
   );
