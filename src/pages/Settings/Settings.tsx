@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Skeleton } from "antd";
 import { deleteCookie } from "../../utils/cookies";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +16,11 @@ export default function Settings() {
           src="https://picsum.photos/200/200"
           alt="Avatar photo"
           className="pointer-events-none"
+        />
+        <Skeleton.Avatar
+          size={"large"}
+          shape="circle"
+          style={{ width: "200px", height: "200px" }}
         />
       </div>
       <div>
