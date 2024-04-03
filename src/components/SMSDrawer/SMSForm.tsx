@@ -11,6 +11,7 @@ const { TextArea } = Input;
 
 const SMSForm = () => {
   const [form] = useForm();
+  const { setFieldsValue } = form;
   const dispatch = useAppDispatch();
   const textAreaRef = useRef(null);
   const { message, modal } = App.useApp();
@@ -75,16 +76,32 @@ const SMSForm = () => {
         >
           <TextArea
             ref={textAreaRef}
-            rows={4}
+            rows={5}
             placeholder="SMS xabar..."
           />
         </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Yuborish
-          </Button>
-        </Form.Item>
+        <div className="flex items-center justify-between">
+          <Form.Item>
+            <Button htmlType="reset">O'chirish</Button>
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Yuborish
+            </Button>
+          </Form.Item>
+        </div>
       </Form>
+      <div
+        onClick={() =>
+          setFieldsValue({
+            "message": `Assalomu alaykum, o'quvchi. \n\nKelayotgan oy uchun kursga to'lovni qilishingizni eslatib o'taman.`,
+          })
+        }
+        className="bg-[#f0efef] dark:bg-[var(--dark-background-800)] rounded-lg p-2 cursor-pointer"
+      >
+        Assalomu alaykum, o'quvchi. Kelayotgan oy uchun kursga
+        to'lovni qilishingizni eslatib o'taman.
+      </div>
     </div>
   );
 };

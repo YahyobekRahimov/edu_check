@@ -6,6 +6,7 @@ import OnlineDars from "./OnlineDars/OnlineDars";
 import JurnalJurnal from "./Jurnal/Jurnal";
 import GroupStudents from "./GroupStudents/GroupStudents";
 import GroupPaymentsHistory from "./GroupPaymentsHistory/GroupPaymentsHistory";
+import { getScreenWidth } from "../../../utils/utils";
 
 export default function Group() {
   const items: TabsProps["items"] = [
@@ -40,16 +41,17 @@ export default function Group() {
       children: <GroupPaymentsHistory />,
     },
   ];
+
   const onChange = () => {};
   return (
     <>
       <div className="bg-[var(--dark-backround)] w-full">
         <Tabs
-          className="overflow-x-hidden custom-tab-423"
+          className="overflow-x-hidden"
           defaultActiveKey="1"
           items={items}
           onChange={onChange}
-          centered={true}
+          centered={getScreenWidth() > 780 ? true : false}
         />
       </div>
     </>
