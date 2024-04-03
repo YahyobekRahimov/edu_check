@@ -18,7 +18,7 @@ export default function Header() {
     dispatch(setSelectedNav("4"));
   };
   return (
-    <div className="flex items-center justify-between  w-full mx-2 xs:mx-10 lg:mx-6 lg:w-max">
+    <div className="flex items-center justify-between w-full mx-2 xs:mx-10 lg:mx-6 lg:w-max">
       <div className="w-10 rounded-full overflow-hidden logo">
         <img
           className="logo  "

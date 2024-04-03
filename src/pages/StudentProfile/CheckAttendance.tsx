@@ -17,7 +17,7 @@ export default function CheckAttendance() {
   const { lessons, student } = attendanceData[0];
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 overflow-x-auto lg:overflow-x-visible pb-5">
       <div className="flex items-center justify-between gap-10">
         <Select
           className="w-[150px] min-w-[100px]"

@@ -12,6 +12,7 @@ import { App } from "antd";
 
 export default function ActionModalComponent() {
   const [inputValue, setInputValue] = useState<number | string>(0);
+  const [isError, setIsError] = useState<boolean>(true);
   const dispatch = useAppDispatch();
   const numberInputRef = useRef(null);
   const { message, modal } = App.useApp();
@@ -118,6 +119,7 @@ export default function ActionModalComponent() {
         className: `${
           isModalOpen ? "" : "modal-button-danger-styles"
         }`,
+        disabled: isError ? true : false,
       }}
     >
       <Form name="amount" onFinish={handleSubmit}>
@@ -125,7 +127,23 @@ export default function ActionModalComponent() {
           label="Summa"
           name="amount"
           rules={[
-            { required: true, message: "Iltimos, summa kiriting" },
+            {
+              required: true,
+              message: "Iltimos, summa kiriting",
+            },
+
+            {
+              validator(_, value) {
+                if (value <= 0) {
+                  setIsError(true);
+                  return Promise.reject(
+                    "Iltimos, 0 dan katta raqam kiriting!"
+                  );
+                }
+                setIsError(false);
+                return Promise.resolve();
+              },
+            },
           ]}
           className="dark:text-white"
         >
