@@ -9,7 +9,7 @@ export default function () {
       key: "1",
       label: "Ochiq guruhlar",
       children: (
-        <>
+        <>            
           <OpenGroupsHeader></OpenGroupsHeader>
           <OpenGroups />
         </>
