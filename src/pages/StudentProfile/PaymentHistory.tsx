@@ -22,6 +22,7 @@ export default function PaymentHistory({
 }: {
   studentData: any;
 }) {
+  // @ts-ignore
   const [dataSource, setDataSource] = useState(
     studentData.paymentsHistory
   );
