@@ -5,7 +5,7 @@ import {
 } from "../../hooks/redux-hooks";
 import { setChangePasswordModal } from "../../redux/ModalSlice";
 import { Form } from "antd";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useForm } from "antd/es/form/Form";
 
 export default function ChangePasswordModal() {
