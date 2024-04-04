@@ -64,7 +64,7 @@ export default function StudentProfile() {
             style={{ width: "200px", height: "200px" }}
           />
         </div>
-        <div className="text-[var(--white-text)]">
+        <div className="dark:text-[var(--white-text)]">
           <ul className="grid text-lg gap-[1rem]">
             <li className="text-nowrap">
               <span className="font-semibold ">Ism Familiya:</span>{" "}
