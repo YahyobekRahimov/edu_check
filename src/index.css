@@ -57,6 +57,14 @@
   --primary-color: var(--dark-primary-color);
 }
 
+.ant-btn-primary {
+  background: var(--primary-color);
+}
+
+.ant-btn-icon-only {
+  background: transparent;
+}
+
 .dark .ant-input-outlined {
   --ant-color-bg-container: var(--dark-background-800);
   --ant-input-hover-bg: var(--dark-background-800);
@@ -86,22 +94,6 @@
   --ant-color-text-disabled: white;
   --ant-pagination-item-active-bg: transparent;
   --ant-color-text: var(--white-text);
-}
-
-.ant-btn-primary {
-  background-color: #925fe2;
-}
-
-.ant-btn-primary:not(:disabled):hover {
-  background-color: rgba(146, 95, 226, 0.85) !important;
-}
-
-.dark .ant-btn-primary {
-  background-color: #2b30ea !important;
-}
-
-.dark .ant-btn-primary:hover {
-  background-color: #4146e5 !important;
 }
 
 .dark .ant-modal-content {
@@ -134,22 +126,6 @@
 
 .dark .ant-dropdown-menu {
   --ant-color-split: rgba(255, 255, 255, 0.3);
-}
-
-.dark .ant-btn-default {
-  --ant-button-default-hover-bg: var(--dark-background-800);
-  --ant-button-default-active-bg: var(--dark-background-800);
-  --ant-button-default-color: var(--white-text);
-  --ant-button-default-hover-color: var(--dark-primary-color);
-  --ant-button-default-hover-border-color: var(--dark-primary-color);
-  --ant-button-default-active-color: var(--dark-primary-color);
-  --ant-button-default-active-border-color: var(--dark-primary-color);
-  background: var(--dark-background-800);
-  color: var(--white-text);
-}
-
-.dark .ant-btn-default:hover {
-  background: var(--dark-background-800) !important;
 }
 
 .dark .ant-input-number-group-addon {

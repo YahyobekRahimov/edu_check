@@ -10,12 +10,14 @@ const initialState: {
   };
   SMSDrawer: { isOpen: boolean };
   studentEditModal: { isOpen: boolean };
+  changePasswordModal: { isOpen: boolean };
 } = {
   userData: {},
   addPaymentModal: { isOpen: false },
   deductionModal: { isOpen: false },
   SMSDrawer: { isOpen: false },
   studentEditModal: { isOpen: false },
+  changePasswordModal: { isOpen: false },
 };
 
 const ModalSlice = createSlice({
@@ -41,6 +43,12 @@ const ModalSlice = createSlice({
     ) => {
       state.studentEditModal.isOpen = payload;
     },
+    setChangePasswordModal: (
+      state,
+      { payload }: { payload: boolean }
+    ) => {
+      state.changePasswordModal.isOpen = payload;
+    },
   },
 });
 
@@ -50,6 +58,7 @@ export const {
   setModalOpen,
   setSMSDrawer,
   setStudentEditModal,
+  setChangePasswordModal,
 } = ModalSlice.actions;
 
 export default ModalSlice.reducer;
