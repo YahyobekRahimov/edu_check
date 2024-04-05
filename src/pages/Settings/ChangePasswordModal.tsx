@@ -19,9 +19,17 @@ export default function ChangePasswordModal() {
   const handleCancel = () => {
     dispatch(setChangePasswordModal(false));
   };
-  const handleFinish = () => {};
+  const handleFinish = () => {
+    console.log(form.getFieldsValue());
+    form.resetFields();
+    dispatch(setChangePasswordModal(false));
+  };
   const handleOk = () => {
-    handleFinish();
+    const errors = form.getFieldsError();
+    const isError = errors.some((input) => input.errors.length > 0);
+    if (!isError) {
+      handleFinish();
+    }
   };
 
   return (
@@ -47,15 +55,22 @@ export default function ChangePasswordModal() {
               required: true,
               message: "Iltimos, hozirgi parolingizni kiriting!",
             },
+            {
+              min: 8,
+              message:
+                "Parol eng kamida 8 ta belgidan tashkil topgan!",
+            },
           ]}
+          hasFeedback
         >
-          <Input
+          <Input.Password
             type="text"
             ref={currentPasswordRef}
             placeholder="Amaldagi parol"
           />
         </Form.Item>
         <Form.Item
+          hasFeedback
           name="newPassword"
           rules={[
             {
@@ -64,18 +79,38 @@ export default function ChangePasswordModal() {
             },
           ]}
         >
-          <Input type="text" placeholder="Yangi parol" />
+          <Input.Password type="text" placeholder="Yangi parol" />
         </Form.Item>
         <Form.Item
+          hasFeedback
           name="confirmNewPassword"
+          dependencies={["newPassword"]}
           rules={[
             {
               required: true,
               message: "Yangi parolni tasdiqlang!",
             },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (
+                  !value ||
+                  getFieldValue("newPassword") === value
+                ) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error(
+                    "Siz kiritgan yangi parol bir biriga tushmaydi!"
+                  )
+                );
+              },
+            }),
           ]}
         >
-          <Input type="text" placeholder="Yangi parolni tasdiqlang" />
+          <Input.Password
+            type="text"
+            placeholder="Yangi parolni tasdiqlang"
+          />
         </Form.Item>
         <Form.Item rootClassName="hidden">
           <button type="submit"></button>
