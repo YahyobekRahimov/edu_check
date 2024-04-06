@@ -57,14 +57,17 @@ const SMSForm = () => {
     <div className="dark:text-[rgba(255,255,255,0.85)] z-20">
       <div className="flex gap-3 items-center text-sm my-2">
         <span className="font-semibold">
-          Qabul qiluvchining ismi:
+          Qabul qiluvchi:
         </span>
         <span>{receiverData.name}</span>
       </div>
-      <div className="flex gap-3 items-center text-sm mb-10">
+      { receiverData.phoneNumber ? 
+       <div className="flex gap-3 items-center text-sm mb-10">
         <span className="font-semibold">Telefon raqami:</span>
         <span>{receiverData.phoneNumber}</span>
-      </div>
+      </div> : ""
+      }
+      
       <Form form={form} layout="vertical" onFinish={onFinish}>
         <Form.Item
           name="message"
