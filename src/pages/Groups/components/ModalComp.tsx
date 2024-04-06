@@ -5,9 +5,11 @@ import {
 } from "../../../hooks/redux-hooks";
 import { setIsModalOpen } from "../../../redux/isModalOpen";
 import FormComp from "./FormComp";
+import { setModalData } from "../../../redux/ModalSlice";
 
 function ModalComp() {
   function openModal() {
+    dispatch(setModalData({}))
     dispatch(setIsModalOpen(!isModalOpen));
   }
   const dispatch = useAppDispatch();
