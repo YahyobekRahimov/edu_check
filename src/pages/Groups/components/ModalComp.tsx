@@ -5,17 +5,20 @@ import {
 } from "../../../hooks/redux-hooks";
 import { setIsModalOpen } from "../../../redux/isModalOpen";
 import FormComp from "./FormComp";
+import { setModalData } from "../../../redux/ModalSlice";
 
 function ModalComp() {
   function openModal() {
+    dispatch(setModalData({}))
     dispatch(setIsModalOpen(!isModalOpen));
   }
   const dispatch = useAppDispatch();
+  const modalData = useAppSelector(state => state.ModalSlice.userData)
   const isModalOpen = useAppSelector((state) => state.isModalOpen);
   return (
     <Modal
       className=""
-      title="Guruh qo'shish"
+      title={modalData.name ? "Guruh tahrirlash" : "Guruh qo'shish"}
       open={isModalOpen}
       //   onOk={openModal}
       onCancel={openModal}

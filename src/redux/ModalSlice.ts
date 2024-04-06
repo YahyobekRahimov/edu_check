@@ -53,7 +53,7 @@ const ModalSlice = createSlice({
     },
     setChangePasswordModal: (
       state,
-      { payload }: { payload: boolean }
+      { payload }: { payload: boolean },
     ) => {
       state.changePasswordModal.isOpen = payload;
     },
