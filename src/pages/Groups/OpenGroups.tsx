@@ -3,23 +3,32 @@ import { DataGroups } from "../../types/types";
 
 import MobileTableGroups from "./components/MobileTableGroups";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../hooks/redux-hooks";
-import { setSMSDrawer } from "../../redux/ModalSlice";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../hooks/redux-hooks";
+import { setGroupConfirm, setModalData, setOpenConfirm, setSMSDrawer } from "../../redux/ModalSlice";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
 import data from "../../data/groups.json";
 import { useState } from "react";
+import ModalConf from "./components/ModalConf";
 export default function OpenGroups() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
+  const [dataJs, setDataJs] = useState<DataGroups[]>([...data]);
+
+  const modalData: DataGroups = useAppSelector(
+    (state) => state.ModalSlice.userData,
+  );
+
   function handleChangePage(record: DataGroups) {
     navigate(`${record.id}`);
   }
-  const [dataJs, setDataJs] = useState<DataGroups[]>([...data]);
-  console.log(dataJs);
-
-  const handleFilter = (id: number) => {
-    const newData = dataJs.filter((d) => d.id !== id);
-    setDataJs(newData);
+  const handleFilter = () => {
+    dispatch(setGroupConfirm(modalData.name))
+    dispatch(setOpenConfirm(true))
+    // const newData = dataJs.filter((d) => d.id !== modalData.id);
+    // setDataJs(newData);
   };
 
   const items: MenuProps["items"] = [
@@ -29,9 +38,10 @@ export default function OpenGroups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            // dispatch(setStudentEditModal(true))
+            dispatch(setGroupConfirm(modalData.name))
+            dispatch(setOpenConfirm(true))
           }}
-          className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
+          className='font-semibold w-full text-start tracking-wide py-[5px] px-3'
         >
           Tahrirlash
         </button>
@@ -48,7 +58,7 @@ export default function OpenGroups() {
             e.stopPropagation();
             dispatch(setSMSDrawer(true));
           }}
-          className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
+          className='font-semibold w-full text-start tracking-wide py-[5px] px-3'
         >
           SMS
         </button>
@@ -65,11 +75,11 @@ export default function OpenGroups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            handleFilter(3);
+            handleFilter();
           }}
-          className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
+          className='font-semibold w-full text-start tracking-wide py-[5px] px-3'
         >
-          O'chirish
+          Yopish
         </button>
       ),
       danger: true,
@@ -114,21 +124,25 @@ export default function OpenGroups() {
       title: "Amallar",
       dataIndex: "actions",
       key: "actions",
-      render: () => (
-        <Dropdown
-          trigger={["click"]}
-          menu={{ items }}
-          placement="bottomLeft"
-        >
-          <Button
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-            type="primary"
+      render: (_, record: DataGroups) => (
+        <>
+          <Dropdown
+    
+            trigger={["click"]}
+            menu={{ items }}
+            placement='bottomLeft'
           >
-            ...
-          </Button>
-        </Dropdown>
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(setModalData(record));
+              }}
+              type='primary'
+            >
+              ...
+            </Button>
+          </Dropdown>
+        </>
       ),
     },
   ];
@@ -140,7 +154,7 @@ export default function OpenGroups() {
           onRow={(record, _) => ({
             onClick: () => handleChangePage(record),
           })}
-          className="hidden md:block w-full cursor-pointer custom-table-top-position"
+          className='hidden md:block w-full cursor-pointer custom-table-top-position'
           columns={columns}
           dataSource={dataJs}
           pagination={false}
@@ -149,6 +163,8 @@ export default function OpenGroups() {
         <MobileTableGroups dataSource={dataJs} />
       </div>
       <SMSDrawer />
+      <ModalConf/>
+      <ModalConf/>
     </>
   );
 }
