@@ -48,7 +48,12 @@ export default function OpenGroups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
+<<<<<<< HEAD
             handleUpdate();
+=======
+            dispatch(setGroupConfirm(modalData.name));
+            dispatch(setOpenConfirm(true));
+>>>>>>> 653ed60 (a lot of minor changes)
           }}
           className="font-semibold w-full text-start tracking-wide py-[5px] px-3"
         >
@@ -173,6 +178,13 @@ export default function OpenGroups() {
       </div>
       <SMSDrawer />
       <ModalConf />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      <ModalConf />
+=======
+>>>>>>> 653ed60 (a lot of minor changes)
+>>>>>>> 224dfa5 (a lot of minor changes)
     </>
   );
 }
