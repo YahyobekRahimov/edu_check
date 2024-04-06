@@ -38,7 +38,6 @@ export default function CheckingAttendance() {
       <Button
         className="block ml-auto mr-auto md:mr-8 lg:mr-24 mt-3 px-10 mb-10"
         type="primary"
-        size="large"
       >
         Topshirish
       </Button>

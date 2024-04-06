@@ -210,6 +210,7 @@ export default function DesktopTable({
                 dispatch(setModalData(record));
               }}
               type="primary"
+              className="px-8"
             >
               ...
             </Button>

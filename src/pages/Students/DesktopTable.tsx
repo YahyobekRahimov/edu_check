@@ -19,7 +19,9 @@ export default function DesktopTable({
         className="cursor-pointer"
         onRow={(data) => ({
           onClick: () => {
-            navigate(`/students/${data.id}`);
+            navigate(`/students/${data.id}`, {
+              state: { defaultValue: "payments" },
+            });
           },
         })}
       />

@@ -41,7 +41,7 @@ const ModalSlice = createSlice({
     },
     setStudentEditModal: (
       state,
-      { payload }: { payload: boolean },
+      { payload }: { payload: boolean }
     ) => {
       state.studentEditModal.isOpen = payload;
     },

@@ -117,6 +117,7 @@ export default function Students() {
                 dispatch(setCurrentStudentData(record));
               }}
               type="primary"
+              className="px-8"
             >
               ...
             </Button>
