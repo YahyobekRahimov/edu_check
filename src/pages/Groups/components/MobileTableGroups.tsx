@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { DataGroups } from "../../../types/types";
-import { Button, Dropdown, MenuProps } from "antd";
+import { Button, Divider, Dropdown, MenuProps } from "antd";
 import { useAppDispatch } from "../../../hooks/redux-hooks";
 import { setSMSDrawer } from "../../../redux/ModalSlice";
 export default function MobileTableGroups({
@@ -82,32 +82,37 @@ export default function MobileTableGroups({
         >
           <li className="flex justify-between items-center">
             <span className="font-semibold text-[16px]">
-              Guruhlar:
+              Guruh nomi:
             </span>
             <span>{element.course}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span className="font-semibold text-[16px]">Kurs:</span>
             <span>{element.name.slice(0, 15)}...</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span className="font-semibold text-[16px]">
               O'qituvchi:
             </span>
             <span>{element.teacher}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span className="font-semibold text-[16px]">
               O'tilgan muddati:
             </span>
             <span>{element.opened}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span className="font-semibold text-[16px]">
               Xonalar:
             </span>
             <span>{element.students}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span className="font-semibold text-[16px]">
               Amallar:
@@ -122,6 +127,8 @@ export default function MobileTableGroups({
                   e.stopPropagation();
                 }}
                 type="primary"
+                size="large"
+                className="px-8"
               >
                 ...
               </Button>

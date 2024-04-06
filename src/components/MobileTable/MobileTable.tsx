@@ -1,4 +1,4 @@
-import { Button, Dropdown } from "antd";
+import { Button, Divider, Dropdown } from "antd";
 import { MenuProps } from "antd/lib";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import {
@@ -95,18 +95,22 @@ export default function MobileTable({
             <span>F.I.SH:</span>
             <span>{element.name}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>Telefon raqami:</span>
             <span>{element.phoneNumber}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>Guruh:</span>
             <span>{element.group}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>O'qituvchi:</span>
             <span>{element.teacher}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>Balans:</span>
             <span>
@@ -121,6 +125,7 @@ export default function MobileTable({
               )}
             </span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>Amallar:</span>
             <Dropdown
@@ -134,6 +139,8 @@ export default function MobileTable({
                   dispatch(setModalData(element));
                 }}
                 type="primary"
+                size="large"
+                className="px-8"
               >
                 ...
               </Button>

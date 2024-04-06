@@ -1,4 +1,4 @@
-import { Button, Dropdown } from "antd";
+import { Button, Divider, Dropdown } from "antd";
 import { MenuProps } from "antd/lib";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import {
@@ -82,7 +82,11 @@ export default function MobileTable({
     <div className="flex flex-col gap-2 md:hidden">
       {dataSource.map((element: any, index: number) => (
         <ul
-          onClick={() => navigate(`/students/${element.id}`)}
+          onClick={() =>
+            navigate(`/students/${element.id}`, {
+              state: { defaultValue: "payments" },
+            })
+          }
           key={index}
           className="bg-white p-2 shadow-sm dark:bg-[var(--dark-background-800)] flex flex-col w-full"
         >
@@ -90,18 +94,22 @@ export default function MobileTable({
             <span>F.I.SH:</span>
             <span>{element.name}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>Telefon raqami:</span>
             <span>{element.phoneNumber}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>Guruh:</span>
             <span>{element.group}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>O'qituvchi:</span>
             <span>{element.teacher}</span>
           </li>
+          <Divider />
           <li className="flex justify-between items-center">
             <span>Holat:</span>
             <span>
@@ -116,7 +124,7 @@ export default function MobileTable({
               )}
             </span>
           </li>
-
+          <Divider />
           <li className="flex justify-between items-center">
             <span>Amallar:</span>
             <Dropdown trigger={["click"]} menu={{ items }}>
@@ -126,6 +134,8 @@ export default function MobileTable({
                   dispatch(setCurrentStudentData(element));
                 }}
                 type="primary"
+                size="large"
+                className="px-8"
               >
                 ...
               </Button>
