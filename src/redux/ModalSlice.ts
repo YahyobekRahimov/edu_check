@@ -11,6 +11,7 @@ const initialState: {
   confirm: { isGroup:string; isOpen: boolean };
   SMSDrawer: { isOpen: boolean };
   studentEditModal: { isOpen: boolean };
+  changePasswordModal: { isOpen: boolean };
 } = {
   userData: {},
   confirm: { isGroup: "", isOpen: false },
@@ -18,6 +19,7 @@ const initialState: {
   deductionModal: { isOpen: false },
   SMSDrawer: { isOpen: false },
   studentEditModal: { isOpen: false },
+  changePasswordModal: { isOpen: false },
 };
 
 const ModalSlice = createSlice({
@@ -54,6 +56,11 @@ const ModalSlice = createSlice({
       action: { payload: any },
     ) => {
       state.confirm.isGroup = action.payload;
+    setChangePasswordModal: (
+      state,
+      { payload }: { payload: boolean }
+    ) => {
+      state.changePasswordModal.isOpen = payload;
     },
   },
 });
@@ -65,7 +72,8 @@ export const {
   setSMSDrawer,
   setStudentEditModal,
   setOpenConfirm,
-  setGroupConfirm
+  setGroupConfirm,
+  setChangePasswordModal,
 } = ModalSlice.actions;
 
 export default ModalSlice.reducer;

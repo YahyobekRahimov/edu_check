@@ -36,9 +36,9 @@ export default function AboutGroup() {
           O'quvchi qo'shish
         </Button>
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-10">
         <Select
-          className="w-[150px]"
+          className="w-[150px] min-w-[100px]"
           options={MONTHS}
           value={month}
           onChange={handleMonthChange}
@@ -75,7 +75,7 @@ export default function AboutGroup() {
             {attendanceData.map((data, index) => (
               <tr
                 key={index}
-                className="border duration-75 even:bg-slate-100 odd:bg-lime-200 even:dark:bg-[var(--dark-background-800)] odd:dark:bg-[var(--dark-background-700)]"
+                className="border duration-75 even:bg-slate-100 odd:bg-[rgba(146,95,226,0.25)] even:dark:bg-[var(--dark-background-800)] odd:dark:bg-[var(--dark-background-700)]"
               >
                 <td className="w-32 border border-[#e5e7eb] border-l-0 border-r-0 px-4 py-2 text-nowrap">
                   {data.student}

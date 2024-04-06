@@ -4,7 +4,8 @@ import StudentsJSON from "../../data/students.json";
 import PaymentHistory from "./PaymentHistory";
 import CheckAttendance from "./CheckAttendance";
 import Results from "./Results";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { scrollToTop } from "../../utils/utils";
 
 export default function StudentProfile() {
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
@@ -21,6 +22,9 @@ export default function StudentProfile() {
   } else {
     defaultValue = "3";
   }
+  useEffect(() => {
+    scrollToTop(false);
+  }, []);
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -45,7 +49,7 @@ export default function StudentProfile() {
   ];
   const onChange = () => {};
   return (
-    <div className="p-2 xs:p-5 lg:p-10 flex flex-col gap-10 md:flex-row">
+    <div className="p-2 xs:p-5 lg:p-10 flex flex-col gap-10 md:flex-row scrollToTopNow">
       <div className="flex flex-col gap-10">
         <div className="max-w-[200px] max-h-[200px] overflow-hidden rounded-full select-none pointer-events-none">
           <img
@@ -60,7 +64,7 @@ export default function StudentProfile() {
             style={{ width: "200px", height: "200px" }}
           />
         </div>
-        <div className="h-max">
+        <div className="dark:text-[var(--white-text)]">
           <ul className="grid text-lg gap-[1rem]">
             <li className="text-nowrap">
               <span className="font-semibold ">Ism Familiya:</span>{" "}

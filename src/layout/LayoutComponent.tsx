@@ -52,7 +52,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
                     padding: 0,
                   }
             }
-            className="bg-header-gradient md:ml-[1.5rem] dark:p-0 py-2 dark:mx-0 flex items-center justify-between rounded-lg dark:rounded-none"
+            className="bg-header-gradient min-h-[64px] md:ml-[1.5rem] dark:p-0 py-2 dark:mx-0 flex items-center justify-between rounded-lg dark:rounded-none"
           >
             <Button
               type="text"
@@ -89,7 +89,7 @@ const App: ({ children }: { children: ReactNode }) => ReactNode = ({
               style={{
                 borderRadius: borderRadiusLG,
               }}
-              className="h-full bg-white overflow-auto dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen pb-20"
+              className="h-full bg-white overflow-auto scrollToTopNow dark:text-white dark:bg-[var(--dark-background-800)] min-h-[280px] max-h-screen pb-20 lg:p-0"
             >
               {children}
             </div>

@@ -35,3 +35,19 @@ export const getCurrentMonth = (): string => {
 
   return months[currentMonthIndex];
 };
+
+export function getScreenWidth() {
+  return (
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth
+  );
+}
+
+export function scrollToTop(smoothScroll: boolean = true): void {
+  const options: ScrollToOptions = {
+    top: 0,
+    behavior: smoothScroll ? "smooth" : "auto", // Use "auto" for instant scrolling
+  };
+  document.querySelector(".scrollToTopNow")?.scrollTo(options);
+}

@@ -5,6 +5,8 @@ import AboutGroup from "./AboutGroup/AboutGroup";
 import OnlineDars from "./OnlineDars/OnlineDars";
 import JurnalJurnal from "./Jurnal/Jurnal";
 import GroupStudents from "./GroupStudents/GroupStudents";
+import GroupPaymentsHistory from "./GroupPaymentsHistory/GroupPaymentsHistory";
+import { getScreenWidth } from "../../../utils/utils";
 
 export default function Group() {
   const items: TabsProps["items"] = [
@@ -36,9 +38,10 @@ export default function Group() {
     {
       key: "6",
       label: "To'lovlar tarixi",
-      children: <div>tolovlar</div>,
+      children: <GroupPaymentsHistory />,
     },
   ];
+
   const onChange = () => {};
   return (
     <>
@@ -48,6 +51,7 @@ export default function Group() {
           defaultActiveKey="1"
           items={items}
           onChange={onChange}
+          centered={getScreenWidth() > 780 ? true : false}
         />
       </div>
     </>
