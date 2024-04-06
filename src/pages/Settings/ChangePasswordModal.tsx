@@ -18,11 +18,16 @@ export default function ChangePasswordModal() {
 
   const handleCancel = () => {
     dispatch(setChangePasswordModal(false));
+    setTimeout(() => {
+      form.resetFields();
+    }, 1000);
   };
   const handleFinish = () => {
     console.log(form.getFieldsValue());
-    form.resetFields();
     dispatch(setChangePasswordModal(false));
+    setTimeout(() => {
+      form.resetFields();
+    }, 1000);
   };
   const handleOk = () => {
     const errors = form.getFieldsError();
@@ -77,6 +82,11 @@ export default function ChangePasswordModal() {
               required: true,
               message: "Yangi parolingizni kiriting!",
             },
+            {
+              min: 8,
+              message:
+                "Yangi Parol eng kamida 8 ta belgidan tashkil topgan!",
+            },
           ]}
         >
           <Input.Password type="text" placeholder="Yangi parol" />
@@ -105,6 +115,11 @@ export default function ChangePasswordModal() {
                 );
               },
             }),
+            {
+              min: 8,
+              message:
+                "Parol eng kamida 8 ta belgidan tashkil topgan!",
+            },
           ]}
         >
           <Input.Password

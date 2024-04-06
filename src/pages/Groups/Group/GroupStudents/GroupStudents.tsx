@@ -12,6 +12,7 @@ import {
 } from "../../../../redux/ModalSlice";
 import SMSDrawer from "../../../../components/SMSDrawer/SMSDrawer";
 import { useNavigate } from "react-router-dom";
+import GroupStudentsMobileTable from "./GroupStudentsMobileTable";
 
 type RowType = {
   id: number | string;
@@ -193,6 +194,8 @@ export default function GroupStudents() {
                 dispatch(setModalData(record));
               }}
               type="primary"
+              size="large"
+              className="px-8"
             >
               ...
             </Button>
@@ -208,12 +211,14 @@ export default function GroupStudents() {
         columns={columns}
         pagination={false}
         className="cursor-pointer"
+        rootClassName="hidden md:block"
         onRow={(data: RowType) => ({
           onClick: () => {
             navigate(`/students/${data.id}`);
           },
         })}
       ></Table>
+      <GroupStudentsMobileTable dataSource={dataSource} />
       <SMSDrawer />
     </>
   );

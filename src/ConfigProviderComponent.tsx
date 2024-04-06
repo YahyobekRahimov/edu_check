@@ -69,16 +69,21 @@ export default function ConfigProviderComponent({
               isDark && "var(--dark-background-800)"
             }`,
           },
-          Button: {
-            colorPrimaryBg: "var(--primary-color)",
-            colorPrimary: "var(--primary-color)",
-            colorTextDisabled: `${isDark && "rgba(255,255,255,0.3)"}`,
-            borderColorDisabled: `${
-              isDark && "rgba(255,255,255,0.3)"
-            }`,
-            colorTextSecondary: `${isDark && "var(--white-text)"}`,
-            defaultHoverBg: "transparent",
-            defaultColor: `${isDark && "var(--white-text)"}`,
+          Button: isDark
+            ? {
+                colorTextSecondary: "var(--white-text)",
+                defaultHoverBg: "transparent",
+                defaultColor: "var(--white-text)",
+                defaultActiveBg: "transparent",
+                colorTextDisabled: "rgba(255,255,255,0.3)",
+                borderColorDisabled: "rgba(255,255,255,0.1)",
+              }
+            : {
+                colorPrimaryBg: "var(--primary-color)",
+                colorPrimary: "var(--primary-color)",
+              },
+          Divider: {
+            marginLG: 10,
           },
         },
       }}
