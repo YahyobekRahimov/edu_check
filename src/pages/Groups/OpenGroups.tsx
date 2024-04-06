@@ -7,11 +7,17 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../hooks/redux-hooks";
-import { setGroupConfirm, setModalData, setOpenConfirm, setSMSDrawer } from "../../redux/ModalSlice";
+import {
+  setGroupConfirm,
+  setModalData,
+  setOpenConfirm,
+  setSMSDrawer,
+} from "../../redux/ModalSlice";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
 import data from "../../data/groups.json";
 import { useState } from "react";
 import ModalConf from "./components/ModalConf";
+import { setIsModalOpen } from "../../redux/isModalOpen";
 export default function OpenGroups() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
@@ -25,11 +31,15 @@ export default function OpenGroups() {
     navigate(`${record.id}`);
   }
   const handleFilter = () => {
-    dispatch(setGroupConfirm(modalData.name))
-    dispatch(setOpenConfirm(true))
+    dispatch(setGroupConfirm(modalData.name));
+    dispatch(setOpenConfirm(true));
     // const newData = dataJs.filter((d) => d.id !== modalData.id);
     // setDataJs(newData);
   };
+  function handleUpdate() {
+    dispatch(setGroupConfirm(modalData.name));
+    dispatch(setIsModalOpen(true));
+  }
 
   const items: MenuProps["items"] = [
     {
@@ -38,8 +48,7 @@ export default function OpenGroups() {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            dispatch(setGroupConfirm(modalData.name))
-            dispatch(setOpenConfirm(true))
+            handleUpdate();
           }}
           className='font-semibold w-full text-start tracking-wide py-[5px] px-3'
         >
@@ -127,7 +136,6 @@ export default function OpenGroups() {
       render: (_, record: DataGroups) => (
         <>
           <Dropdown
-    
             trigger={["click"]}
             menu={{ items }}
             placement='bottomLeft'
@@ -163,8 +171,8 @@ export default function OpenGroups() {
         <MobileTableGroups dataSource={dataJs} />
       </div>
       <SMSDrawer />
-      <ModalConf/>
-      <ModalConf/>
+      <ModalConf />
+      <ModalConf />
     </>
   );
 }

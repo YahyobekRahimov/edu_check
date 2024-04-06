@@ -8,7 +8,7 @@ const initialState: {
   deductionModal: {
     isOpen: boolean;
   };
-  confirm: { isGroup:string; isOpen: boolean };
+  confirm: { isGroup: string; isOpen: boolean };
   SMSDrawer: { isOpen: boolean };
   studentEditModal: { isOpen: boolean };
   changePasswordModal: { isOpen: boolean };
@@ -45,20 +45,15 @@ const ModalSlice = createSlice({
     ) => {
       state.studentEditModal.isOpen = payload;
     },
-    setOpenConfirm: (
-      state,
-      action: { payload: any},
-    ) => {
+    setOpenConfirm: (state, action: { payload: any }) => {
       state.confirm.isOpen = action.payload;
     },
-    setGroupConfirm: (
-      state,
-      action: { payload: any },
-    ) => {
+    setGroupConfirm: (state, action: { payload: any }) => {
       state.confirm.isGroup = action.payload;
+    },
     setChangePasswordModal: (
       state,
-      { payload }: { payload: boolean }
+      { payload }: { payload: boolean },
     ) => {
       state.changePasswordModal.isOpen = payload;
     },

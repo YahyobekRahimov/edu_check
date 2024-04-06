@@ -11,11 +11,12 @@ function ModalComp() {
     dispatch(setIsModalOpen(!isModalOpen));
   }
   const dispatch = useAppDispatch();
+  const modalData = useAppSelector(state => state.ModalSlice.userData)
   const isModalOpen = useAppSelector((state) => state.isModalOpen);
   return (
     <Modal
       className=""
-      title="Guruh qo'shish"
+      title={modalData.name ? "Guruh tahrirlash" : "Guruh qo'shish"}
       open={isModalOpen}
       //   onOk={openModal}
       onCancel={openModal}
