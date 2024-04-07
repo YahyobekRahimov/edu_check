@@ -12,6 +12,7 @@ const initialState: {
   SMSDrawer: { isOpen: boolean };
   studentEditModal: { isOpen: boolean };
   changePasswordModal: { isOpen: boolean };
+  changeInfoModal: { isOpen: boolean };
 } = {
   userData: {},
   confirm: { isGroup: "", isOpen: false },
@@ -20,6 +21,7 @@ const initialState: {
   SMSDrawer: { isOpen: false },
   studentEditModal: { isOpen: false },
   changePasswordModal: { isOpen: false },
+  changeInfoModal: { isOpen: false },
 };
 
 const ModalSlice = createSlice({
@@ -53,9 +55,12 @@ const ModalSlice = createSlice({
     },
     setChangePasswordModal: (
       state,
-      { payload }: { payload: boolean },
+      { payload }: { payload: boolean }
     ) => {
       state.changePasswordModal.isOpen = payload;
+    },
+    setInfoModal: (state, { payload }: { payload: boolean }) => {
+      state.changeInfoModal.isOpen = payload;
     },
   },
 });

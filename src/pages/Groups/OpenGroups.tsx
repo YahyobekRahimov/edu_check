@@ -21,6 +21,7 @@ import { setIsModalOpen } from "../../redux/isModalOpen";
 export default function OpenGroups() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
+  // @ts-ignore
   const [dataJs, setDataJs] = useState<DataGroups[]>([...data]);
 
   const modalData: DataGroups = useAppSelector(

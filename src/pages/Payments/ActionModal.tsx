@@ -10,8 +10,6 @@ import {
 } from "../../hooks/redux-hooks";
 import { App } from "antd";
 
-import { RowType } from "./DesktopTable";
-
 export default function ActionModalComponent({
   addMoney,
   deductMoney,

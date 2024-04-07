@@ -8,7 +8,7 @@ import { Form } from "antd";
 import { useRef } from "react";
 import { useForm } from "antd/es/form/Form";
 
-export default function ChangePasswordModal() {
+export default function ChangeInfoModal() {
   const dispatch = useAppDispatch();
   const [form] = useForm();
   const currentPasswordRef = useRef<any>(null);
@@ -40,7 +40,7 @@ export default function ChangePasswordModal() {
   return (
     <Modal
       open={isModalOpen}
-      title="Parolni o'zgartirish"
+      title="Profilni tahrirlash"
       onOk={handleOk}
       onCancel={handleCancel}
       okText="O'zgartirish"
