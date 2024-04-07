@@ -1,28 +1,25 @@
-import { Button, Modal, Space } from "antd";
+import { Modal } from "antd";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../../hooks/redux-hooks";
 import { setOpenConfirm } from "../../../redux/ModalSlice";
 
-
 function ModalConf() {
   const dispatch = useAppDispatch();
   const groupString = useAppSelector(
-    (state) => state.ModalSlice.confirm.isGroup,
+    (state) => state.ModalSlice.confirm.isGroup
   );
   const isOpen = useAppSelector(
-    (state) => state.ModalSlice.confirm.isOpen,
+    (state) => state.ModalSlice.confirm.isOpen
   );
 
-  const handleOk = () => {
-     
-  };
+  const handleOk = () => {};
 
   const handleCancel = () => {
-    dispatch(setOpenConfirm(false))
+    dispatch(setOpenConfirm(false));
   };
-  
+
   return (
     <>
       <Modal
@@ -34,18 +31,15 @@ function ModalConf() {
         okText={"Ha"}
         footer={(_, { OkBtn, CancelBtn }) => (
           <>
-            <CancelBtn  />
+            <CancelBtn />
             <OkBtn />
           </>
         )}
-      
-        
       >
         <p>Haqiqatdan ham o'chirmoqchimisiz...</p>
       </Modal>
     </>
   );
 }
-
 
 export default ModalConf;

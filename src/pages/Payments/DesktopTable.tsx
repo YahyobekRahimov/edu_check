@@ -17,8 +17,8 @@ import { useNavigate } from "react-router-dom";
 
 export type RowType = {
   key: string;
+  id: number;
   name: string;
-  address: string;
   phoneNumber: string;
   group: string;
   teacher: string;
@@ -28,8 +28,12 @@ export type RowType = {
 
 export default function DesktopTable({
   dataSource,
+  addMoney,
+  deductMoney,
 }: {
-  dataSource: any[];
+  dataSource: RowType[];
+  addMoney: (amount?: number, studentID?: number) => void;
+  deductMoney: (amount?: number, studentID?: number) => void;
 }) {
   const navigate = useNavigate();
   // @ts-ignore
@@ -148,8 +152,8 @@ export default function DesktopTable({
       dataIndex: "status",
       key: "status",
       responsive: ["lg"],
-      render(value: string) {
-        return value == "paid" ? (
+      render(_: string, record: RowType) {
+        return record.balance >= 0 ? (
           <span className="flex gap-1">
             To'langan <TickIcon />
           </span>
@@ -166,17 +170,17 @@ export default function DesktopTable({
       title: "Balans",
       dataIndex: "balance",
       key: "balance",
-      render(value, record: RowType) {
-        if (record?.status === "paid") {
+      render(value) {
+        if (value >= 0) {
           return (
             <span className="text-green-600 font-semibold">
-              +${value}
+              +{value} so'm
             </span>
           );
         }
         return (
           <span className="text-red-500 font-semibold">
-            -${value}
+            {value} so'm
           </span>
         );
       },
@@ -237,7 +241,7 @@ export default function DesktopTable({
         className="cursor-pointer"
         sticky
       />
-      <ActionModal />
+      <ActionModal addMoney={addMoney} deductMoney={deductMoney} />
       <SMSDrawer />
     </div>
   );

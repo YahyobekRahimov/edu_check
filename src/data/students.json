@@ -99,7 +99,7 @@
     "teacher": "Michael Taylor",
     "birthDate": "2024-03-10",
     "status": "unpaid",
-    "balance": 500,
+    "balance": -500,
     "paymentsHistory": [
       {
         "id": 2432,
@@ -145,7 +145,7 @@
     "teacher": "James Wilson",
     "birthDate": "2024-03-05",
     "status": "unpaid",
-    "balance": 100,
+    "balance": -100,
     "paymentsHistory": [
       {
         "id": 2432,
@@ -214,7 +214,7 @@
     "teacher": "Ethan Anderson",
     "birthDate": "2024-02-22",
     "status": "unpaid",
-    "balance": 451,
+    "balance": -451,
     "paymentsHistory": [
       {
         "id": 2432,
@@ -283,7 +283,7 @@
     "teacher": "Oliver Perez",
     "birthDate": "2024-03-12",
     "status": "unpaid",
-    "balance": 122,
+    "balance": -122,
     "paymentsHistory": [
       {
         "id": 2432,
@@ -352,7 +352,7 @@
     "teacher": "Mason Cooper",
     "birthDate": "2024-03-09",
     "status": "unpaid",
-    "balance": 1232,
+    "balance": -1232,
     "paymentsHistory": [
       {
         "id": 2432,

@@ -10,7 +10,15 @@ import {
 } from "../../hooks/redux-hooks";
 import { App } from "antd";
 
-export default function ActionModalComponent() {
+import { RowType } from "./DesktopTable";
+
+export default function ActionModalComponent({
+  addMoney,
+  deductMoney,
+}: {
+  addMoney: (amount?: number, studentID?: number) => void;
+  deductMoney: (amount?: number, studentID?: number) => void;
+}) {
   const [inputValue, setInputValue] = useState<number | string>(0);
   const [isError, setIsError] = useState<boolean>(true);
   const dispatch = useAppDispatch();
@@ -68,6 +76,7 @@ export default function ActionModalComponent() {
       onOk: () => {
         if (isModalOpen) {
           dispatch(setModalOpen(false));
+          addMoney(Number(amount), studentData.id);
           message.success(
             `${
               studentData.name
@@ -75,6 +84,7 @@ export default function ActionModalComponent() {
           );
         } else if (isDeductionModalOpen) {
           dispatch(setDeductionModal(false));
+          deductMoney(Number(amount), studentData.id);
           message.success(
             <div>
               {studentData.name}ning balansidan{" "}
