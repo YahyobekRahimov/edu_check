@@ -51,3 +51,19 @@ export function scrollToTop(smoothScroll: boolean = true): void {
   };
   document.querySelector(".scrollToTopNow")?.scrollTo(options);
 }
+
+export function getCurrentDateTime() {
+  const currentDate = new Date();
+
+  // Get day, month, year
+  const day = String(currentDate.getDate()).padStart(2, "0");
+  const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+  const year = currentDate.getFullYear();
+
+  // Get hours and minutes
+  const hours = String(currentDate.getHours()).padStart(2, "0");
+  const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+
+  // Return formatted date and time
+  return `${day}/${month}/${year} ${hours}:${minutes}`;
+}

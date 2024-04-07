@@ -194,7 +194,6 @@ export default function GroupStudents() {
                 dispatch(setModalData(record));
               }}
               type="primary"
-              size="large"
               className="px-8"
             >
               ...
