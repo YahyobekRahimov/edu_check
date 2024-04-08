@@ -1,5 +1,5 @@
 import { Button, Table } from "antd";
-import { ColumnType, ColumnsType } from "antd/es/table";
+import { ColumnsType } from "antd/es/table";
 import { useState } from "react";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import {

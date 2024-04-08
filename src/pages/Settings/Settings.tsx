@@ -1,10 +1,12 @@
-import { Button, Skeleton } from "antd";
+import { Button } from "antd";
 import { deleteCookie } from "../../utils/cookies";
 import { useNavigate } from "react-router-dom";
 import CountUp from "react-countup";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { setChangePasswordModal } from "../../redux/ModalSlice";
 import ChangePasswordModal from "./ChangePasswordModal";
+import ChangeInfoModal from "./ChangeInfoModal";
+import AvatarImageUpload from "./AvatarImageUpload";
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -51,30 +53,29 @@ export default function Settings() {
   return (
     <div className="p-2 lg:p-10">
       <div className="flex flex-col lg:flex-row items-center gap-10">
-        <div className="max-w-[200px] max-h-[200px] overflow-hidden rounded-full pointer-events-none">
-          <img
-            src="https://picsum.photos/200/200"
-            alt="Avatar photo"
-            className="pointer-events-none"
-          />
-          <Skeleton.Avatar
-            size={"large"}
-            shape="circle"
-            style={{ width: "200px", height: "200px" }}
-          />
-        </div>
+        <AvatarImageUpload />
         <div className="flex flex-col gap-5">
           <p className="font-semibold text-3xl text-center lg:text-start">
             John Doe
           </p>
+          <div className="flex flex-col gap-5">
+            <Button type="primary" size="large">
+              Profilni tahrirlash
+            </Button>
+            <Button
+              size="large"
+              type="default"
+              onClick={handleChangePassword}
+            >
+              Parolni o'zgartirish
+            </Button>
+          </div>
           <Button
-            size="large"
+            className="w-max"
             type="primary"
-            onClick={handleChangePassword}
+            danger
+            onClick={handleLogout}
           >
-            Parolni o'zgartirish
-          </Button>
-          <Button type="primary" danger onClick={handleLogout}>
             Chiqish
           </Button>
         </div>
@@ -100,6 +101,7 @@ export default function Settings() {
         </li>
       </ul>
       <ChangePasswordModal />
+      <ChangeInfoModal />
     </div>
   );
 }
