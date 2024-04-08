@@ -59,15 +59,15 @@ export default function Settings() {
             John Doe
           </p>
           <div className="flex flex-col gap-5">
+            <Button type="primary" size="large">
+              Profilni tahrirlash
+            </Button>
             <Button
               size="large"
-              type="primary"
+              type="default"
               onClick={handleChangePassword}
             >
               Parolni o'zgartirish
-            </Button>
-            <Button type="primary" size="large">
-              Profilni tahrirlash
             </Button>
           </div>
           <Button
