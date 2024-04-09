@@ -32,11 +32,6 @@ export default function StudentProfile() {
       children: <PaymentHistory studentData={studentData} />,
     },
     {
-      key: "2",
-      label: "Ballar",
-      children: "Ballar",
-    },
-    {
       key: "3",
       label: "Davomat",
       children: <CheckAttendance />,
