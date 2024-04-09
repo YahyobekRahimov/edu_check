@@ -96,7 +96,12 @@ export default function Settings() {
         <li className="lg:px-5 lg:py-3 px-3 py-2 bg-gray-100 dark:bg-[var(--dark-background-700)] rounded-lg flex items-center justify-between">
           <span className="font-semibold">Balans: </span>
           <span className="text-green-500">
-            <CountUp delay={0.5} end={data.balance} suffix=" so'm" />
+            <CountUp
+              delay={0.5}
+              end={data.balance}
+              duration={3}
+              suffix=" so'm"
+            />
           </span>
         </li>
       </ul>
