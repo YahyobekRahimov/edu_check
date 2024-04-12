@@ -79,12 +79,13 @@ export default function AvatarImageUpload() {
         </span>
       </Button>
       <Button
+        disabled={previewImage == "" ? true : false}
         onClick={handleDelete}
         type="primary"
         danger
         className="absolute top-0 left-[50%] translate-x-[-50%] translate-y-[-50%] w-10 h-10 flex items-center justify-center"
       >
-        <DeleteOutlined />
+        <DeleteOutlined className="scale-150" />
       </Button>
     </div>
   );

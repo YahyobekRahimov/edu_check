@@ -59,7 +59,10 @@ const ModalSlice = createSlice({
     ) => {
       state.changePasswordModal.isOpen = payload;
     },
-    setInfoModal: (state, { payload }: { payload: boolean }) => {
+    setChangeInfoModal: (
+      state,
+      { payload }: { payload: boolean }
+    ) => {
       state.changeInfoModal.isOpen = payload;
     },
   },
@@ -74,6 +77,7 @@ export const {
   setOpenConfirm,
   setGroupConfirm,
   setChangePasswordModal,
+  setChangeInfoModal,
 } = ModalSlice.actions;
 
 export default ModalSlice.reducer;

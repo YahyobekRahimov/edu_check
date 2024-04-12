@@ -12,10 +12,10 @@ type initialType = {
 // if the id is -1, that means the user is not logged in.
 const initialState: initialType = {
   id: -1,
-  firstName: "",
-  lastName: "",
-  birthDate: "",
-  balance: 0,
+  firstName: "John",
+  lastName: "Doe",
+  birthDate: "2000-01-27",
+  balance: 1000,
   image: "",
 };
 
