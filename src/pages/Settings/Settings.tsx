@@ -51,7 +51,7 @@ export default function Settings() {
     dispatch(setChangePasswordModal(true));
   };
   return (
-    <div className="p-2 lg:p-10">
+    <div className="px-2 pt-10 lg:p-10">
       <div className="flex flex-col lg:flex-row items-center gap-10">
         <AvatarImageUpload />
         <div className="flex flex-col gap-5">
