@@ -10,7 +10,6 @@ interface paymentRowType {
 
 export default function GroupPaymentsHistory() {
   const balance = 500;
-  const status: "paid" | "unpaid" = "paid";
   const { paymentsHistory, name } = StudentsJSON[0];
   const columns: ColumnType<paymentRowType>[] = [
     {
