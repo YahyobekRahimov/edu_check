@@ -1,15 +1,40 @@
-import { Button, Image } from "antd";
+import { App, Button, Image } from "antd";
 import { ChangeEvent, useState } from "react";
-import { PlusOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  PlusOutlined,
+  UserOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../hooks/redux-hooks";
+import { setCurrentUserImage } from "../../redux/currentUserSlice";
 
 export default function AvatarImageUpload() {
-  const [previewImage, setPreviewImage] = useState<string>("");
+  const { message, modal } = App.useApp();
   const [previewOpen, setPreviewOpen] = useState<boolean>(false);
+  const previewImage = useAppSelector(
+    (state) => state.currentUser.image
+  );
+  const dispatch = useAppDispatch();
   const handleImgChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e?.target?.files?.["0"]) {
       const url = URL.createObjectURL(e.target.files[0]);
-      setPreviewImage(url);
+      dispatch(setCurrentUserImage(url));
+      message.success("Profilingizga yangi rasm qo'yildi.");
     }
+  };
+  const handleDelete = () => {
+    modal.confirm({
+      content: "Shu rasmni o'chirishga ishonchingiz komilmi?",
+      onOk: () => {
+        dispatch(setCurrentUserImage(""));
+        message.success("Rasm o'chirib tashlandi!");
+      },
+      okText: "Ha",
+      cancelText: "Yo'q",
+    });
   };
   return (
     <div
@@ -52,6 +77,15 @@ export default function AvatarImageUpload() {
         <span className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-150">
           <PlusOutlined />
         </span>
+      </Button>
+      <Button
+        disabled={previewImage == "" ? true : false}
+        onClick={handleDelete}
+        type="primary"
+        danger
+        className="absolute top-0 left-[50%] translate-x-[-50%] translate-y-[-50%] w-10 h-10 flex items-center justify-center"
+      >
+        <DeleteOutlined className="scale-150" />
       </Button>
     </div>
   );
