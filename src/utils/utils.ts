@@ -1,6 +1,6 @@
 export function removeLeadingZeros(number: number) {
   // Convert the number to a string
-  let numberString = number.toString();
+  const numberString = number.toString();
 
   // Find the index of the first non-zero digit
   let firstNonZeroIndex = 0;
@@ -9,7 +9,7 @@ export function removeLeadingZeros(number: number) {
   }
 
   // Extract the substring from the first non-zero digit to the end
-  let result = numberString.substring(firstNonZeroIndex);
+  const result = numberString.substring(firstNonZeroIndex);
 
   return result;
 }
