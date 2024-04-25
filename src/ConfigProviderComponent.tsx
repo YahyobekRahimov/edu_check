@@ -82,9 +82,14 @@ export default function ConfigProviderComponent({
                 colorPrimaryBg: "var(--primary-color)",
                 colorPrimary: "var(--primary-color)",
               },
-          Divider: {
-            marginLG: 10,
-          },
+          Divider: isDark
+            ? {
+                marginLG: 10,
+                colorSplit: "rgba(255,255,255,0.3)",
+              }
+            : {
+                marginLG: 10,
+              },
         },
       }}
     >

@@ -10,13 +10,17 @@ interface paymentRowType {
 
 export default function GroupPaymentsHistory() {
   const balance = 500;
-  const status: "paid" | "unpaid" = "paid";
-  const dataSource = StudentsJSON[0].paymentsHistory;
+  const { paymentsHistory, name } = StudentsJSON[0];
   const columns: ColumnType<paymentRowType>[] = [
     {
       title: "ID",
       dataIndex: "id",
       key: "id",
+    },
+    {
+      title: "To'lov egasi",
+      dataIndex: "paidBy",
+      key: "paidBy",
     },
     {
       title: "Qiymati",
@@ -38,17 +42,19 @@ export default function GroupPaymentsHistory() {
       <p className="text-2xl md:text-3xl text-center my-5">
         <span className="font-semibold">Group Balance: </span>
         <span
-          className={
-            status == "paid" ? "text-green-500" : "text-red-500"
-          }
+          className={balance >= 0 ? "text-green-500" : "text-red-500"}
         >
-          {status == "paid" ? "+" : "-"}${balance}
+          {balance >= 0 ? "+" : "-"}
+          {balance} so'm
         </span>
       </p>
 
       <div>
         <Table
-          dataSource={dataSource}
+          dataSource={paymentsHistory.map((payment) => ({
+            ...payment,
+            paidBy: name,
+          }))}
           columns={columns}
           pagination={false}
           // @ts-ignore

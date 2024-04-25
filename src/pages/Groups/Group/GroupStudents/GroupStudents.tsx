@@ -150,17 +150,17 @@ export default function GroupStudents() {
       title: "Balans",
       dataIndex: "balance",
       key: "balance",
-      render(value: number, record: RowType) {
-        if (record?.status === "paid") {
+      render(value: number) {
+        if (value >= 0) {
           return (
             <span className="text-green-600 font-semibold">
-              +${value}
+              +{value} so'm
             </span>
           );
         }
         return (
           <span className="text-red-500 font-semibold">
-            -${value}
+            {value} so'm
           </span>
         );
       },
@@ -194,7 +194,6 @@ export default function GroupStudents() {
                 dispatch(setModalData(record));
               }}
               type="primary"
-              size="large"
               className="px-8"
             >
               ...

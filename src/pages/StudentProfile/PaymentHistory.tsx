@@ -1,5 +1,5 @@
 import { Button, Table } from "antd";
-import { ColumnType } from "antd/es/table";
+import { ColumnsType } from "antd/es/table";
 import { useState } from "react";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import {
@@ -10,24 +10,42 @@ import {
 } from "../../redux/ModalSlice";
 import ActionModalComponent from "../Payments/ActionModal";
 import SMSDrawer from "../../components/SMSDrawer/SMSDrawer";
+import { getCurrentDateTime } from "../../utils/utils";
 
 interface paymentRowType {
+  key: string | number;
   id: number;
   amount: number;
   time: string;
 }
+
+type StudentType = {
+  id: number;
+  key: string;
+  name: string;
+  phoneNumber: string;
+  group: string;
+  teacher: string;
+  birthDate: string;
+  status: string;
+  balance: number;
+  paymentsHistory: {
+    key: string | number;
+    id: number;
+    time: string;
+    amount: number;
+  }[];
+};
 
 export default function PaymentHistory({
   studentData,
 }: {
   studentData: any;
 }) {
-  // @ts-ignore
-  const [dataSource, setDataSource] = useState(
-    studentData.paymentsHistory
-  );
+  const [dataSource, setDataSource] =
+    useState<StudentType>(studentData);
   const dispatch = useAppDispatch();
-  const columns: ColumnType<paymentRowType>[] = [
+  const columns: ColumnsType<paymentRowType> = [
     {
       title: "ID",
       dataIndex: "id",
@@ -61,6 +79,39 @@ export default function PaymentHistory({
     dispatch(setModalData(studentData));
     dispatch(setSMSDrawer(true));
   };
+
+  const addMoney = (amount?: number) => {
+    if (amount) {
+      const newPayment = {
+        id: Date.now(),
+        key: Date.now(),
+        amount: amount,
+        time: getCurrentDateTime(),
+      };
+      setDataSource({
+        ...dataSource,
+        balance: dataSource.balance + amount,
+        paymentsHistory: [newPayment, ...dataSource.paymentsHistory],
+      });
+    }
+  };
+
+  console.log(dataSource);
+  const deductMoney = (amount?: number) => {
+    if (amount) {
+      const newPayment = {
+        id: Date.now(),
+        key: Date.now(),
+        amount: amount * -1,
+        time: getCurrentDateTime(),
+      };
+      setDataSource({
+        ...dataSource,
+        balance: dataSource.balance - amount,
+        paymentsHistory: [newPayment, ...dataSource.paymentsHistory],
+      });
+    }
+  };
   return (
     <div>
       <div className="flex items-center flex-col gap-5 mb-5 justify-between text-2xl my-3">
@@ -70,15 +121,15 @@ export default function PaymentHistory({
             <span
               className={`
           ${
-            studentData.status == "paid"
+            dataSource.balance >= 0
               ? "text-green-500"
               : "text-red-500"
           }
         `}
             >
-              {studentData.status == "paid"
-                ? `+$${studentData.balance}`
-                : `-$${studentData.balance}`}
+              {dataSource.balance >= 0
+                ? `+${dataSource.balance.toLocaleString()}`
+                : dataSource.balance.toLocaleString()}
             </span>
           </div>
           <Button type="primary" onClick={handleSMS}>
@@ -99,7 +150,7 @@ export default function PaymentHistory({
         </div>
       </div>
       <Table
-        dataSource={dataSource}
+        dataSource={dataSource.paymentsHistory}
         columns={columns}
         pagination={false}
         // @ts-ignore
@@ -111,7 +162,10 @@ export default function PaymentHistory({
         className="cursor-pointer"
         sticky
       />
-      <ActionModalComponent />
+      <ActionModalComponent
+        addMoney={addMoney}
+        deductMoney={deductMoney}
+      />
       <SMSDrawer />
     </div>
   );

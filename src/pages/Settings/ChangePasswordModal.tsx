@@ -52,6 +52,7 @@ export default function ChangePasswordModal() {
         preserve={false}
         onFinish={handleFinish}
         form={form}
+        className="mt-10"
       >
         <Form.Item
           name="currentPassword"
