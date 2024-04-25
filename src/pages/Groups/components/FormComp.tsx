@@ -1,12 +1,14 @@
-import { Form, Input, Radio, Select } from "antd";
+import { DatePicker, Form, Input, Radio, Select } from "antd";
 import { useAppSelector } from "../../../hooks/redux-hooks";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useAppSelector } from "../../../hooks/redux-hooks";
 
 function FormComp() {
   const [form] = Form.useForm();
   const modalData = useAppSelector(
     (state) => state.ModalSlice.userData
   );
+
   useEffect(() => {
     console.log("uzgardi");
 
@@ -14,6 +16,10 @@ function FormComp() {
       guruh: modalData.name,
     });
   }, [modalData, form]);
+
+  return (
+    <Form 
+    form={form}
 
   return (
     <Form
@@ -51,10 +57,19 @@ function FormComp() {
         rules={[{ required: true, message: "Please input!" }]}
       >
         <Select>
+          <Radio value='a'>Teshaboyev A</Radio>
           <Radio>Teshaboyev A</Radio>
         </Select>
       </Form.Item>
 
+      <Form.Item
+        initialValue={modalData.rooms}
+        label='Xonalar'
+        name='rooms'
+        rules={[{ required: true, message: "Please input!" }]}
+      >
+        <DatePicker  />
+      </Form.Item>
       <Form.Item
         initialValue={modalData.rooms}
         label="Xonalar"
