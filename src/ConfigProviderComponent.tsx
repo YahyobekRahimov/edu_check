@@ -90,6 +90,9 @@ export default function ConfigProviderComponent({
             : {
                 marginLG: 10,
               },
+          Card: isDark
+            ? { colorTextHeading: "var(--white-text)" }
+            : {},
         },
       }}
     >

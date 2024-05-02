@@ -14,6 +14,7 @@ import StudentProfile from "./pages/StudentProfile/StudentProfile";
 import Group from "./pages/Groups/Group/Group";
 import Report from "./pages/Report/Report";
 import CheckingAttendance from "./pages/Groups/Group/GroupAttendance/CheckingAttendance";
+import LessonView from "./pages/Groups/Group/OnlineDars/LessonView/LessonView";
 
 function App() {
   const router = createBrowserRouter([
@@ -87,6 +88,14 @@ function App() {
       element: (
         <LayoutComponent>
           <CheckingAttendance />
+        </LayoutComponent>
+      ),
+    },
+    {
+      path: "/groups/:id/lessons/:lesson-id",
+      element: (
+        <LayoutComponent>
+          <LessonView />
         </LayoutComponent>
       ),
     },

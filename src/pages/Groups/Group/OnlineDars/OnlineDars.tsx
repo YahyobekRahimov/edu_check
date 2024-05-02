@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input, Select } from "antd";
+import { Button, Input, Select } from "antd";
 import LessonsList from "./LessonList";
 
 const { Option } = Select;
@@ -66,21 +66,24 @@ const OnlineDars: React.FC = () => {
     });
 
   return (
-    <div className="px-10">
-      <div className="flex items-center gap-2 w-[50%] my-5">
-        <Input
-          placeholder="Nomi orqali qidirish..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <Select
-          className="w-[500px]"
-          value={sortBy}
-          onChange={(value) => setSortBy(value as "asc" | "desc")}
-        >
-          <Option value="asc">Eski darslar birinchi</Option>
-          <Option value="desc">Yangi darslar birinchi</Option>
-        </Select>
+    <div className="px-10 pb-10">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 w-[50%] my-5">
+          <Input
+            placeholder="Nomi orqali qidirish..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Select
+            className="w-[500px]"
+            value={sortBy}
+            onChange={(value) => setSortBy(value as "asc" | "desc")}
+          >
+            <Option value="asc">Eski darslar birinchi</Option>
+            <Option value="desc">Yangi darslar birinchi</Option>
+          </Select>
+        </div>
+        <Button type="primary">Dars qo'shish</Button>
       </div>
       <LessonsList lessons={filteredLessons} />
     </div>

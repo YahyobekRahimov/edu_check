@@ -2,6 +2,7 @@ import { Button, Card } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import YouTubeBrandIcon from "../../../../components/Icons/YouTubeBrandIcon";
+import { useNavigate } from "react-router-dom";
 
 interface Lesson {
   id: number;
@@ -18,21 +19,28 @@ const LessonCard: React.FC<Lesson> = ({
   videos,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const navigate = useNavigate();
 
   const formattedTimestamp = dayjs(timestamp).format(
     "MMMM Do YYYY, h:mm"
   );
 
+  const handleCardClick = () => {
+    navigate("lessons/lesson-1");
+  };
+
   return (
     <Card
       title={title}
-      rootClassName="cursor-pointer relative bg-gray-50 border-transparent border-[3.5px] hover:border-[var(--primary-color)]"
+      rootClassName="cursor-pointer relative bg-gray-50 dark:bg-[var(--dark-background-700)] dark:text-[var(--white-text)] border-transparent border-[3.5px] hover:border-[var(--primary-color)]"
       style={{
         boxShadow:
           "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
         borderRadius: "8px",
         transition: "box-shadow 0.3s ease",
       }}
+      className="dark:text-[var(--white-text)]"
+      onClick={handleCardClick}
     >
       <p>
         {isExpanded ? description : `${description.slice(0, 50)}...`}
